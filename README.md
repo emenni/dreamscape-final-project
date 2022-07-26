@@ -6,3 +6,5 @@
  
 - No Visual Studio Code sera necessario instalar a extension  "Github Pull Requests and Issues" para criar a PR. 
 
+- Criar Readme Bonito
+
