@@ -1,0 +1,32 @@
+{
+  "memory": 256,
+  "ttl": 10,
+  "timeout": 2,
+  "minReplicas": 2,
+  "maxReplicas": 4,
+  "workers": 1,
+  "events": {
+    "someStates": {
+      "sender": "vtex.orders-broadcast",
+      "topics": [ "order-created"]
+    }
+  },
+  "routes": {
+    "suggestionOne": {
+      "path": "/_v/suggestion/:email",
+      "public": true
+    },
+    "suggestionAll": {
+      "path": "/_v/suggestion",
+      "public": true
+    },
+    "suggestionPatch": {
+      "path": "/_v/suggestion/patch",
+      "public": true
+    },
+    "suggestionPost": {
+      "path": "/_v/suggestion/new",
+      "public": true
+    }
+  }
+}
