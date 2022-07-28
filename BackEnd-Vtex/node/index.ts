@@ -6,7 +6,11 @@ import { suggestion } from './middlewares/suggestion'
 import { suggestionAll } from './middlewares/suggestionAll'
 import { suggestionPut } from './middlewares/suggestionPut'
 import { suggestionPost } from './middlewares/suggestionPost'
-import { someStates } from './middlewares/someStates'
+//import { someStates } from './middlewares/someStates'
+
+
+import {  gqlSuggestions } from './resolvers/suggestions'
+
 
 const TIMEOUT_MS = 800
 
@@ -38,7 +42,17 @@ declare global {
     }
   }
 }
-export default new Service({
+
+
+//export default new Service<Clients,  State, ParamsContext>({
+  export default new Service({
+  graphql: {
+    resolvers: {
+      Query: {
+        gqlSuggestions,
+      },
+    },
+  },
   clients,
   routes: {
     suggestionOne: method({
@@ -55,6 +69,6 @@ export default new Service({
     }),
   },
   events: {
-    someStates,
+    //someStates,
   },
 })

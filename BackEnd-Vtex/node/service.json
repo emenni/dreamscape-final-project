@@ -27,6 +27,10 @@
     "suggestionPost": {
       "path": "/_v/suggestion/new",
       "public": true
+    },
+    "suggestionPut": {
+      "path": "/_v/suggestion:suggestion",
+      "public": true
     }
   }
 }

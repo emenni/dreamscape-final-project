@@ -1,13 +1,14 @@
 {
-  "name": "suggestion",
-  "vendor": "dreamscape",
+  "name": "backend-course",
+  "vendor": "vtex",
   "version": "0.0.2",
   "title": "Suggestion app",
   "description": "App develop to query and change suggestions",
   "categories": [],
   "dependencies": {},
   "builders": {
-    "node": "6.x"
+    "node": "6.x",
+    "graphql": "1.x"
   },
   "scripts": {
     "prereleasy": "bash lint.sh"
