@@ -16,14 +16,14 @@ exports.handler = async event => {
     
         const { pathParameters } = normalizeEvent(event);
         
-        if(!pathParameters || !pathParameters['email'] || !pathParameters['productId']){
+        if(!pathParameters || !pathParameters['month'] || !pathParameters['orderId']){
             throw new Error('Invalid Request.');
         }
         const params = {
             TableName: table,
             Key: {
-                email: pathParameters['email'],
-                productId: pathParameters['productId']
+                month: pathParameters['month'],
+                orderId: pathParameters['orderId']
             },
             UpdateExpression: 'set #a = :d',
             ExpressionAttributeNames: {

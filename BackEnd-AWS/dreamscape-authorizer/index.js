@@ -8,7 +8,7 @@ exports.handler = async function(event, context, callback) {
     const { headers } = normalizeEvent(event); 
 
      
-    const authorization = headers.Authorization ?? headers.authorization
+    const authorization = headers['Proxy-Authorization'] ?? headers['Proxy-Authorization']
     if (authorization) {
         const responseGetUserVtex = await axios.get( `https://${process.env.account}.myvtex.com/api/vtexid/pub/authenticated/user?authToken=${authorization}`,{ // CHECK IF IS A VTEX AUTHENTICATED USER
             headers: {
