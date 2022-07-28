@@ -1,9 +1,4 @@
-type Suggestions{
-    points: String,
-    email: String
-}
-
-
 type Query {
-    gqlSuggestions: [Suggestions]
+    testHelloWorldResolver: String
 }
+

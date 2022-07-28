@@ -7,9 +7,7 @@ import { suggestionAll } from './middlewares/suggestionAll'
 import { suggestionPut } from './middlewares/suggestionPut'
 import { suggestionPost } from './middlewares/suggestionPost'
 //import { someStates } from './middlewares/someStates'
-
-
-import {  gqlSuggestions } from './resolvers/suggestions'
+import {  testHelloWorldResolver } from './resolvers/testHelloWorld'
 
 
 const TIMEOUT_MS = 800
@@ -50,7 +48,7 @@ declare global {
   graphql: {
     resolvers: {
       Query: {
-        gqlSuggestions,
+        testHelloWorldResolver,
       },
     },
   },
