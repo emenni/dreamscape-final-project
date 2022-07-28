@@ -1,0 +1,9 @@
+type Suggestions{
+    points: String,
+    email: String
+}
+
+
+type Query {
+    gqlSuggestions: [Suggestions]
+}
