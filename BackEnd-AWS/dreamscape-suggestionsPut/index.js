@@ -14,7 +14,7 @@ exports.handler = async event => {
             throw new Error('No table name defined.');
         }
     
-        const { pathParameters } = normalizeEvent(event);
+        const { data,pathParameters } = normalizeEvent(event);
         
         if(!pathParameters || !pathParameters['month'] || !pathParameters['orderId']){
             throw new Error('Invalid Request.');
@@ -25,12 +25,14 @@ exports.handler = async event => {
                 month: pathParameters['month'],
                 orderId: pathParameters['orderId']
             },
-            UpdateExpression: 'set #a = :d',
+            UpdateExpression: 'set #a = :d, #f = :h',
             ExpressionAttributeNames: {
                 '#a': 'updated_at',
+                '#f': 'products'
             },
             ExpressionAttributeValues: {
-                ':d': new Date().toISOString()
+                ':d': new Date().toISOString(),
+                ':h': data.products
             },
         };
         

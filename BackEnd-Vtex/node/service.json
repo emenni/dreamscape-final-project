@@ -12,16 +12,16 @@
     }
   },
   "routes": {
-    "suggestionOne": {
-      "path": "/_v/suggestion/:email",
+    "suggestionByMonth": {
+      "path": "/_v/suggestion/:month",
       "public": true
     },
     "suggestionAll": {
       "path": "/_v/suggestion",
       "public": true
     },
-    "suggestionPatch": {
-      "path": "/_v/suggestion/patch",
+    "suggestionPut": {
+      "path": "/_v/suggestion/:month/:orderId/put",
       "public": true
     },
     "suggestionPost": {

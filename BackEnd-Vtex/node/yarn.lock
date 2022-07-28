@@ -2436,9 +2436,9 @@ domexception@^1.0.1:
   dependencies:
     webidl-conversions "^4.0.2"
 
-"dreamscape.clients-bonus@https://victorevangelista--dreamscape.myvtex.com/_v/private/typings/linked/v1/dreamscape.clients-bonus@0.0.1+build1658378381/public/_types/react":
+"dreamscape.suggestion@https://themevictor--dreamscape.myvtex.com/_v/private/typings/linked/v1/dreamscape.suggestion@0.0.2+build1658976476/public/_types/react":
   version "0.0.0"
-  resolved "https://victorevangelista--dreamscape.myvtex.com/_v/private/typings/linked/v1/dreamscape.clients-bonus@0.0.1+build1658378381/public/_types/react#fa7a0347e046eab3dd768998fc9252b2c0dd5aef"
+  resolved "https://themevictor--dreamscape.myvtex.com/_v/private/typings/linked/v1/dreamscape.suggestion@0.0.2+build1658976476/public/_types/react#fa7a0347e046eab3dd768998fc9252b2c0dd5aef"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"

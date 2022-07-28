@@ -18,7 +18,7 @@ exports.handler = async event => {
                 month: data.month,
                 orderId: data.orderId,
                 date: data.date,
-                productsId: data.productsId
+                products: data.products
             },
         };
         await dynamo.put(params).promise();
