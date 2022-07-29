@@ -1,0 +1,144 @@
+{
+  "store.home": {
+    "blocks": [
+      "list-context.image-list#demo",
+      "responsive-layout.desktop#titled",
+      "responsive-layout.mobile#title",
+      "info-card#button-left",      
+      "flex-layout.row#deals",
+      "info-card#button-right",
+      "rich-text#3",
+      "list-context.product-list",
+      "newsletter"
+    ]
+  },
+  //desktop
+  "list-context.image-list#demo": {
+    "children": [
+      "slider-layout#demo-images"
+      
+    ],
+    "props": {
+      "height": 570,
+      "preload": true,
+      "images": [
+        {    
+          "image": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/dfa1e73e-680d-4e6d-b161-14236da7348b___9d4f7ae5d6be1dd047fc83ccbf6a2a13.png",
+          "mobileImage": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/e7baa79c-834b-4fc2-89f6-ace755ca071e___55d9c354b78cec37ce8cf44242fcae9e.png"
+      
+        },
+        {
+          "image": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/923aab7b-457b-4a72-90f9-b4641f810fc2___ffe6b2b6cf146ec503007dc90e070d76.png",
+          "mobileImage": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/ad9409ae-5995-4106-b825-62542ae697c3___798e34ccd732a8dab41bd002a70b2106.png"
+        }
+      ]
+    }
+  },
+  "slider-layout#demo-images": {
+    "props": {
+      "itemsPerPage": {
+        "desktop": 1,
+        "tablet": 1,
+        "phone": 1
+      },
+      "infinite": true,
+      "showNavigationArrows": "desktopOnly",
+      "blockClass": "carousel"
+    }
+  },
+
+  "responsive-layout.desktop#titled": {
+    "children": [
+      "rich-text#titled"
+    ]
+  },
+  "responsive-layout.mobile#title": {
+    "children": [
+      "rich-text#title"
+    ]
+  },
+  "rich-text#titled": {
+    "props": {
+      "text": " # **LOJA DREAMSCAPE**  \n ### Os melhores produtos do metaverso no seu desktop.",
+      "textPosition": "CENTER",
+      "textAlignment": "CENTER",
+      "blockClass": "text-home"
+    }
+  },
+  //mobile
+  "rich-text#title": {
+    "props": {
+      "text": " # **LOJA DREAMSCAPE**  \n ### Os melhores produtos do metaverso também no celular!",
+      "textPosition": "CENTER",
+      "textAlignment": "CENTER",
+      "blockClass": "text-home"
+    }
+  },
+  "rich-text#3": {
+    "props": {
+      "text": " ### Destaques:",
+      "textPosition": "CENTER",
+      "textAlignment": "CENTER",
+      "blockClass": "text-home2"
+    }
+  },
+  "list-context.product-list": {
+    "blocks": [
+      "product-summary.shelf"
+    ],
+    "children": [
+      "slider-layout"
+    ]
+  },
+  "product-summary.shelf": {
+    "children": [
+      "modal-trigger#quickview",
+      "product-summary-name",
+      "product-rating-inline",
+      "product-summary-space",
+      "product-summary-price",
+      "product-summary-buy-button"
+    ]
+  },
+  "modal-trigger#quickview": {
+    "children": [
+      "product-summary-image",
+      "modal-layout#quickview"
+    ]
+  },
+  "modal-layout#quickview": {
+    "children": [
+      "product-summary-name",
+      "product-images",
+      "product-summary-sku-selector",
+      "product-summary-quantity",
+      "add-to-cart-button"
+    ]
+  },
+  "info-card#button-left": {
+    "props": {
+      "isFullModeStyle": false,
+      "textPosition": "left",
+      "imageUrl": "https://cdn.pixabay.com/photo/2021/11/15/05/25/boutique-6796399_960_720.jpg",
+      "headline": "DreamScapers",
+      "subhead": "Produtos sob medida para os integrantes da melhor casa do HiringCoders.",
+      "callToActionMode": "link",
+      "callToActionText": "Va para a coleção",
+      "callToActionUrl": "/roupa",
+      "textAlignment": "center"
+    }
+  },
+  "info-card#button-right": {
+    "props": {
+      "isFullModeStyle": false,
+      "textPosition": "right",
+      "imageUrl": "https://cdn.pixabay.com/photo/2016/11/19/15/40/clothes-1839935_960_720.jpg",
+      "headline": "Roupas e Acessórios mais estilosos do mercado.",
+      "subhead": "Produtos sob medida para os integrantes da melhor casa do HiringCoders.",
+      "callToActionMode": "button",
+      "callToActionText": "Quero saber mais!",
+      "callToActionUrl": "/roupa",
+      "textAlignment": "center"
+    }
+  }
+}
