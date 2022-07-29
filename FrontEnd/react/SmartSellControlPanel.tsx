@@ -27,7 +27,7 @@ function Smart() {
           <h3>Combos mais vendidos:</h3>
           <div>
             {jsonRecebido.length === 0 && <p>Carregando...</p>}
-            {jsonRecebido.length > 0 && jsonRecebido.map((combos) => <Combo key={combos.combinationId} combos={combos} />)
+            {jsonRecebido.length > 0 && jsonRecebido.map((combos) => <Combo combos={combos} />)
             }
           </div>
         </PageBlock>
