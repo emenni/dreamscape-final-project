@@ -1,6 +1,6 @@
 {
-  "name": "backend-course",
-  "vendor": "vtex",
+  "name": "suggestion",
+  "vendor": "dreamscape",
   "version": "0.0.2",
   "title": "Suggestion app",
   "description": "App develop to query and change suggestions",
