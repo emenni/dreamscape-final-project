@@ -1,0 +1,53 @@
+query getProducts{
+  products(hideUnavailableItems: true, from: 1, to: 100, orderBy: "OrderByNameDESC") @context(provider: "vtex.search-graphql") {
+    productId
+    productName
+    description
+    brand
+    link
+    releaseDate
+    items {
+      itemId
+      name
+      nameComplete
+      complementName
+      ean
+      measurementUnit
+      unitMultiplier
+      kitItems{
+        itemId
+        amount
+        product{
+          productId
+          link
+          linkText
+        }
+        sku{
+          itemId
+          name
+          nameComplete          
+        }
+      }
+      sellers{
+        sellerId
+        sellerName
+        addToCartLink
+        sellerDefault     
+      }
+      variations{
+        originalName
+        name
+        values
+      }
+      estimatedDateArrival
+    }
+    clusterHighlights {
+      id
+      name
+    }
+    productClusters {
+      id
+      name
+    }
+  }
+}
