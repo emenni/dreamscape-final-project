@@ -1,0 +1,89 @@
+{
+  "name": "backend-course",
+  "vendor": "vtex",
+  "version": "0.0.2",
+  "title": "Suggestion app",
+  "description": "App develop to query and change suggestions",
+  "categories": [],
+  "dependencies": {},
+  "builders": {
+    "node": "6.x",
+    "graphql": "1.x"
+  },
+  "scripts": {
+    "prereleasy": "bash lint.sh"
+  },
+  "credentialType": "absolute",
+  "policies": [
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "name": "colossus-write-logs"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/oms/pvt/orders/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/oms/pvt/orders/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/checkout/pub/orders/*"
+      }
+    },
+    {
+      "name": "OMSViewer"
+    },
+    {
+      "name": "POWER_USER_DS"
+    },
+    {
+      "name": "ADMIN_DS"
+    },
+    {
+      "name": "ADMIN_CRM"
+    },
+    {
+      "name": "POWER_USER_CRM"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/profile-system/*"
+      }
+    },
+    {
+     "name": "outbound-access",
+    "attrs": {
+      "host": "2zxs9i4im3.execute-api.us-east-1.amazonaws.com",
+      "path": "/v1/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "grhrvkk2k9.execute-api.us-east-1.amazonaws.com",
+        "path": "/default/*"
+      }
+    },
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "name": "colossus-write-logs"
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
