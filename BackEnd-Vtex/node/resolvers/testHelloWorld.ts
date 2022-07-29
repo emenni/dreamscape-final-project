@@ -4,7 +4,6 @@ export async function testHelloWorldResolver( _: unknown, {}, ctx: Context) {
 
     ctx.clients.order.listOrders()
 
-  console.log(ctx.clients.order.listOrders)
 
   return res;
 
