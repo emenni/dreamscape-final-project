@@ -5,10 +5,9 @@ export default class Suggestion extends ExternalClient {
     super('https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion', context, {
       ...options,
       headers: {
-        ...(options && options.headers),
-        Authorization: context.authToken
+        ...(options && options.headers)
       },
-      retries: 0
+      retries: 0,
     })
   }
 
