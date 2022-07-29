@@ -65,10 +65,10 @@
       }
     },
     {
-     "name": "outbound-access",
-    "attrs": {
-      "host": "2zxs9i4im3.execute-api.us-east-1.amazonaws.com",
-      "path": "/v1/*"
+      "name": "outbound-access",
+      "attrs": {
+        "host": "2zxs9i4im3.execute-api.us-east-1.amazonaws.com",
+        "path": "/v1/*"
       }
     },
     {

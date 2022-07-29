@@ -1,4 +1,5 @@
 {
   "smart-sell-control-panel.navigation.label": "Smart Sell Control Panel",
-  "smart-sell-control-panel.navigation.search.kws": "matching, promocoes, upsell, cross sell"
+  "smart-sell-control-panel.navigation.search.kws": "matching, promocoes, upsell, cross sell",
+  "smart-sell-control-panel.navigation.products":"Products"
 }
