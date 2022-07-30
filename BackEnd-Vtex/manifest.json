@@ -7,7 +7,8 @@
   "categories": [],
   "dependencies": {},
   "builders": {
-    "node": "6.x"
+    "node": "6.x",
+    "graphql": "1.x"
   },
   "scripts": {
     "prereleasy": "bash lint.sh"
@@ -19,6 +20,13 @@
     },
     {
       "name": "colossus-write-logs"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/oms/pvt/orders/*"
+      }
     },
     {
       "name": "outbound-access",
@@ -57,10 +65,17 @@
       }
     },
     {
+     "name": "outbound-access",
+    "attrs": {
+      "host": "2zxs9i4im3.execute-api.us-east-1.amazonaws.com",
+      "path": "/v1/*"
+      }
+    },
+    {
       "name": "outbound-access",
       "attrs": {
-        "host": "2zxs9i4im3.execute-api.us-east-1.amazonaws.com",
-        "path": "/v1/*"
+        "host": "grhrvkk2k9.execute-api.us-east-1.amazonaws.com",
+        "path": "/default/*"
       }
     },
     {

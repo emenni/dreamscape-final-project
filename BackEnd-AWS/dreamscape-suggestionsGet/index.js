@@ -19,14 +19,14 @@ exports.handler = async event => {
 
     try {
         let data = {};
-        if (pathParameters && pathParameters['email']) { // verify if has email
-            if(pathParameters['productId']) { // verify if has productId
+        if (pathParameters && pathParameters['month']) { // verify if has date
+            if(pathParameters['orderId']) { // verify if has month
                 data = await dynamo
                     .get({
                         ...params,
-                        Key: {// get data that has the email requested and productId
-                            email: pathParameters['email'],
-                            productId: pathParameters['productId']
+                        Key: {// get data that has the date requested and month
+                            month: pathParameters['month'],
+                            orderId: pathParameters['orderId'],
                         },
                         
                     })
@@ -35,9 +35,9 @@ exports.handler = async event => {
                 data = await dynamo
                     .query({
                           ExpressionAttributeValues: {
-                            ':e': pathParameters['email'], // get data that has the email requested
+                            ':e': pathParameters['month'], // get data that has the date requested
                            },
-                         KeyConditionExpression: 'email = :e',
+                         KeyConditionExpression: 'month = :e',
                          TableName: table,
                     })
                     .promise();

@@ -15,23 +15,14 @@ exports.handler = async event => {
         const params = {
             TableName: table,
             Item: {
-                email: data.email,
-                productId: data.productId
+                month: data.month,
+                orderId: data.orderId,
+                date: data.date,
+                products: data.products
             },
         };
         await dynamo.put(params).promise();
-        let newSuggestion = {};
-        newSuggestion = await dynamo
-            .get({
-                TableName: table,
-                Key: {
-                    email: params.Item.email,
-                    productId: params.Item.productId
-                },
-                
-            })
-            .promise();
-        return response(200, newSuggestion);
+        return response(200, `Record ${data.orderId} saved with success`);
     } catch (err) {
         console.error(err);
         return response(500, 'Somenthing went wrong');
