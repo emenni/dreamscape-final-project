@@ -1,12 +1,15 @@
 {
-  "vendor": "vtex",
-  "name": "minimumtheme",
+  "vendor": "dreamscape",
+  "name": "dreamthemefinal",
   "version": "0.1.1",
   "builders": {
-    "react": "3.x",
+    "styles": "2.x",
     "store": "0.x",
+    "docs": "0.x",
+    "assets": "0.x",
     "admin": "0.x",
-    "messages": "1.x"
+    "messages": "1.x",
+    "react": "3.x"
   },
   "scripts": {
     "postreleasy": "vtex publish --verbose"
@@ -45,7 +48,45 @@
     "vtex.iframe": "0.x",
     "vtex.breadcrumb": "1.x",
     "vtex.sticky-layout": "0.x",
-    "vtex.add-to-cart-button": "0.x"
+    "vtex.add-to-cart-button": "0.x",
+    "vtex.messages": "1.x",
+    "vtex.catalog-api-proxy": "0.x",
+    "vtex.search-graphql": "0.x",
+    "vtex.rewriter": "1.x"
   },
+  "policies": [
+    {
+      "name": "vtex.catalog-api-proxy:catalog-proxy"
+    },
+    {
+      "name": "vtex.catalog-api-proxy:authenticated-catalog-proxy"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/catalog_system/*"
+      }
+    },
+    {
+      "name": "vtex.rewriter:resolve-graphql"
+    },
+    {
+      "name": "vbase-read-write"
+    },
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/segments/*"
+      },
+      "name": "outbound-access"
+    },
+    {
+      "name": "vtex.messages:graphql-translate-messages"
+    }
+  ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

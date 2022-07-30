@@ -5,7 +5,6 @@
   "title": "Suggestion app",
   "description": "App develop to query and change suggestions",
   "categories": [],
-  "dependencies": {},
   "builders": {
     "node": "6.x",
     "graphql": "1.x"
@@ -65,10 +64,10 @@
       }
     },
     {
-     "name": "outbound-access",
-    "attrs": {
-      "host": "2zxs9i4im3.execute-api.us-east-1.amazonaws.com",
-      "path": "/v1/*"
+      "name": "outbound-access",
+      "attrs": {
+        "host": "2zxs9i4im3.execute-api.us-east-1.amazonaws.com",
+        "path": "/v1/*"
       }
     },
     {
@@ -85,5 +84,7 @@
       "name": "colossus-write-logs"
     }
   ],
+  "dependencies": {  "vtex.search-graphql": "0.x"
+},
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

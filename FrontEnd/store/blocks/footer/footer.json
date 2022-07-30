@@ -1,0 +1,152 @@
+{
+  "footer": {
+    "blocks": [
+      "footer-layout.desktop",
+      "footer-layout.mobile"
+    ]
+  },
+  "footer-layout.desktop": {
+    "children": [
+      "flex-layout.row#footer-1-desktop",
+      "flex-layout.row#footer-2-desktop",
+      "flex-layout.row#footer-3-desktop",
+      "flex-layout.row#footer-desktop"
+    ]
+  },
+  "flex-layout.row#footer-1-desktop": {
+    "children": [
+      "vtex.menu@2.x:menu#footer-masculino",
+      "vtex.menu@2.x:menu#footer-feminino",
+      "vtex.menu@2.x:menu#footer-acessorio",
+      "footer-spacer",
+      "social-networks"
+    ],
+    "props": {
+      "blockClass": "menu-row",
+      "paddingTop": 6,
+      "paddingBottom": 3
+    }
+  },
+  "social-networks": {
+    "props": {
+      "socialNetworks": [
+        {
+          "name": "Facebook",
+          "url": "https://www.facebook.com/vtexonline/"
+        },
+        {
+          "name": "Instagram",
+          "url": "https://www.instagram.com/vtextruecloud/"
+        },
+        {
+          "name": "Twitter",
+          "url": "https://twitter.com/vtexonline"
+        },
+        {
+          "name": "Youtube",
+          "url": "https://www.youtube.com/user/VTEXTV"
+        }
+      ]
+    }
+  },
+  "flex-layout.row#footer-2-desktop": {
+    "children": [
+      "accepted-payment-methods"
+    ],
+    "props": {
+      "blockClass": "payment-methods"
+    }
+  },
+  "accepted-payment-methods": {
+    "props": {
+      "paymentMethods": [
+        "MasterCard",
+        "Visa",
+        "Diners Club"
+      ]
+    }
+  },
+  "flex-layout.row#footer-3-desktop": {
+    "children": [
+      "rich-text#footer"
+    ],
+    "props": {
+      "blockClass": "credits"
+    }
+  },
+  "rich-text#footer": {
+    "props": {
+      "text": "Equipe: DreamScape",
+      "blockClass": "footer"
+    }
+  },
+  "footer-layout.mobile": {
+    "children": [
+      "flex-layout.row#1-footer-mobile",
+      "flex-layout.row#2-footer-mobile"
+    ]
+  },
+  "flex-layout.row#2-footer-mobile": {
+    "children": [
+      "flex-layout.col#footer-1-mobile"
+    ],
+    "props": {
+      "blockClass": "payment-methods",
+      "paddingTop": 4,
+      "paddingBottom": 4
+    }
+  },
+  "flex-layout.col#footer-1-mobile": {
+    "children": [
+      "accepted-payment-methods",
+      "social-networks",
+      "rich-text#footer-mobile"
+    ],
+    "props": {
+      "blockClass": "payment-methods",
+      "paddingTop": 4,
+      "paddingBottom": 4,
+      "rowGap": 4
+    }
+  },
+  "flex-layout.row#1-footer-mobile": {
+    "props": {
+      "paddingTop": 4,
+      "paddingBottom": 4
+    },
+    "children": [
+      "vtex.menu@2.x:menu#footer-mobile"
+    ]
+  },
+  "rich-text#footer-mobile": {
+    "props": {
+      "text": "Equipe: DreamScape",
+      "blockClass": "footer"
+    }
+  },
+  "flex-layout.row#footer-desktop": {
+    "children": [
+      "image#hiring",
+      "image#vtex",
+      "image#gama"
+    ]
+  },
+  "image#hiring": {
+    "props": {
+      "src": "https://yt3.ggpht.com/7wLVndBMnRPH8zDHjTnK5yvoVaPxQOg8kOtPzou0XeNKOCvG7h6qKyjEhrvE0BylFMQrR_DqBYU=s900-c-k-c0x00ffffff-no-rj",
+      "blockClass": "logo-footer"
+    }
+  },
+  "image#vtex": {
+    "props": {
+      "src": "https://media-exp1.licdn.com/dms/image/C4E0BAQGuwANNml02DA/company-logo_200_200/0/1626116372683?e=2147483647&v=beta&t=GUc1RJYmLeMFHwhSYHC_IynTKlA1o-Xe0EQhQMXWJA0",
+      "blockClass": "logo-footer2"
+    }
+  },
+  "image#gama": {
+    "props": {
+      "src": "https://yt3.ggpht.com/ytc/AKedOLRBHtuUQjZBjJsp7QzSu8rlKZIIEtTQNvDUfHYV=s900-c-k-c0x00ffffff-no-rj",
+      "blockClass": "logo-footer3"
+    }
+  }
+}

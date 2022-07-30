@@ -1,0 +1,19 @@
+.buyButton {
+  width: 15rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.nameContainer {
+  align-items: end;
+}
+
+.imageNormal {
+  width: 14rem;
+  height: 500px;
+  object-fit: contain;
+}
+
+.spacer {
+  position: absolute;
+}
