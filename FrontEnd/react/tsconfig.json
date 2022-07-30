@@ -2,19 +2,15 @@
   "extends": "@vtex/tsconfig",
   "compilerOptions": {
     "noEmitOnError": false,
-
     "lib": [
       "dom"
     ],
-
     "typeRoots": [
       "node_modules/@types"
     ],
-
     "types": [
       "node"
     ],
-
     "module": "esnext",
     "moduleResolution": "node",
     "target": "es2017",

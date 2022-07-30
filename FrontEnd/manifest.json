@@ -49,13 +49,44 @@
     "vtex.breadcrumb": "1.x",
     "vtex.sticky-layout": "0.x",
     "vtex.add-to-cart-button": "0.x",
-    "vtex.condition-layout": "1.x",
-    "vtex.store-link": "0.x",
-    "vtex.modal-layout": "0.x",
-    "vtex.product-price": "1.x",
+    "vtex.messages": "1.x",
+    "vtex.catalog-api-proxy": "0.x",
     "vtex.search-graphql": "0.x",
-    "vtex.product-context": "0.x",
-    "vtex.store-image": "0.x"
+    "vtex.rewriter": "1.x"
   },
+  "policies": [
+    {
+      "name": "vtex.catalog-api-proxy:catalog-proxy"
+    },
+    {
+      "name": "vtex.catalog-api-proxy:authenticated-catalog-proxy"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/catalog_system/*"
+      }
+    },
+    {
+      "name": "vtex.rewriter:resolve-graphql"
+    },
+    {
+      "name": "vbase-read-write"
+    },
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/segments/*"
+      },
+      "name": "outbound-access"
+    },
+    {
+      "name": "vtex.messages:graphql-translate-messages"
+    }
+  ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
