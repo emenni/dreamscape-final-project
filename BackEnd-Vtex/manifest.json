@@ -1,9 +1,9 @@
 {
-  "name": "suggestion",
+  "name": "backendApi",
   "vendor": "dreamscape",
   "version": "0.0.2",
-  "title": "Suggestion app",
-  "description": "App develop to query and change suggestions",
+  "title": "BackendApi app",
+  "description": "App develop to query and change combinations using AWS API",
   "categories": [],
   "builders": {
     "node": "6.x",

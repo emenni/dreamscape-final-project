@@ -2,12 +2,13 @@ import type { ClientsConfig, ServiceContext, EventContext } from '@vtex/api'
 import { method, Service } from '@vtex/api'
 
 import { Clients } from './clients'
-import { suggestionByMonth } from './middlewares/suggestionByMonth'
-import { suggestionAll } from './middlewares/suggestionAll'
-import { suggestionPut } from './middlewares/suggestionPut'
-import { suggestionPost } from './middlewares/suggestionPost'
-//import { someStates } from './middlewares/someStates'
+import { combinationByCombination } from './middlewares/combinationByCombination'
+import { combinationAll } from './middlewares/combinationAll'
+import { combinationPut } from './middlewares/combinationPut'
+import { combinationPost } from './middlewares/combinationPost'
+import { someStates } from './middlewares/someStates'
 import {  testHelloWorldResolver } from './resolvers/testHelloWorld'
+import { combinationByCombinationId } from './middlewares/combinationByCombinationId'
 
 
 const TIMEOUT_MS = 800
@@ -24,11 +25,20 @@ const clients: ClientsConfig<Clients> = {
 
 declare global {
   type Context = ServiceContext<Clients>
-  interface SuggestionData {
-    month: string
-    orderId: string
-    products: Record<string,any>[]
+  interface CombinationPostData {
+    orderDate: string
+    combination: string[][]
+    occurrences?: number
+    showInShop?: boolean
+  }
+  interface CombinationPutData {
+    showInShop?: boolean
+    occurrences?: number
+  }
 
+  interface CombinationPostOrganizerData {
+    itens: string[][]
+    orderDate: string
   }
   interface StatusChangeContext extends EventContext<Clients> {
     body: {
@@ -54,20 +64,26 @@ declare global {
   },
   clients,
   routes: {
-    suggestionByMonth: method({
-      GET: [suggestionByMonth],
+    combinationByCombination: method({
+      GET: [combinationByCombination],
     }),
-    suggestionAll: method({
-      GET: [suggestionAll],
+    combinationByCombinationId: method({
+      GET: [combinationByCombinationId],
     }),
-    suggestionPut: method({
-      PUT: [suggestionPut],
+    combinationAll: method({
+      GET: [combinationAll],
     }),
-    suggestionPost: method({
-      POST: [suggestionPost],
+    combinationPut: method({
+      PUT: [combinationPut],
+    }),
+    combinationPost: method({
+      POST: [combinationPost],
+    }),
+    combinationOrganizer: method({
+      POST: [combinationOrganizer],
     }),
   },
   events: {
-    //someStates,
+    someStates,
   },
 })
