@@ -7,6 +7,7 @@ export async function combinationPut(ctx: Context, next: () => Promise<any>) {
   ctx.set('Cache-Control','no-cache no-store');
   ctx.set('X-VTEX-Use-Https','true')
   ctx.set('Proxy-Authorization','ctx.authToken')
+  ctx.set('Authorization','ctx.authToken')
   ctx.set('Access-Control-Allow-Origin','*')
 
 

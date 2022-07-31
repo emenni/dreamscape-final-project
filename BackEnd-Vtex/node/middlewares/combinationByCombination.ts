@@ -5,6 +5,7 @@ export async function combinationByCombination(ctx: Context, next: () => Promise
   ctx.set('Cache-Control','no-cache no-store');
   ctx.set('X-VTEX-Use-Https','true')
   ctx.set('Proxy-Authorization', 'ctx.authToken')
+  ctx.set('Authorization','ctx.authToken')
 
   const { combination } = ctx.vtex.route.params
 

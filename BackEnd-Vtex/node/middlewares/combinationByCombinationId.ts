@@ -5,6 +5,7 @@ export async function combinationByCombinationId(ctx: Context, next: () => Promi
   ctx.set('Cache-Control','no-cache no-store');
   ctx.set('X-VTEX-Use-Https','true')
   ctx.set('Proxy-Authorization', 'ctx.authToken')
+  ctx.set('Authorization','ctx.authToken')
 
   const { combination, combinationId } = ctx.vtex.route.params
 
