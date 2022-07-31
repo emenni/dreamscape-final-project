@@ -1,8 +1,9 @@
-import type { ClientsConfig, ServiceContext, EventContext } from '@vtex/api'
+import type { ClientsConfig, ServiceContext, EventContext, RecorderState } from '@vtex/api'
 import { method, Service } from '@vtex/api'
 
 import { Clients } from './clients'
 import { combinationByCombination } from './middlewares/combinationByCombination'
+import { combinationOrganizer } from './middlewares/combinationOrganizer'
 import { combinationAll } from './middlewares/combinationAll'
 import { combinationPut } from './middlewares/combinationPut'
 import { combinationPost } from './middlewares/combinationPost'
@@ -24,7 +25,8 @@ const clients: ClientsConfig<Clients> = {
 }
 
 declare global {
-  type Context = ServiceContext<Clients>
+  type Context = ServiceContext<Clients, State>
+
   interface CombinationPostData {
     orderDate: string
     combination: string[][]
@@ -50,6 +52,8 @@ declare global {
       lastChangeDate: string
     }
   }
+
+  interface State extends RecorderState {}
 }
 
 
