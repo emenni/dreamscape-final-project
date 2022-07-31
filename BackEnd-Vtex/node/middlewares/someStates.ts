@@ -1,11 +1,10 @@
 import axios from 'axios'
-import { json } from 'co-body';
 
 export async function someStates(
-  ctx:  Context,
+  ctx:  StatusChangeContext,
   next: () => Promise<any>
 ) {
-  const body = await json(ctx.req)
+  const body = ctx.body
 
   const orderId = body.orderId
   const orderBody = await ctx.clients.order.order(orderId)
