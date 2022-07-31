@@ -16,14 +16,14 @@ exports.handler = async event => {
     const params = {
         TableName: table,
         "Key": {
-            "month": pathParameters['month'],
-            "orderId": pathParameters['orderId']
+            "combination": pathParameters['combination'],
+            "combinationId": pathParameters['combinationId']
         }
     };
 
     try {
         await dynamo.delete(params, () => {}).promise();
-        return response(200, `Record ${pathParameters['orderId']} has been deleted`);
+        return response(200, `Record ${pathParameters['combinationId']} has been deleted`);
     } catch (err) {
         console.error(err);
         return response(500, 'Somenthing went wrong');

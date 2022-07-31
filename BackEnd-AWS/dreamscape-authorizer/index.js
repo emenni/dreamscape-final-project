@@ -8,7 +8,7 @@ exports.handler = async function(event, context, callback) {
     const { headers } = normalizeEvent(event); 
 
      
-    const authorization = headers['Proxy-Authorization'] ?? headers['Proxy-Authorization']
+    const authorization = headers['Proxy-Authorization'] ?? headers['proxy-authorization']
     if (authorization) {
         const responseGetUserVtex = await axios.get( `https://${process.env.account}.myvtex.com/api/vtexid/pub/authenticated/user?authToken=${authorization}`,{ // CHECK IF IS A VTEX AUTHENTICATED USER
             headers: {
@@ -19,7 +19,7 @@ exports.handler = async function(event, context, callback) {
         const userVtex = await responseGetUserVtex.data
         
         if(await userVtex) {
-            if(userVtex.user){ // ACCEPT IF THE USER EMAIL IS THE SAME AS THE REQUESTED EMAIL
+            if(userVtex.user){ // ACCEPT IF HAS EMAIL
                 callback(null, generateAllow(userVtex.user, event.routeArn));
             } else {
                 callback(null, generateDeny(userVtex.user, event.routeArn));
