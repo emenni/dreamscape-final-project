@@ -1,6 +1,6 @@
 import { json } from 'co-body';
 
-export async function suggestionPost(ctx: Context, next: () => Promise<any>) {
+export async function combinationOrganizer(ctx: Context, next: () => Promise<any>) {
   const body = (await json (ctx.req))
 
   ctx.set('Cache-Control','no-cache no-store');
@@ -8,7 +8,7 @@ export async function suggestionPost(ctx: Context, next: () => Promise<any>) {
   ctx.set('Proxy-Authorization','ctx.authToken')
   ctx.set('Access-Control-Allow-Origin','*')
 
-  const res = await ctx.clients.suggestion.getPost('', body).catch((reason: any)=>{
+  const res = await ctx.clients.combination.postOrganizer('/organizer', body).catch((reason: any)=>{
     return reason?.response?.data
   })
 
