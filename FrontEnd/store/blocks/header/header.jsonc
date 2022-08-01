@@ -49,6 +49,17 @@
       "minicart.v2"
     ]
   },
+  "search-bar": {
+    "blocks": ["autocomplete-result-list.v2"],
+    "props": {
+      "openAutocompleteOnFocus": true,
+      "blockClass": "search-bar"
+    }
+  },
+
+  "autocomplete-result-list.v2": {
+    "blocks": ["product-summary"]
+  },
   "flex-layout.col#logo-desktop": {
     "props": {
       "verticalAlign": "middle"
@@ -80,7 +91,7 @@
       "drawer",
       "logo#mobile",
       "flex-layout.col#spacer",
-      "login",
+      "search-bar",
       "minicart.v2"
     ],
     "props": {
@@ -96,8 +107,8 @@
 
   "menu#drawer": {
     "children": [
-      "menu-item#category-apparel",
-      "menu-item#category-home"
+      "menu-item#vestuario-mobile-header",
+      "menu-item#acessorio-mobile-header"
     ],
     "props": {
       "orientation": "vertical"

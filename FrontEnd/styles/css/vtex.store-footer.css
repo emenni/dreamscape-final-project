@@ -1,14 +1,63 @@
+
 .socialNetworksContainer {
   position: relative;
-  right: 96%;
+  top: 110%;
+  right: 388%;
 }
-
 .footerSpacer {
   margin-top: 10px;
   width: 0;
 }
-
 .acceptedPaymentMethodContainer {
-  margin-top: 0.5rem;
-  margin-left: 1.75rem;
+  position: relative;
+  top: 42%;
+  left: -1.25%;
+  width: 10% !important;
+}
+
+.paymentMethodIconImage {
+  margin-top: 28px;
+}
+
+@media only screen and (max-width: 1025.5px) {
+  .socialNetworksContainer {
+    position: relative;
+    margin-top: -3rem;
+    right: -3%;
+    width: 23% !important;
+  }
+
+  .acceptedPaymentMethodContainer {
+    position: relative;
+    top: -1rem;
+    left: 46%;
+    width: 18% !important;
+    
+  }
+
+  .footerLayout {
+    border-top: 1px solid gray;
+  }
+}
+
+@media only screen and (max-width: 755px) {
+  .socialNetworksContainer {
+    position: relative;
+    right: -2%;
+    margin-top: -8%;
+    max-width: 10rem;
+    width: 33% !important;
+  }
+
+  .acceptedPaymentMethodContainer {
+    position: relative;
+    top: -42%;
+    left: 44%;
+    width: 26% !important;
+  }
+
+  .footerLayout {
+    border-top: 1px solid gray;
+    
+  }
 }

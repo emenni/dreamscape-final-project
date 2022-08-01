@@ -140,5 +140,10 @@
       "callToActionUrl": "/roupa",
       "textAlignment": "center"
     }
+  },
+  "newsletter":{
+    "props":{
+      "blockClass": "newsletter"
+    }
   }
 }
