@@ -1,0 +1,13 @@
+.styledLinkContent--text-header {
+  color: #ffffff;
+}
+
+.styledLinkContent--text-subheader {
+  color: #141f31;
+}
+
+@media only screen and (max-width: 1000px) {
+  .styledLinkContent {
+    color: #141f31;
+  }
+}

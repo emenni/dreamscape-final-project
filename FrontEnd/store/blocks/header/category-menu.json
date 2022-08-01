@@ -1,0 +1,95 @@
+{
+  "vtex.menu@2.x:menu#category-menu": {
+    "props": {
+      "experimentalOptimizeRendering": true
+    },
+    "children": [
+      "menu-item#category-apparel",
+      "menu-item#category-home"
+    ]
+  },
+  "menu-item#category-apparel": {
+    "props": {
+      "id": "menu-item-category-apparel",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "blockClass": "text-header",
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa",
+        "noFollow": false,
+        "tagTitle": "Vestuário",
+        "text": "Vestuário"
+      }
+    },
+    "blocks": [
+      "vtex.menu@2.x:submenu#category-apparel"
+    ]
+  },
+  "vtex.menu@2.x:submenu#category-apparel": {
+    "props": {
+      "width": "auto"
+    },
+    "children": [
+      "vtex.menu@2.x:menu#category-apparel"
+    ]
+  },
+  "vtex.menu@2.x:menu#category-apparel": {
+    "props": {
+      "orientation": "vertical"
+    },
+    "children": [
+      "menu-item#category-apparel-Masculina",
+      "menu-item#category-apparel-Feminina"
+    ]
+  },
+  "menu-item#category-apparel-Masculina": {
+    "props": {
+      "id": "menu-item-category-apparel-Masculina",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "blockClass": "text-subheader",
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/masculino",
+        "noFollow": false,
+        "tagTitle": "Masculino",
+        "text": "Masculino"
+      }
+    }
+  },
+  "menu-item#category-apparel-Feminina": {
+    "props": {
+      "id": "menu-item-category-apparel-Feminina",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "blockClass": "text-subheader",
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/feminino",
+        "noFollow": false,
+        "tagTitle": "Feminino",
+        "text": "Feminino"
+      }
+    }
+  },
+  "menu-item#category-home": {
+    "props": {
+      "id": "menu-item-category-home",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "blockClass": "text-header",
+      "itemProps": {
+        "type": "internal",
+        "href": "/acessorio",
+        "noFollow": false,
+        "tagTitle": "Acessórios",
+        "text": "Acessórios"
+      }
+    }
+  }
+}
