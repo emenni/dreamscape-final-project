@@ -12,24 +12,28 @@
     }
   },
   "routes": {
-    "suggestionByMonth": {
-      "path": "/_v/suggestion/:month",
+    "combinationByCombination": {
+      "path": "/_v/combination/:combination",
       "public": true
     },
-    "suggestionAll": {
-      "path": "/_v/suggestion",
+    "combinationByCombinationId": {
+      "path": "/_v/combination/:combination/:combinationId",
       "public": true
     },
-    "suggestionPut": {
-      "path": "/_v/suggestion/:month/:orderId/put",
+    "combinationAll": {
+      "path": "/_v/combination",
       "public": true
     },
-    "suggestionPost": {
-      "path": "/_v/suggestion/new",
+    "combinationPut": {
+      "path": "/_v/combination/:combination/:combinationId/put",
       "public": true
     },
-    "suggestionPut": {
-      "path": "/_v/suggestion:suggestion",
+    "combinationPost": {
+      "path": "/_v/combination/new",
+      "public": true
+    },
+    "combinationOrganizer": {
+      "path": "/_v/combination/organizer",
       "public": true
     }
   }
