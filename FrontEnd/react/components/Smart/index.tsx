@@ -8,6 +8,7 @@ import axios from 'axios'
 
 export function Smart() {
   const { loading: loadingAuth, data: dataAuth } = useFullSession()
+  console.log("🚀 Smart ~ file: index.tsx ~ line 11 ~ Smart ~ dataAuth", dataAuth)
   const [user, setUser] = useState<any>(undefined)
   const [jsonRecebido, setJsonRecebido] = useState([])
   const [combinations, setCombinations] = useState([])
@@ -16,6 +17,7 @@ export function Smart() {
     try {
       const dataSession: any = dataAuth
       const cookie = dataSession?.session?.namespaces?.cookie.VtexIdclientAutCookie.value
+      console.log("🚀 ~ file: index.tsx ~ line 20 ~ getCombinations ~ cookie", cookie)
       const response = await axios.get('/_v/combination', {
         headers: {
           'content-type': "application/json",

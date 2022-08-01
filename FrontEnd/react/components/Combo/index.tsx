@@ -2,19 +2,24 @@ import React from 'react'
 import { ShowProduct } from '../ShowProduct'
 import style from '../Combo/style.css'
 export const Combo = ({ combinations }) => {
-  console.log(combinations)
+  console.log("🚀 Combo ~ file: index.tsx ~ line 5 ~ Combo ~ combinations", combinations)
+
   return (
     <div className={style.combos}>
       {combinations.map((combination) => {
         console.log(combination)
         let skus = combination?.combination.split(',')
         let skusJoined = skus.join(', ')
+        let comboLink = 'https://amandateste--dreamscape.myvtex.com/checkout/cart/add?sc=1'
+        for (let i = 0; i < skus.length; i++) {
+          comboLink += `&sku=${skus[i]}&qty=1&seller=1`
+        }
         return (
           <div className={style.combo}>
             <table key={combination.combinationId + ' table'}>
               <thead>
                 <div>
-                  <h4>{`Combo com SKU's: ${skusJoined}`}</h4>
+                  <h4>{`Combo com SKUs: ${skusJoined}`}</h4>
                 </div>
               </thead>
               <div className={style.showProduct}>
@@ -30,7 +35,7 @@ export const Combo = ({ combinations }) => {
                     <ShowProduct combination={combination} />
                   </tbody>
                 )}
-                <a href="https://amandateste--dreamscape.myvtex.com/checkout/cart/add?sc=1&sku=53&qty=1&seller=1&sku=72&qty=1&seller=1" target='blank'><button type=''>Combo Link</button></a>
+                <a href={comboLink} target='blank'><button type=''>Combo Link</button></a>
               </div>
             </ table>
           </div>
