@@ -6,8 +6,7 @@
   "description": "App develop to query and change suggestions",
   "categories": [],
   "builders": {
-    "node": "6.x",
-    "graphql": "1.x"
+    "node": "6.x"
   },
   "scripts": {
     "prereleasy": "bash lint.sh"
@@ -84,7 +83,8 @@
       "name": "colossus-write-logs"
     }
   ],
-  "dependencies": {  "vtex.search-graphql": "0.x"
-},
+  "dependencies": {
+    "vtex.search-graphql": "0.x"
+  },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

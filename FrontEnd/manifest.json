@@ -1,6 +1,6 @@
 {
-  "vendor": "vtex",
-  "name": "minimumtheme",
+  "vendor": "dreamscape",
+  "name": "dreamscape",
   "version": "0.1.1",
   "builders": {
     "react": "3.x",
@@ -12,6 +12,7 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
+    "vtex.session-client": "1.x",
     "vtex.store": "2.x",
     "vtex.store-header": "2.x",
     "vtex.product-summary": "2.x",
