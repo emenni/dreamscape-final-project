@@ -1,0 +1,39 @@
+.combo{
+  border: 1px solid #dfe0e2;
+  background-color: rgb(243, 244, 246);
+  margin: .2rem;
+  border-radius: .5rem;
+  padding: .4rem;
+}
+
+.combo a{
+  text-decoration: none;
+  color: rgb(72, 72, 72);
+}
+h4{
+  border: 1px solid #dfe0e2;
+  border-radius: 0.25rem;
+}
+
+.preetieCombo img{
+  max-width: 70px;
+}
+.showProduct{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+button{
+  font-size: medium;
+  font-weight: 500;
+  border: 1px solid rgb(54, 141, 247);
+  color: rgb(255, 255, 255);
+  margin-left: 10rem ;
+  border-radius: 0.3rem;
+  background-color: rgb(54, 141, 247);
+  padding: 0.5rem;
+}
+button:hover{
+  cursor: pointer;
+}

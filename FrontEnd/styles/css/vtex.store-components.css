@@ -66,7 +66,19 @@
   margin: 1rem 0;
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (max-width: 1025px) {
+  .newsletter--newsletter {
+    height: 15rem;
+  }
+  .form--newsletter {
+    max-width: 100%;
+  }
+  .label--newsletter {
+    font-size: 3rem;
+  }
+  .container--newsletter {
+    padding: 3rem !important;
+  }
   .newsletter .container {
     padding: 140px;
   }
@@ -84,8 +96,55 @@
     margin-bottom: 0px;
     max-height: 600px;
   }
+  .imageElement--logo-footer-mobile1 {
+    height: 2rem;
+    margin-top: 35px;
+      margin-left: 72%;
+      position: relative;
+      bottom: 7.5rem
+  }
 }
 
+@media only screen and (max-width: 639px) {
+  .autoCompleteOuterContainer--search-bar {
+    width: 125px;
+    margin-left: 15%;
+    margin-right: 20px;
+  }
+
+  .imageElement--logo-footer-mobile1 {
+    height: 2rem;
+    margin-left: 70%;
+    position: relative;
+    bottom: 6rem;
+  }
+
+  .imageElement--logo-footer-mobile2 {
+    height: 2rem;
+    margin-left: 70%;
+    position: relative;
+    bottom: 7rem;
+  }
+
+  .imageElement--logo-footer-mobile3 {
+    height: 2rem;
+    margin-left: 70%;
+    position: relative;
+    bottom: 7.8rem;
+  }
+  .newsletter--newsletter {
+    height: 15rem;
+  }
+  .form--newsletter {
+    max-width: 100%;
+  }
+  .label--newsletter {
+    font-size: 2rem;
+  }
+  .container--newsletter {
+    padding: 2rem !important;
+  }
+}
 .productImagesContainer--quickview .carouselContainer {
   justify-content: flex-start;
 }
@@ -114,9 +173,9 @@
   image-rendering: -webkit-optimize-contrast;
 }
 
-.infoCardHeadline{
-  color:#141f31;
-  border:3px solid rgba(25, 189, 211, 0.733);
+.infoCardHeadline {
+  color: #141f31;
+  border: 3px solid rgba(25, 189, 211, 0.733);
 }
 .infoCardSubhead,
 .infoCardCallActionText {
@@ -125,23 +184,23 @@
 
 .imageElement--logo-footer {
   height: 3rem;
-  margin-left: 444%;
+  margin-left: 300%;
   position: relative;
-  bottom: 5rem;
+  bottom: 2rem;
 }
 
 .imageElement--logo-footer2 {
   height: 3rem;
-  margin-left: 266%;
+  margin-left: 146%;
   position: relative;
-  bottom: 5rem;
+  bottom: 2rem;
 }
 
 .imageElement--logo-footer3 {
   height: 3rem;
-  margin-left: 88%;
+  margin-left: -9%;
   position: relative;
-  bottom: 5rem;
+  bottom: 2rem;
 }
 .imageElement--image-home {
   z-index: 2;

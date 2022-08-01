@@ -1,6 +1,6 @@
 {
   "vendor": "dreamscape",
-  "name": "dreamthemefinal",
+  "name": "dreamscape",
   "version": "0.1.1",
   "builders": {
     "styles": "2.x",
@@ -55,7 +55,8 @@
     "vtex.product-price": "1.x",
     "vtex.search-graphql": "0.x",
     "vtex.product-context": "0.x",
-    "vtex.store-image": "0.x"
+    "vtex.store-image": "0.x",
+    "vtex.search": "2.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

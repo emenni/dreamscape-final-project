@@ -1,0 +1,33 @@
+query productsByIdentifier(
+  $field: ProductUniqueIdentifierField!
+  $values: [ID!]
+) {
+  productsByIdentifier(field: $field, values: $values) {
+    productId
+    description
+    productName
+    productReference
+    linkText
+    brand
+    brandId
+    link
+    categories
+    categoryId
+    priceRange {
+      sellingPrice {
+        highPrice
+        lowPrice
+      }
+      listPrice {
+        highPrice
+        lowPrice
+      }
+    }
+    items {
+      images {
+        imageLabel
+        imageUrl
+      }
+    }
+  }
+}

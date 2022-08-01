@@ -2,6 +2,9 @@
 .flexRowContent--main-header {
   padding: 0 0.5rem;
 }
+.flexCol--product {
+  padding: 3rem;
+}
 
 @media screen and (min-width: 40em) {
   .flexRowContent--menu-link,
@@ -41,7 +44,6 @@
 .flexRowContent--main-header :global(.vtex-menu-2-x-styledLink) {
   color: #64faf9;
   font-size: 14px;
-  text-shadow: #000 0px 0px 10px;
 }
 
 .flexRow--deals {
@@ -51,7 +53,7 @@
   margin-top: 1px;
 }
 
-.flexRow--deals .stretchChildrenWidth {
+.flexRow--deals {
   align-items: center;
 }
 
@@ -99,4 +101,8 @@
 
 .flexRow--addToCartRow {
   padding-bottom: 1rem;
+}
+
+.flexRowContent--menu-row {
+  border-top: 1px solid gray;
 }

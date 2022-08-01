@@ -1,10 +1,6 @@
 {
-    "admin.app.SmartSellControlPanel": {
-      "component": "SmartSellControlPanel",
-      "path": "/admin/app/smart-sell-control-panel"
-    },
-    "admin.app.Products": {
-    "component": "Products",
-    "path": "/admin/app/smart-sell-control-panel/products"
-    }
-  }
+  "admin.app.SmartSellControlPanel": {
+    "component": "SmartSellControlPanel",
+    "path": "/admin/app/smart-sell-control-panel"
+
+}}

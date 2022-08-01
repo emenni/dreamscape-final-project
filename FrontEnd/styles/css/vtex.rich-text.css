@@ -87,15 +87,15 @@
 
 .paragraph--footer {
   position: relative;
-  left: 34rem;
-  bottom: 3rem;
+  left: 1.5rem;
+  bottom: 0rem;
 }
 
 .container--footer {
   height: 0;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1025.5px) {
   .container--question .strong {
     font-size: 40px;
     line-height: 3rem;
@@ -118,8 +118,16 @@
 
   .paragraph--footer {
     position: relative;
-    left: 18%;
-    bottom: 3rem;
+    left: 5%;
+    bottom: 1.5rem;
+  }
+  .strong {
+    font-size: 2.8rem;
+  }
+
+  .heading--text-home {
+    font-size: 1.4rem;
+    max-width: 99%;
   }
 }
 
@@ -157,4 +165,13 @@
   color: #141f31;
   font-size: 3rem;
   width: 24rem;
+}
+
+@media only screen and (max-width: 755px) {
+  .paragraph--footer {
+    position: relative;
+    left: 3%;
+    top: -1rem;
+    font-size: 0.7rem;
+  }
 }
