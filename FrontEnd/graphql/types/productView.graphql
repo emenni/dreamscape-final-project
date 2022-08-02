@@ -1,4 +1,0 @@
-type ProductView {
-    slug: String
-    count: Int
-}
