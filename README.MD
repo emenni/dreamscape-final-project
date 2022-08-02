@@ -15,7 +15,7 @@ Dreamscape Store é um e-commerce funcional e responsivo, conta com sistema de r
 
 
 
-Link da Aplicação: https://dreamscapestore--dreamscape.myvtex.com  
+Link da Aplicação: 
 
 
 ## Arquitetura
@@ -50,6 +50,14 @@ Whimsical:
 https://whimsical.com/desafio-final-1-2-G6KkDw9UqBjTnHHFz9F34R 
 
 https://whimsical.com/desafio-final-2-2-HeXt1t7JF55pRRWapQK78m 
+
+
+## APIS DA VTEX
+
+
+
+## APIS DA AWS
+
 
 
 
