@@ -13,6 +13,11 @@ Dreamscape Store é um e-commerce funcional e responsivo, conta com sistema de s
 </h1>
 
 
+<h1 align="center">
+    <img alt="Capa do Projeto Responsivo" title="Projeto responsivo" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/responsivo-iphone.png" />
+</h1>
+
+
 
 
 Link da Aplicação: 
