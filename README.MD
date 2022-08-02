@@ -28,7 +28,7 @@ Link da Aplicação: https://dreamscapestore--dreamscape.myvtex.com
 
 
 <h1 align="center">
-    <img alt="Arquitetura do Projeto" title="Projeto" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/fluxograma.png" />
+    <img alt="Arquitetura do Projeto" title="Projeto" src="https://github.com/emenni/dreamscape-final-project/blob/frontend/FrontEnd/assets/fluxograma.png" />
 </h1>
 
 
