@@ -59,6 +59,185 @@ https://whimsical.com/desafio-final-2-2-HeXt1t7JF55pRRWapQK78m
 
 ## APIS DA AWS
 
+1. Get All Combinations
+
+```
+Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion
+
+Método: GET
+
+headers: {
+
+“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
+
+“Content-Type”: “application/json”
+
+}
+```
+
+2. Get One Combination
+
+```
+combination exemplo: ‘1,2,3,4’
+
+Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion/{{combination}}
+
+Método: GET
+
+headers: {
+
+“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
+
+“Content-Type”: “application/json”
+
+}
+```
+
+
+3. Get One Combination by CombinationId
+
+```
+combination exemplo: ‘1,2,3,4’
+
+combinationId exemplo: ‘123e4567-e89b-12d3-a456-426655440000’
+
+Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion/{{combination}}/{{combinationId}}
+
+Método: GET
+
+headers: {
+
+“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
+
+“Content-Type”: “application/json”
+
+}
+```
+
+4. Post new combination
+
+```
+Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion
+
+Método: POST
+
+headers: {
+
+“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
+
+“Content-Type”: “application/json”
+
+}
+
+Body: 
+
+{
+
+                combination: [“1”,”5”,”9”,”2”], (SkuId dos produtos no pedido formato string)
+
+                orderDate: “YYYY-mm-dd” (formato - “2022-01-20”),
+
+                occurrences: 1, (number) (opcional)
+
+                showInShop: true, (boolean) (opcional)
+
+},
+
+```
+
+5. Post New Skus to combinate
+
+```
+Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion/organizer
+
+Método: POST
+
+headers: {
+
+“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
+
+“Content-Type”: “application/json”
+
+}
+
+Body: 
+
+{
+
+“items”: [
+
+      [“1”,”2”], 
+
+      [“1”,”2”,“3”,”6”,“5”],
+
+      [“4”,”3”], 
+
+      [“20”,”30”,“45”,”68”],
+
+      [“189”,”122”,“89”],
+
+      [“7”,”5”]
+
+], (Array com Arrays de SkuId no formato string)
+
+“orderDate”: “YYYY-mm-dd” (formato - “2022-01-20”)
+
+},
+
+```
+
+6. Put update combination by CombinationId
+
+```
+combination exemplo: ‘1,2,3,4’
+
+combinationId exemplo: ‘123e4567-e89b-12d3-a456-426655440000’
+
+Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion/{{combination}}/{{combinationId}}
+
+Método: POST
+
+headers: {
+
+“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
+
+“Content-Type”: “application/json”
+
+}
+
+Body: 
+
+{
+
+“occurrences”: 1 (number) (opcional)
+
+“showInShop”: true (boolean) (opcional)
+
+}
+
+```
+
+7. Delete combination by CombinationId
+
+```
+combination exemplo: ‘1,2,3,4’
+
+combinationId exemplo: ‘123e4567-e89b-12d3-a456-426655440000’
+
+Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion/{{combination}}/{{combinationId}}
+
+Método: DELETE
+
+headers: {
+
+“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
+
+“Content-Type”: “application/json”
+
+}
+```
+
+
 
 
 
