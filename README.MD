@@ -5,7 +5,7 @@
 
 Projeto de E-commerce desenvolvido pela casa Dreamscape para o Hiring Coders edição 3 da VTEX e Gama Academy.
 
-Dreamscape Store é um e-commerce funcional e responsivo, conta com sistema de recompensa de pontos do cliente.
+Dreamscape Store é um e-commerce funcional e responsivo, conta com sistema de sugestões personalidas para que os clientes recebam sugestões dos produtos mais vendidos e que combinam com a compra atual deles.
 
 
 <h1 align="center">
@@ -22,14 +22,19 @@ Link da Aplicação:
 ## Arquitetura
 
 <h1 align="center">
-    <img alt="Arquitetura do Projeto" title="Projeto" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/arquitetura.png" />
+    <img alt="Arquitetura do Projeto" title="Arquitetura" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/arquitetura.png" />
 </h1>
 
 # Fluxograma
 
 
 <h1 align="center">
-    <img alt="Arquitetura do Projeto" title="Projeto" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/fluxograma.png" />
+    <img alt="Fluxograma do Projeto 1" title="Fluxograma1" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/fluxograma1.png" />
+</h1>
+
+
+<h1 align="center">
+    <img alt="Fluxograma do Projeto 2" title="Fluxograma2" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/fluxograma2.png" />
 </h1>
 
 
@@ -42,6 +47,9 @@ Link da Aplicação:
 - REACT
 - VTEX
 - AWS
+- Python
+- Shell
+- Graphql
 
 
 ### Organização do Projeto
@@ -291,6 +299,6 @@ Esse projeto foi desenvolvido por:
 
 [Thiago Feitoza](https://www.linkedin.com/in/tiago-feitoza-oliveira/)
 
-[Vinicius Lima](https://www.linkedin.com/in/marcos-vinicius-lima/)
-
 [Victor Evangelista](https://www.linkedin.com/in/victor-cesar-dos-evangelista-a440aa230/)
+
+[Vinicius Lima](https://www.linkedin.com/in/marcos-vinicius-lima/)
