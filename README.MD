@@ -18,6 +18,7 @@ Dreamscape Store é um e-commerce funcional e responsivo, conta com sistema de r
 Link da Aplicação: 
 
 
+
 ## Arquitetura
 
 <h1 align="center">
@@ -28,7 +29,7 @@ Link da Aplicação:
 
 
 <h1 align="center">
-    <img alt="Arquitetura do Projeto" title="Projeto" src="https://github.com/emenni/dreamscape-final-project/blob/frontend/FrontEnd/assets/fluxograma.png" />
+    <img alt="Arquitetura do Projeto" title="Projeto" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/fluxograma.png" />
 </h1>
 
 
@@ -57,6 +58,7 @@ https://whimsical.com/desafio-final-2-2-HeXt1t7JF55pRRWapQK78m
 
 
 ## APIS DA AWS
+
 
 
 

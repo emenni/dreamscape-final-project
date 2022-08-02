@@ -91,5 +91,91 @@
         "text": "Acessórios"
       }
     }
+  },
+  "vtex.menu@2.x:menu#header-mobile": {
+    "props": {
+      "orientation": "vertical"
+    },
+    "children": [
+      "menu-item#vestuario-mobile-header",
+      "menu-item#acessorio-mobile-header"
+    ]
+  },
+  "menu-item#vestuario-mobile-header": {
+    "props": {
+      "id": "menu-item-category-vestuario-header",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa",
+        "noFollow": true,
+        "tagTitle": "vestuário",
+        "text": "Vestuário"
+      }
+    },
+    "blocks": [
+      "vtex.menu@2.x:submenu.accordion#vestuario-header"
+    ]
+  },
+  "vtex.menu@2.x:submenu.accordion#vestuario-header": {
+    "children": [
+      "vtex.menu@2.x:menu#vestuario-accordion-header"
+    ]
+  },
+  "vtex.menu@2.x:menu#vestuario-accordion-header": {
+    "props": {
+      "orientation": "vertical"
+    },
+    "children": [
+      "menu-item#masculino-header",
+      "menu-item#feminino-header"
+    ]
+  },
+  "menu-item#masculino-header": {
+    "props": {
+      "id": "menu-item-masculino-header",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/masculino",
+        "noFollow": false,
+        "tagTitle": "Masculino",
+        "text": "Masculino"
+      }
+    }
+  },
+  "menu-item#feminino-header": {
+    "props": {
+      "id": "menu-item-feminino-header",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/feminino",
+        "noFollow": false,
+        "tagTitle": "Feminino",
+        "text": "Feminino"
+      }
+    }
+  },
+  "menu-item#acessorio-mobile-header": {
+    "props": {
+      "id": "menu-item-category-acessorio",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/acessorio",
+        "noFollow": true,
+        "tagTitle": "Acessório",
+        "text": "Acessório"
+      }
+    }
   }
 }

@@ -76,7 +76,7 @@
   },
   "rich-text#footer": {
     "props": {
-      "text": "Equipe: DreamScape",
+      "text": "© 2022 All Rights Reserved | Desenvolvido por | [Equipe Dreamscape](https://github.com/emenni/dreamscape-final-project)",
       "blockClass": "footer"
     }
   },
@@ -100,7 +100,8 @@
     "children": [
       "accepted-payment-methods",
       "social-networks",
-      "rich-text#footer-mobile"
+      "rich-text#footer-mobile",
+      "flex-layout.row#footer-mobile"
     ],
     "props": {
       "blockClass": "payment-methods",
@@ -120,7 +121,7 @@
   },
   "rich-text#footer-mobile": {
     "props": {
-      "text": "Equipe: DreamScape",
+      "text": "© 2022 All Rights Reserved | Desenvolvido por | [Equipe Dreamscape](https://github.com/emenni/dreamscape-final-project)",
       "blockClass": "footer"
     }
   },
@@ -133,20 +134,31 @@
   },
   "image#hiring": {
     "props": {
-      "src": "https://yt3.ggpht.com/7wLVndBMnRPH8zDHjTnK5yvoVaPxQOg8kOtPzou0XeNKOCvG7h6qKyjEhrvE0BylFMQrR_DqBYU=s900-c-k-c0x00ffffff-no-rj",
+      "src": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/0a35e21a-da34-4e72-959e-b07c1b9d46e8___5d1bbb78b8b2de0d5cc559ee62970afe.png",
       "blockClass": "logo-footer"
     }
   },
   "image#vtex": {
     "props": {
-      "src": "https://media-exp1.licdn.com/dms/image/C4E0BAQGuwANNml02DA/company-logo_200_200/0/1626116372683?e=2147483647&v=beta&t=GUc1RJYmLeMFHwhSYHC_IynTKlA1o-Xe0EQhQMXWJA0",
+      "src": "",
       "blockClass": "logo-footer2"
     }
   },
   "image#gama": {
     "props": {
-      "src": "https://yt3.ggpht.com/ytc/AKedOLRBHtuUQjZBjJsp7QzSu8rlKZIIEtTQNvDUfHYV=s900-c-k-c0x00ffffff-no-rj",
+      "src": "",
       "blockClass": "logo-footer3"
+    }
+  },
+  "flex-layout.row#footer-mobile": {
+    "children": [
+      "image#hiring-mobile"
+    ]
+  },
+  "image#hiring-mobile": {
+    "props": {
+      "src": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/0a35e21a-da34-4e72-959e-b07c1b9d46e8___5d1bbb78b8b2de0d5cc559ee62970afe.png",
+      "blockClass": "logo-footer-mobile1"
     }
   }
 }

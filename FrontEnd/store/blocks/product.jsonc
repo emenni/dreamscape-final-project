@@ -1,4 +1,3 @@
-// store/blocks/product.jsonc
 {
   "store.product": {
     "children": [
@@ -8,7 +7,8 @@
   },
   "flex-layout.row#main": {
     "props": {
-      "marginTop": 6
+      "marginTop": 4,
+      "blockClass": "product"
     },
     "children": [
       "flex-layout.col#left",
@@ -23,7 +23,8 @@
   "flex-layout.col#right": {
     "props": {
       "preventVerticalStretch": true,
-      "verticalAlign": "middle"
+      "verticalAlign": "middle",
+      "blockClass": "product"
     },
     "children": [
       "product-name",
@@ -43,8 +44,8 @@
   "product-price": {
     "props": {
       "showSavings": true,
-      "showListPrice": true
+      "showListPrice": true,
+      "blockClass": "product"
     }
   }
-
 }

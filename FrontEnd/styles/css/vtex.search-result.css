@@ -1,0 +1,79 @@
+.gallery {
+  max-width: 75%;
+  margin-left: 20%;
+}
+
+.filters--layout {
+  max-width: 20%;
+  position: absolute;
+  top: 15rem;
+}
+
+.galleryTitle--layout {
+  margin-left: 5%;
+}
+
+.orderByOptionsContainer {
+  width: 38%;
+}
+.orderByOptionItem {
+  text-align: center;
+  width: auto;
+  min-width: 100%;
+}
+.orderByButton {
+  width: 38%;
+  margin-left: 62%;
+}
+
+.galleryItem--normal {
+  max-width: 32% !important;
+}
+
+@media only screen and (max-width: 1025.5px) {
+  .gallery {
+    max-width: 100%;
+    margin: auto;
+  }
+  .filterPopupButton {
+    position: absolute;
+    margin-left: 7rem;
+    margin-top: -4rem;
+  }
+
+  .orderByOptionsContainer {
+    width: 38%;
+  }
+  .orderByOptionItem {
+    text-align: center;
+    width: auto;
+    min-width: 100%;
+  }
+  .orderByButton {
+    width: 38%;
+    margin-left: 62%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .orderByOptionsContainer {
+    width: 100%;
+  }
+  .orderByButton {
+    width: 100%;
+    margin-left: 3%;
+  }
+}
+@media only screen and (max-width: 722px) {
+  .orderByOptionsContainer {
+    width: 100%;
+  }
+  .orderByButton {
+    width: 100%;
+    margin-left: 3%;
+  }
+  .galleryItem--normal {
+    max-width: 100% !important;
+    margin: auto;
+  }
+}

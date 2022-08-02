@@ -6,8 +6,16 @@
   color: #141f31;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1025px) {
   .styledLinkContent {
     color: #141f31;
   }
+
+  .submenuContainer {
+    position: absolute;
+  }
+}
+
+.styledLinkContent--text-submenu {
+  margin-left: 27%;
 }
