@@ -12,9 +12,11 @@
     "@types/ramda": "types/npm-ramda#dist",
     "@vtex/api": "6.45.12",
     "@vtex/test-tools": "^3.4.3",
+    "dreamscape.backendapi": "https://arthurcandidot1f4--dreamscape.myvtex.com/_v/private/typings/linked/v1/dreamscape.backendapi@0.0.2+build1659488571/public/_types/react",
     "tslint": "^5.14.0",
     "tslint-config-vtex": "^2.1.0",
-    "typescript": "3.9.7"
+    "typescript": "3.9.7",
+    "vtex.search-graphql": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.search-graphql@0.50.0/public/@types/vtex.search-graphql"
   },
   "scripts": {
     "lint": "tsc --noEmit --pretty && tslint -c tslint.json --fix './**/*.ts'"

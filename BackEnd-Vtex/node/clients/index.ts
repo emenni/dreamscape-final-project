@@ -1,6 +1,7 @@
 import { IOClients } from "@vtex/api";
 import { OMS } from "@vtex/clients";
 import Combination from "./combination";
+import MasterDataCustom from "./MasterDataCustom";
 import { Profile } from "./profile";
 import TestHelloWorld from "./testHelloWorld";
 
@@ -17,5 +18,8 @@ export class Clients extends IOClients {
   }
   public get testHelloWorld() {
     return this.getOrSet('profile', TestHelloWorld)
+  }
+  public get masterDataCustom() {
+    return this.getOrSet('masterDataCustom', MasterDataCustom)
   }
 }

@@ -11,6 +11,13 @@
   "scripts": {
     "prereleasy": "bash lint.sh"
   },
+  "billingOptions": {
+    "termsURL": "",
+    "support": {
+      "url": "https://support.vtex.com/hc/requests"
+    },
+    "free": true
+  },
   "credentialType": "absolute",
   "policies": [
     {
@@ -20,11 +27,13 @@
       "name": "colossus-write-logs"
     },
     {
-      "name": "outbound-access",
-      "attrs": {
-        "host": "portal.vtexcommercestable.com.br",
-        "path": "/api/oms/pvt/orders/*"
-      }
+      "name": "update-app-settings"
+    },
+    {
+      "name": "install-apps"
+    },
+    {
+      "name": "SaveOrderFormConfiguration"
     },
     {
       "name": "outbound-access",
@@ -68,21 +77,19 @@
         "host": "2zxs9i4im3.execute-api.us-east-1.amazonaws.com",
         "path": "/v1/*"
       }
-    },
-    {
-      "name": "outbound-access",
-      "attrs": {
-        "host": "grhrvkk2k9.execute-api.us-east-1.amazonaws.com",
-        "path": "/default/*"
-      }
-    },
-    {
-      "name": "colossus-fire-event"
-    },
-    {
-      "name": "colossus-write-logs"
     }
   ],
+  "settingsSchema": {
+    "title": "Backendapi",
+    "type": "object",
+    "properties": {
+      "getOldOrders": {
+        "title": "Rebase",
+        "type": "boolean",
+        "description": "Para realizar uma nova listagem de combinações marque ou desmarque este button.\nIsto pode levar algum tempo"
+      }
+    }
+  },
   "dependencies": {
     "vtex.search-graphql": "0.x"
   },

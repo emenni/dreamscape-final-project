@@ -1,9 +1,26 @@
+import sentry_sdk
+from sentry_sdk.integrations.aws_lambda import AwsLambdaIntegration
+from sentry_sdk import capture_exception
+from sentry_sdk import capture_message
 import json
 import boto3
 import os
 import uuid
 from boto3.dynamodb.conditions import Key
 from datetime import datetime
+import itertools
+
+sentry_sdk.init(
+    dsn="https://5a23512414e3440daa2d1cf936e50baa@o1340000.ingest.sentry.io/6612643",
+    integrations=[
+        AwsLambdaIntegration(),
+    ],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production,
+    traces_sample_rate=1.0,
+)
 
 
 
@@ -19,14 +36,28 @@ def responseApi(status,body):
 
 
 def combinacao_de_produtos(orders_list):
+    orders_list_unraveled = []
     ocurrency_counter = []
     combination_list = []
     counter = 0
+
+    for orders in orders_list:
+        orders.sort()
+        for index in range(2, len(orders)+1):
+            if orders not in orders_list_unraveled:
+                orders_list_unraveled.append(list(
+                    map(list, itertools.combinations(orders, index))))
+
+    orders_list_unraveled = [
+        element for sublist in orders_list_unraveled for element in sublist]
+
+    # print(orders_list_unraveled)
+
     # Os dois for comparam cada pedido com todos os da lista
-    for n in orders_list:
+    for n in orders_list_unraveled:
         if len(n) <= 1:
             continue
-        for i in orders_list:
+        for i in orders_list_unraveled:
             """ O all retorna true se for verdadeiro. Aqui ele
             verifica se todo os elementos de n estao contidos em i"""
             if all(elemento in i for elemento in n):
@@ -49,13 +80,13 @@ def combinacao_de_produtos(orders_list):
 
     return ranked_orders_dict
 
-def insertIntoTable(table,combination,event):
+def insertIntoTable(table,combination,order):
     try:
         table.put_item(
             Item = {
                 'combination': ",".join(combination["ID"]),
                 'combinationId': f"{uuid.uuid4()}",
-                "orderDate": event["body"]["orderDate"] if "date" in event["body"] else "2022-02-01",
+                "orderDate": order["orderDate"],
                 "createDate": datetime.now().strftime("%Y-%m-%d"),
                 "occurrences": combination["Ocorrencia"],
                 "showInShop": False,
@@ -71,50 +102,57 @@ def lambda_handler(event, context):
     
     # combination = ",".join(event['body'][0])
     if not event['body']:
-        responseApi(400,{"message": "body is required"})
+        return responseApi(400,{"message": "body is required"})
     event['body'] = json.loads(event['body'])
-    if 'items' in response:
-        responseApi(400,{"message": "items is required"})
-    combinations = combinacao_de_produtos(event['body']["items"])   
-    countError = 0
-    countSuccess = 0
-    errors = []
-    for combination in combinations:
-        try:
-            response = table.query(KeyConditionExpression=Key('combination').eq(",".join(combination["ID"])))
-            # Items []
-            # []
-            if 'Items' in response:
-                if len(response["Items"]) > 0:
-                    updateCombination = response["Items"][0]
-                    updateCombination["occurrences"] += combination["Ocorrencia"]
-                    
-                    table.update_item(
-                         Key={
-                            'combination': updateCombination["combination"],
-                            'combinationId': updateCombination["combinationId"]
-                        },
-                        UpdateExpression="set occurrences = :r",
-                        ExpressionAttributeValues={
-                            ':r': updateCombination["occurrences"],
-                        }
-                    )
+    if len(event['body']) <= 0:
+        return responseApi(400,{"message": "items is required"}) 
+    for order in event['body']:
+        countError = 0
+        countSuccess = 0
+        errors = []
+        if not 'items' in order:
+            countError += 1
+            errors.append('No items in order');
+            continue
+        
+        combinations = combinacao_de_produtos(order["items"])
+        for combination in combinations:
+            try:
+                response = table.query(KeyConditionExpression=Key('combination').eq(",".join(combination["ID"])))
+                # Items []
+                # []
+                if 'Items' in response:
+                    if len(response["Items"]) > 0:
+                        updateCombination = response["Items"][0]
+                        updateCombination["occurrences"] += combination["Ocorrencia"]
+                        
+                        table.update_item(
+                             Key={
+                                'combination': updateCombination["combination"],
+                                'combinationId': updateCombination["combinationId"]
+                            },
+                            UpdateExpression="set occurrences = :r",
+                            ExpressionAttributeValues={
+                                ':r': updateCombination["occurrences"],
+                            }
+                        )
+                        
+                    else:
+                        resultInserted = insertIntoTable(table,combination,order)
+                        if resultInserted != True: 
+                            raise resultInserted
+                        
                     
                 else:
-                    resultInserted = insertIntoTable(table,combination,event)
+                    resultInserted = insertIntoTable(table,combination,order)
                     if resultInserted != True: 
                         raise resultInserted
                     
-                
-            else:
-                resultInserted = insertIntoTable(table,combination,event)
-                if resultInserted != True: 
-                    raise resultInserted
-                
-            countSuccess += 1
-        except Exception as e:
-            countError += 1
-            errors.append(f"Combinação {','.join(combination['ID'])} não pode ser criada")
+                countSuccess += 1
+            except Exception as e:
+                countError += 1
+                errors.append(f"Combinação {','.join(combination['ID'])} não pode ser criada")
+                capture_exception(e)
 
     if countError > 0:
         if countSuccess == 0: 
