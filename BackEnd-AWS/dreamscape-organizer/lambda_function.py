@@ -1,7 +1,3 @@
-import sentry_sdk
-from sentry_sdk.integrations.aws_lambda import AwsLambdaIntegration
-from sentry_sdk import capture_exception
-from sentry_sdk import capture_message
 import json
 import boto3
 import os
@@ -10,17 +6,6 @@ from boto3.dynamodb.conditions import Key
 from datetime import datetime
 import itertools
 
-sentry_sdk.init(
-    dsn="https://5a23512414e3440daa2d1cf936e50baa@o1340000.ingest.sentry.io/6612643",
-    integrations=[
-        AwsLambdaIntegration(),
-    ],
-
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production,
-    traces_sample_rate=1.0,
-)
 
 
 
@@ -58,9 +43,8 @@ def combinacao_de_produtos(orders_list):
         if len(n) <= 1:
             continue
         for i in orders_list_unraveled:
-            """ O all retorna true se for verdadeiro. Aqui ele
-            verifica se todo os elementos de n estao contidos em i"""
-            if all(elemento in i for elemento in n):
+            
+            if n == i:
                 counter += 1
         # Ordena n para a comparação (para [1,2] ser igual a [2,1])
         n.sort()
@@ -105,7 +89,8 @@ def lambda_handler(event, context):
         return responseApi(400,{"message": "body is required"})
     event['body'] = json.loads(event['body'])
     if len(event['body']) <= 0:
-        return responseApi(400,{"message": "items is required"}) 
+        return responseApi(400,{"message": "items is required"})
+        
     for order in event['body']:
         countError = 0
         countSuccess = 0
@@ -152,7 +137,6 @@ def lambda_handler(event, context):
             except Exception as e:
                 countError += 1
                 errors.append(f"Combinação {','.join(combination['ID'])} não pode ser criada")
-                capture_exception(e)
 
     if countError > 0:
         if countSuccess == 0: 
