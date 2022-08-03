@@ -84,6 +84,7 @@
   "rich-text#footer": {
     "props": {
       "text": "© 2022 All Rights Reserved | Desenvolvido por | [Equipe Dreamscape](https://github.com/emenni/dreamscape-final-project)",
+      "textPosition": "CENTER",
       "blockClass": "footer"
     }
   },
@@ -106,10 +107,7 @@
       "flex-layout.row#footer-mobile"
     ],
     "props": {
-      "blockClass": "payment-methods",
-      "paddingTop": 4,
-      "paddingBottom": 4,
-      "colGap": 4
+      "blockClass": "payment-methods"
     }
   },
   "flex-layout.row#1-footer-mobile": {
@@ -124,6 +122,7 @@
   "rich-text#footer-mobile": {
     "props": {
       "text": "© 2022 All Rights Reserved | Desenvolvido por | [Equipe Dreamscape](https://github.com/emenni/dreamscape-final-project)",
+      "textPosition": "CENTER",
       "blockClass": "footer"
     }
   },

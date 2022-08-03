@@ -23,7 +23,7 @@
 
 @media only screen and (max-width: 755px) {
   .socialNetworksContainer {
-      width: 80%;
+    width: 100%;
   }
 
   .acceptedPaymentMethodContainer {

@@ -170,11 +170,11 @@
   width: 24rem;
 }
 
-@media only screen and (max-width: 755px) {
+/* @media only screen and (max-width: 755px) {
   .paragraph--footer {
     position: relative;
     left: 3%;
     top: -1rem;
     font-size: 1.2rem;
   }
-}
+} */
