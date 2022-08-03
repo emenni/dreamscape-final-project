@@ -1,39 +1,20 @@
-
-.socialNetworksContainer {
-  position: relative;
-  top: 110%;
-  right: 388%;
+.acceptedPaymentMethodContainer {
+  padding-left: 0.7rem;
 }
+
 .footerSpacer {
   margin-top: 10px;
   width: 0;
 }
-.acceptedPaymentMethodContainer {
-  position: relative;
-  top: 42%;
-  left: -1.25%;
-  width: 10% !important;
-}
-
-.paymentMethodIconImage {
-  margin-top: 28px;
-}
 
 @media only screen and (max-width: 1025.5px) {
-  .socialNetworksContainer {
-    position: relative;
-    margin-top: -3rem;
-    right: -3%;
-    width: 23% !important;
-  }
+    .socialNetworksContainer {
+    padding-left: 2rem;
+  } 
 
-  .acceptedPaymentMethodContainer {
-    position: relative;
-    top: -1rem;
-    left: 46%;
-    width: 18% !important;
-    
-  }
+   .acceptedPaymentMethodContainer {
+    justify-content: center;
+  } 
 
   .footerLayout {
     border-top: 1px solid gray;
@@ -42,18 +23,11 @@
 
 @media only screen and (max-width: 755px) {
   .socialNetworksContainer {
-    position: relative;
-    right: -2%;
-    margin-top: -8%;
-    max-width: 10rem;
-    width: 33% !important;
+      width: 80%;
   }
 
   .acceptedPaymentMethodContainer {
-    position: relative;
-    top: -42%;
-    left: 44%;
-    width: 26% !important;
+      width: 75%;
   }
 
   .footerLayout {

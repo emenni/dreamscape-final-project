@@ -8,9 +8,7 @@
   "footer-layout.desktop": {
     "children": [
       "flex-layout.row#footer-1-desktop",
-      "flex-layout.row#footer-2-desktop",
-      "flex-layout.row#footer-3-desktop",
-      "flex-layout.row#footer-desktop"
+      "flex-layout.row#footer-3-desktop"
     ]
   },
   "flex-layout.row#footer-1-desktop": {
@@ -19,14 +17,23 @@
       "vtex.menu@2.x:menu#footer-feminino",
       "vtex.menu@2.x:menu#footer-acessorio",
       "footer-spacer",
-      "social-networks"
+      "flex-layout.col#footer-icons"
     ],
     "props": {
       "blockClass": "menu-row",
-      "paddingTop": 6,
+      "paddingTop": 8,
       "paddingBottom": 3
     }
   },
+
+  "flex-layout.col#footer-icons": {
+    "children": [
+      "social-networks",
+      "image#hiring",
+      "flex-layout.row#footer-2-desktop"
+    ]
+  },
+
   "social-networks": {
     "props": {
       "socialNetworks": [
@@ -83,31 +90,26 @@
   "footer-layout.mobile": {
     "children": [
       "flex-layout.row#1-footer-mobile",
-      "flex-layout.row#2-footer-mobile"
+      "flex-layout.row#2-footer-mobile",
+      "flex-layout.row#3-footer-mobile"
+    ]
+  },
+  "flex-layout.row#3-footer-mobile": {
+    "children": [
+      "rich-text#footer-mobile"
     ]
   },
   "flex-layout.row#2-footer-mobile": {
     "children": [
-      "flex-layout.col#footer-1-mobile"
-    ],
-    "props": {
-      "blockClass": "payment-methods",
-      "paddingTop": 4,
-      "paddingBottom": 4
-    }
-  },
-  "flex-layout.col#footer-1-mobile": {
-    "children": [
-      "accepted-payment-methods",
       "social-networks",
-      "rich-text#footer-mobile",
+      "accepted-payment-methods",
       "flex-layout.row#footer-mobile"
     ],
     "props": {
       "blockClass": "payment-methods",
       "paddingTop": 4,
       "paddingBottom": 4,
-      "rowGap": 4
+      "colGap": 4
     }
   },
   "flex-layout.row#1-footer-mobile": {
@@ -125,29 +127,10 @@
       "blockClass": "footer"
     }
   },
-  "flex-layout.row#footer-desktop": {
-    "children": [
-      "image#hiring",
-      "image#vtex",
-      "image#gama"
-    ]
-  },
   "image#hiring": {
     "props": {
       "src": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/0a35e21a-da34-4e72-959e-b07c1b9d46e8___5d1bbb78b8b2de0d5cc559ee62970afe.png",
       "blockClass": "logo-footer"
-    }
-  },
-  "image#vtex": {
-    "props": {
-      "src": "",
-      "blockClass": "logo-footer2"
-    }
-  },
-  "image#gama": {
-    "props": {
-      "src": "",
-      "blockClass": "logo-footer3"
     }
   },
   "flex-layout.row#footer-mobile": {
@@ -158,7 +141,9 @@
   "image#hiring-mobile": {
     "props": {
       "src": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/0a35e21a-da34-4e72-959e-b07c1b9d46e8___5d1bbb78b8b2de0d5cc559ee62970afe.png",
-      "blockClass": "logo-footer-mobile1"
+      "blockClass": "logo-footer-mobile1",
+      "horizontalAlign": "right",
+      "verticalAlign": "right"
     }
   }
 }

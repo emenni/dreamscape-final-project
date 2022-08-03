@@ -83,6 +83,8 @@
 
 .heading--text-home2 {
   color: #141f31;
+  margin-top: 0;
+  padding-left: 1.25rem;
 }
 
 .paragraph--footer {
@@ -92,7 +94,8 @@
 }
 
 .container--footer {
-  height: 0;
+  /* height: 0; */
+  width: 100%;
 }
 
 @media only screen and (max-width: 1025.5px) {
@@ -116,11 +119,11 @@
     line-height: 1.3em;
   }
 
-  .paragraph--footer {
+  /* .paragraph--footer {
     position: relative;
     left: 5%;
     bottom: 1.5rem;
-  }
+  } */
   .strong {
     font-size: 2.8rem;
   }
@@ -172,6 +175,6 @@
     position: relative;
     left: 3%;
     top: -1rem;
-    font-size: 0.7rem;
+    font-size: 1.2rem;
   }
 }
