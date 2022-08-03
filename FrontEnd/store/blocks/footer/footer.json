@@ -90,27 +90,28 @@
   },
   "footer-layout.mobile": {
     "children": [
-      "flex-layout.row#1-footer-mobile",
-      "flex-layout.row#2-footer-mobile",
-      "flex-layout.row#3-footer-mobile"
+      "flex-layout.col#1-footer-mobile",
+      "flex-layout.col#2-footer-mobile",
+      "flex-layout.col#3-footer-mobile"
     ]
   },
-  "flex-layout.row#3-footer-mobile": {
+  "flex-layout.col#3-footer-mobile": {
     "children": [
       "rich-text#footer-mobile"
     ]
   },
-  "flex-layout.row#2-footer-mobile": {
+  "flex-layout.col#2-footer-mobile": {
     "children": [
       "social-networks",
       "accepted-payment-methods",
       "flex-layout.row#footer-mobile"
     ],
     "props": {
-      "blockClass": "payment-methods"
+      "blockClass": "payment-methods",
+      "colGap": 4
     }
   },
-  "flex-layout.row#1-footer-mobile": {
+  "flex-layout.col#1-footer-mobile": {
     "props": {
       "paddingTop": 4,
       "paddingBottom": 4

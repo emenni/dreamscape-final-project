@@ -130,9 +130,9 @@
 
   .imageElement--logo-footer-mobile1 {
     height: 2rem;
-    /* display: inline; */
+    display: flex !important;
     /* justify-content: flex-end; */
-    /* margin-left: 20rem; */
+    margin-left: 20rem;
   }
 
   /* .newsletter--newsletter {
