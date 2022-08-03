@@ -8,11 +8,12 @@ import { combinationAll } from './middlewares/combinationAll'
 import { combinationPut } from './middlewares/combinationPut'
 import { combinationPost } from './middlewares/combinationPost'
 import { someStates } from './middlewares/someStates'
+import { createOldOrdersCombinations } from './middlewares/createOldOrdersCombinations'
 import {  testHelloWorldResolver } from './resolvers/testHelloWorld'
 import { combinationByCombinationId } from './middlewares/combinationByCombinationId'
 
 
-const TIMEOUT_MS = 800
+const TIMEOUT_MS = 360000
 
 const clients: ClientsConfig<Clients> = {
   implementation: Clients,
@@ -26,7 +27,9 @@ const clients: ClientsConfig<Clients> = {
 
 declare global {
   type Context = ServiceContext<Clients, State>
-
+  interface InstalledAppEvent extends EventContext<Clients> {
+    body: { id?: string }
+  }
   interface CombinationPostData {
     orderDate: string
     combination: string[][]
@@ -39,7 +42,7 @@ declare global {
   }
 
   interface CombinationPostOrganizerData {
-    itens: string[][]
+    items: string[][]
     orderDate: string
   }
   interface StatusChangeContext extends EventContext<Clients> {
@@ -85,9 +88,11 @@ declare global {
     }),
     combinationOrganizer: method({
       POST: [combinationOrganizer],
-    }),
+    })
   },
   events: {
     someStates,
+    onAppInstalled: createOldOrdersCombinations,
+    onSettingsChanged: createOldOrdersCombinations
   },
 })
