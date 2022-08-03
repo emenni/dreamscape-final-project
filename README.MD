@@ -146,7 +146,7 @@ Body:
 
 {
 
-                combination: [“1”,”5”,”9”,”2”], (SkuId dos produtos no pedido formato string)
+                combination: "1,5,9,2", (SkuId dos produtos no pedido formato string)
 
                 orderDate: “YYYY-mm-dd” (formato - “2022-01-20”),
 
@@ -175,27 +175,29 @@ headers: {
 
 Body: 
 
-{
+[
+    {
 
-“items”: [
+    “items”: [
 
-      [“1”,”2”], 
+          [“1”,”2”], 
 
-      [“1”,”2”,“3”,”6”,“5”],
+          [“1”,”2”,“3”,”6”,“5”],
 
-      [“4”,”3”], 
+          [“4”,”3”], 
 
-      [“20”,”30”,“45”,”68”],
+          [“20”,”30”,“45”,”68”],
 
-      [“189”,”122”,“89”],
+          [“189”,”122”,“89”],
 
-      [“7”,”5”]
+          [“7”,”5”]
 
-], (Array com Arrays de SkuId no formato string)
+    ], (Array com Arrays de SkuId no formato string)
 
-“orderDate”: “YYYY-mm-dd” (formato - “2022-01-20”)
+    “orderDate”: “YYYY-mm-dd” (formato - “2022-01-20”)
 
-},
+    }
+],
 
 ```
 
