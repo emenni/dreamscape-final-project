@@ -41,22 +41,6 @@ h4{
   align-items: flex-end;
 }
 
-/* button{
-  font-size: medium;
-  font-weight: 500;
-  border: 1px solid rgb(54, 141, 247);
-  color: rgb(255, 255, 255);
-  margin-left: 20% ;
-  border-radius: 0.3rem;
-  background-color: rgb(54, 141, 247);
-  padding: 0.3rem;
-  width: 100%;
-  margin: .2rem;
-}
-button:hover{
-  cursor: pointer;
-  background-color: rgb(46, 124, 219);
-} */
 .buttons button{
   text-decoration: none;
   color: white;

@@ -17,7 +17,6 @@ export async function combinationPut(ctx: Context, next: () => Promise<any>) {
     throw new UserInputError('Invalid request') // Wrapper for a Bad Request (400) HTTP Error. Check others in https://github.com/vtex/node-vtex-api/blob/fd6139349de4e68825b1074f1959dd8d0c8f4d5b/src/errors/index.ts
   }
   const res = await ctx.clients.combination.putCombination(`/${combination}/${combinationId}`, body).then((response: any) => {
-    console.log("🚀 ~ file: combinationPut.ts ~ line 21 ~ res ~ response", response)
      return response.data
 
   }).catch((reason: any)=>{

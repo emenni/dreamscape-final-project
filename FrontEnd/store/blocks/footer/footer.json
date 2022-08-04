@@ -84,22 +84,23 @@
   "rich-text#footer": {
     "props": {
       "text": "© 2022 All Rights Reserved | Desenvolvido por | [Equipe Dreamscape](https://github.com/emenni/dreamscape-final-project)",
+      "textPosition": "CENTER",
       "blockClass": "footer"
     }
   },
   "footer-layout.mobile": {
     "children": [
-      "flex-layout.row#1-footer-mobile",
-      "flex-layout.row#2-footer-mobile",
-      "flex-layout.row#3-footer-mobile"
+      "flex-layout.col#1-footer-mobile",
+      "flex-layout.col#2-footer-mobile",
+      "flex-layout.col#3-footer-mobile"
     ]
   },
-  "flex-layout.row#3-footer-mobile": {
+  "flex-layout.col#3-footer-mobile": {
     "children": [
       "rich-text#footer-mobile"
     ]
   },
-  "flex-layout.row#2-footer-mobile": {
+  "flex-layout.col#2-footer-mobile": {
     "children": [
       "social-networks",
       "accepted-payment-methods",
@@ -107,12 +108,10 @@
     ],
     "props": {
       "blockClass": "payment-methods",
-      "paddingTop": 4,
-      "paddingBottom": 4,
       "colGap": 4
     }
   },
-  "flex-layout.row#1-footer-mobile": {
+  "flex-layout.col#1-footer-mobile": {
     "props": {
       "paddingTop": 4,
       "paddingBottom": 4
@@ -124,6 +123,7 @@
   "rich-text#footer-mobile": {
     "props": {
       "text": "© 2022 All Rights Reserved | Desenvolvido por | [Equipe Dreamscape](https://github.com/emenni/dreamscape-final-project)",
+      "textPosition": "CENTER",
       "blockClass": "footer"
     }
   },
