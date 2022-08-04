@@ -13,7 +13,7 @@
   "rich-text#masculino": {
     "props": {
       "text": " #### Masculino",
-      "textPosition": "CENTER",
+      "textPosition": "LEFT",
       "textAlignment": "CENTER",
       "blockClass": "text-home2"
     }
@@ -77,7 +77,7 @@
   "rich-text#feminino": {
     "props": {
       "text": " #### Feminino",
-      "textPosition": "CENTER",
+      "textPosition": "LEFT",
       "textAlignment": "CENTER",
       "blockClass": "text-home2"
     }
@@ -141,7 +141,7 @@
   "rich-text#acessorios": {
     "props": {
       "text": " #### Acessório",
-      "textPosition": "CENTER",
+      "textPosition": "LEFT",
       "textAlignment": "CENTER",
       "blockClass": "text-home2"
     }

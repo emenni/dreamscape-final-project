@@ -137,8 +137,6 @@ def lambda_handler(event, context):
             except Exception as e:
                 countError += 1
                 errors.append(f"Combinação {','.join(combination['ID'])} não pode ser criada")
-                capture_exception(e)
-
     if countError > 0:
         if countSuccess == 0: 
             return responseApi(200,json.dumps({

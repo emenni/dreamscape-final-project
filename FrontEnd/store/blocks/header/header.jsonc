@@ -92,6 +92,7 @@
       "logo#mobile",
       "flex-layout.col#spacer",
       "search-bar",
+      "login",
       "minicart.v2"
     ],
     "props": {
@@ -104,6 +105,12 @@
   "drawer": {
     "children": ["menu#drawer"]
   },
+
+  "login":{
+    "props":{
+    "showIconProfile": true
+    }
+    },
 
   "menu#drawer": {
     "children": [
