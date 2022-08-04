@@ -4,7 +4,6 @@ import { useQuery } from 'react-apollo'
 import style from '../Combo/style.css'
 
 export function ShowProduct({ combination }) {
-  console.log("🚀 ~ file: ShowProduct.tsx ~ line 6 ~ ShowProduct ~ combination", combination)
   const { data: products } = useQuery<any, any>(
     productsByIdentifierQuery,
     {

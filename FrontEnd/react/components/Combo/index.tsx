@@ -2,7 +2,6 @@ import React from 'react'
 import { ShowProduct } from '../ShowProduct'
 import style from '../Combo/style.css'
 export const Combo = ({ combinations }) => {
-  console.log("🚀 Combo ~ file: index.tsx ~ line 5 ~ Combo ~ combinations", combinations)
 
   return (
     <div className={style.combos}>
