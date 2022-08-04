@@ -9,8 +9,6 @@ import axios from 'axios'
 const SmartSellControlPanel: FC = () => {
   const { loading: loadingAuth, data: dataAuth } = useFullSession()
   const [loading, setLoading] = useState(true)
-  const [user, setUser] = useState<any>(undefined)
-  const [jsonRecebido, setJsonRecebido] = useState([])
   const [combinations, setCombinations] = useState([])
 
   const getCombinations = async () => {
@@ -35,15 +33,17 @@ const SmartSellControlPanel: FC = () => {
     }
   }
   useEffect(() => {
-    getCombinations()
-    setLoading(false)
-  }, [dataAuth])
+    if (!loadingAuth) {
+      getCombinations()
+      setLoading(false)
+    }
+  }, [dataAuth,loadingAuth])
 
 
 
 
   let textoExplicativo = "Abaixo estão listados alguns produtos identificados com alta correlação entre si (numero de vendas, idade do cliente, etc"
-  if (loading) {
+  if (loading || loadingAuth) {
     return (
       <Spinner color="#f71964" />
     )
@@ -55,7 +55,11 @@ const SmartSellControlPanel: FC = () => {
         <PageBlock title="Analise de Product Matching" subtitle={textoExplicativo} variation="full">
           <h3>Combos mais vendidos:</h3>
           <div>
-            {combinations && <Combo combinations={combinations} getCombinations={getCombinations} setLoading={setLoading} />}
+            {combinations ? (
+              <Combo combinations={combinations} getCombinations={getCombinations} setLoading={setLoading} />
+            ) : (
+              <Spinner color="#f71964" />
+            )}
           </div>
         </PageBlock>
       </Layout>

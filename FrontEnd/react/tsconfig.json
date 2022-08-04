@@ -3,7 +3,7 @@
   "compilerOptions": {
     "noEmitOnError": false,
     "lib": [
-      "dom"
+      "dom",
       "ES2015"
     ],
     "typeRoots": [
