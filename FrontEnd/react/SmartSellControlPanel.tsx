@@ -56,7 +56,11 @@ const SmartSellControlPanel: FC = () => {
           <h3>Combos mais vendidos:</h3>
           <div>
             {combinations ? (
-              <Combo combinations={combinations} getCombinations={getCombinations} setLoading={setLoading} />
+              <>
+                {combinations?.length > 0 && (
+                  <Combo combinations={combinations} getCombinations={getCombinations} setLoading={setLoading} />
+                )}
+              </>
             ) : (
               <Spinner color="#f71964" />
             )}
