@@ -1,0 +1,17 @@
+.link--button-home {
+  text-align: center;
+  position: absolute;
+  margin-left: 45%;
+  margin-top: 30%;
+  border: 1px solid #64faf9;
+}
+
+.link--button-home-mobile {
+  text-align: center;
+  position: absolute;
+  margin-left: 43%;
+  margin-top: 46%;
+  border: 1px solid #64faf9;
+  font-size: 0.7rem;
+  min-height: 5%;
+}

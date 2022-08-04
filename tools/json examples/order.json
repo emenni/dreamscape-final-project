@@ -1,0 +1,37 @@
+{
+  	"items": [
+		{
+     "uniquId": "8E0094E49DA84F10898B54DC1683434F",
+			"id": "2",
+			"producId": "2",
+			"quantity": 1,
+			"seller": "1",
+			"price": 3999
+		 }
+		],
+  "clientProfileData": {
+    "email": "camilaclto@hotmail.com"
+  },
+  "shippingData": {
+    "address": {
+      "addressId": "4974550584978"
+    },
+    "logisticsInfo": [
+      {
+        "itemIndex": 0,
+        "selectedSla": "Normal",
+				"price":361
+      }
+    ]
+  },
+	"paymentData": {
+    "payments": [
+        {
+        "paymentSystem": "201",
+        "referenceValue": 4360,
+        "value": 4360,
+        "installments": 1
+        }
+    ]
+}
+}

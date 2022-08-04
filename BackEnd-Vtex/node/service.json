@@ -1,0 +1,57 @@
+{
+  "memory": 256,
+  "ttl": 10,
+  "timeout": 360,
+  "minReplicas": 2,
+  "maxReplicas": 4,
+  "workers": 1,
+  "events": {
+    "someStates": {
+      "sender": "vtex.orders-broadcast",
+      "topics": [ "order-created"]
+    },
+    "onAppInstalled": {
+      "sender": "apps",
+      "keys": ["setup"]
+    },
+    "onSettingsChanged": {
+      "sender": "apps",
+      "keys": ["settings"],
+      "policies": {
+        "effect": "allow",
+        "actions": [
+          "post"
+        ],
+        "principals": [
+          "vrn:apps:*:{{account}}:*:/apps/*/settings"
+        ]
+      }
+    }
+  },
+  "routes": {
+    "combinationByCombination": {
+      "path": "/_v/combination/:combination",
+      "public": true
+    },
+    "combinationByCombinationId": {
+      "path": "/_v/combination/:combination/:combinationId",
+      "public": true
+    },
+    "combinationAll": {
+      "path": "/_v/combination",
+      "public": true
+    },
+    "combinationPut": {
+      "path": "/_v/combination/:combination/:combinationId/put",
+      "public": true
+    },
+    "combinationPost": {
+      "path": "/_v/combination/new",
+      "public": true
+    },
+    "combinationOrganizer": {
+      "path": "/_v/combination/organizer",
+      "public": true
+    }
+  }
+}

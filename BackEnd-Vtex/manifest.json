@@ -1,0 +1,97 @@
+{
+  "name": "backendapi",
+  "vendor": "dreamscape",
+  "version": "0.0.2",
+  "title": "BackendApi app",
+  "description": "App develop to query and change combinations using AWS API",
+  "categories": [],
+  "builders": {
+    "node": "6.x"
+  },
+  "scripts": {
+    "prereleasy": "bash lint.sh"
+  },
+  "billingOptions": {
+    "termsURL": "",
+    "support": {
+      "url": "https://support.vtex.com/hc/requests"
+    },
+    "free": true
+  },
+  "credentialType": "absolute",
+  "policies": [
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "name": "colossus-write-logs"
+    },
+    {
+      "name": "update-app-settings"
+    },
+    {
+      "name": "install-apps"
+    },
+    {
+      "name": "SaveOrderFormConfiguration"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/oms/pvt/orders/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/checkout/pub/orders/*"
+      }
+    },
+    {
+      "name": "OMSViewer"
+    },
+    {
+      "name": "POWER_USER_DS"
+    },
+    {
+      "name": "ADMIN_DS"
+    },
+    {
+      "name": "ADMIN_CRM"
+    },
+    {
+      "name": "POWER_USER_CRM"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/profile-system/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "2zxs9i4im3.execute-api.us-east-1.amazonaws.com",
+        "path": "/v1/*"
+      }
+    }
+  ],
+  "settingsSchema": {
+    "title": "Backendapi",
+    "type": "object",
+    "properties": {
+      "getOldOrders": {
+        "title": "Rebase",
+        "type": "boolean",
+        "description": "Para realizar uma nova listagem de combinações marque ou desmarque este button.\nIsto pode levar algum tempo"
+      }
+    }
+  },
+  "dependencies": {
+    "vtex.search-graphql": "0.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
