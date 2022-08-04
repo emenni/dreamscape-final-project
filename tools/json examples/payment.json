@@ -1,0 +1,12 @@
+[{
+    "transaction": {"merchantName": "DREAMSCAPE", "id": ""},
+    "paymentSystem": 201,
+    "installments": 1,
+    "currencyCode": "BRL",
+    "value": 4360,
+    "installmentsInterestRate": 0,
+    "installmentsValue": 0,
+    "referenceValue": 4360
+  }]
+
+

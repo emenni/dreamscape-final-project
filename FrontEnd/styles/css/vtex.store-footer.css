@@ -1,0 +1,37 @@
+.acceptedPaymentMethodContainer {
+  padding-left: 0.7rem;
+}
+
+.footerSpacer {
+  margin-top: 10px;
+  width: 0;
+}
+
+@media only screen and (max-width: 1025.5px) {
+    .socialNetworksContainer {
+    padding-left: 2rem;
+  } 
+
+   .acceptedPaymentMethodContainer {
+    justify-content: center;
+  } 
+
+  .footerLayout {
+    border-top: 1px solid gray;
+  }
+}
+
+@media only screen and (max-width: 755px) {
+  .socialNetworksContainer {
+      width: 80%;
+  }
+
+  .acceptedPaymentMethodContainer {
+      width: 75%;
+  }
+
+  .footerLayout {
+    border-top: 1px solid gray;
+    
+  }
+}

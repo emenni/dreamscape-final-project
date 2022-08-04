@@ -1,0 +1,349 @@
+{
+  "vtex.menu@2.x:menu#footer-masculino": {
+    "props": {
+      "orientation": "vertical"
+    },
+    "children": [
+      "rich-text#masculino",
+      "menu-item#camisa-masculina",
+      "menu-item#calcas-masculina",
+      "menu-item#bermudas-masculina"
+    ]
+  },
+  "rich-text#masculino": {
+    "props": {
+      "text": " #### Masculino",
+      "textPosition": "LEFT",
+      "textAlignment": "CENTER",
+      "blockClass": "text-home2"
+    }
+  },
+  "menu-item#camisa-masculina": {
+    "props": {
+      "id": "menu-item-news",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/masculino/camisa",
+        "noFollow": false,
+        "tagTitle": "Camisas",
+        "text": "Camisas"
+      }
+    }
+  },
+  "menu-item#calcas-masculina": {
+    "props": {
+      "id": "menu-item-black-friday",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/masculino/calca",
+        "noFollow": false,
+        "tagTitle": "Calças",
+        "text": "Calças"
+      }
+    }
+  },
+  "menu-item#bermudas-masculina": {
+    "props": {
+      "id": "menu-item-sale",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/masculino/bermuda",
+        "noFollow": false,
+        "tagTitle": "Bermudas",
+        "text": "Bermudas"
+      }
+    }
+  },
+  "vtex.menu@2.x:menu#footer-feminino": {
+    "props": {
+      "orientation": "vertical"
+    },
+    "children": [
+      "rich-text#feminino",
+      "menu-item#Blusas-femininas",
+      "menu-item#calcas-femininas",
+      "menu-item#vestido-feminino"
+    ]
+  },
+  "rich-text#feminino": {
+    "props": {
+      "text": " #### Feminino",
+      "textPosition": "LEFT",
+      "textAlignment": "CENTER",
+      "blockClass": "text-home2"
+    }
+  },
+  "menu-item#Blusas-femininas": {
+    "props": {
+      "id": "menu-item-smartphones",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/feminino/camisa",
+        "noFollow": true,
+        "tagTitle": "Blusas",
+        "text": "Blusas"
+      }
+    }
+  },
+  "menu-item#calcas-femininas": {
+    "props": {
+      "id": "menu-item-videogames",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/feminino/calca",
+        "noFollow": true,
+        "tagTitle": "Calças",
+        "text": "Calças"
+      }
+    }
+  },
+  "menu-item#vestido-feminino": {
+    "props": {
+      "id": "menu-item-tvs",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/feminino/vestido",
+        "noFollow": true,
+        "tagTitle": "Vestido",
+        "text": "Vestido"
+      }
+    }
+  },
+  "vtex.menu@2.x:menu#footer-acessorio": {
+    "props": {
+      "orientation": "vertical"
+    },
+    "children": [
+      "rich-text#acessorios",
+      "menu-item#cinto",
+      "menu-item#bolsa",
+      "menu-item#mochila"
+    ]
+  },
+  "rich-text#acessorios": {
+    "props": {
+      "text": " #### Acessório",
+      "textPosition": "LEFT",
+      "textAlignment": "CENTER",
+      "blockClass": "text-home2"
+    }
+  },
+  "menu-item#cinto": {
+    "props": {
+      "id": "menu-item-bags",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/acessorio/cinto",
+        "noFollow": true,
+        "tagTitle": "Cinto",
+        "text": "Cinto"
+      }
+    }
+  },
+  "menu-item#bolsa": {
+    "props": {
+      "id": "menu-item-backpacks",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/acessorio/bolsa",
+        "noFollow": true,
+        "tagTitle": "Bolsa",
+        "text": "Bolsa"
+      }
+    }
+  },
+  "menu-item#mochila": {
+    "props": {
+      "id": "menu-item-necessaire",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/acessorio/mochila",
+        "noFollow": true,
+        "tagTitle": "Mochila",
+        "text": "Mochila"
+      }
+    }
+  },
+  "vtex.menu@2.x:menu#footer-mobile": {
+    "props": {
+      "orientation": "vertical"
+    },
+    "children": [
+      "menu-item#masculino-mobile",
+      "menu-item#feminino-mobile",
+      "menu-item#acessorio-mobile"
+    ]
+  },
+  "menu-item#masculino-mobile": {
+    "props": {
+      "id": "menu-item-category-masculino",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/masculino",
+        "noFollow": true,
+        "tagTitle": "masculino",
+        "text": "Masculino"
+      }
+    },
+    "blocks": [
+      "vtex.menu@2.x:submenu.accordion#masculino"
+    ]
+  },
+  "vtex.menu@2.x:submenu.accordion#masculino": {
+    "children": [
+      "vtex.menu@2.x:menu#masculino-accordion"
+    ]
+  },
+  "vtex.menu@2.x:menu#masculino-accordion": {
+    "props": {
+      "orientation": "vertical"
+    },
+    "children": [
+      "menu-item#camisa",
+      "menu-item#calcas",
+      "menu-item#bermudas"
+    ]
+  },
+  "menu-item#acessorio-mobile": {
+    "props": {
+      "itemProps": {
+        "tagTitle": "acessório",
+        "text": "Acessório"
+      }
+    },
+    "blocks": [
+      "vtex.menu@2.x:submenu.accordion#acessorio"
+    ]
+  },
+  "vtex.menu@2.x:submenu.accordion#acessorio": {
+    "children": [
+      "vtex.menu@2.x:menu#footer-acessorio-mobile"
+    ]
+  },
+  "vtex.menu@2.x:menu#footer-acessorio-mobile": {
+    "props": {
+      "orientation": "vertical"
+    },
+    "children": [
+      "menu-item#cinto",
+      "menu-item#bolsa",
+      "menu-item#mochila"
+    ]
+  },
+  "menu-item#feminino-mobile": {
+    "props": {
+      "itemProps": {
+        "tagTitle": "feminino",
+        "text": "Feminino"
+      }
+    },
+    "blocks": [
+      "vtex.menu@2.x:submenu.accordion#feminino"
+    ]
+  },
+  "vtex.menu@2.x:submenu.accordion#feminino": {
+    "children": [
+      "vtex.menu@2.x:menu#footer-feminino-mobile"
+    ]
+  },
+  "vtex.menu@2.x:menu#footer-feminino-mobile": {
+    "props": {
+      "orientation": "vertical"
+    },
+    "children": [
+      "menu-item#Blusas-femininas",
+      "menu-item#calcas-femininas",
+      "menu-item#vestido-feminino"
+    ]
+  },
+  "menu-item#masculino": {
+    "props": {
+      "id": "menu-item-category-masculino",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/masculino",
+        "noFollow": true,
+        "tagTitle": "Vestuário",
+        "text": "Vestuário"
+      }
+    }
+  },
+  "menu-item#camisa": {
+    "props": {
+      "id": "menu-item-shorts",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/masculino/camisa",
+        "noFollow": false,
+        "tagTitle": "Camisa",
+        "text": "Camisa"
+      }
+    }
+  },
+  "menu-item#calcas": {
+    "props": {
+      "id": "menu-item-tank-tops",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/masculino/calca",
+        "noFollow": false,
+        "tagTitle": "Calça",
+        "text": "Calça"
+      }
+    }
+  },
+  "menu-item#bermudas": {
+    "props": {
+      "id": "menu-item-shirts",
+      "type": "custom",
+      "iconId": null,
+      "highlight": false,
+      "itemProps": {
+        "type": "internal",
+        "href": "/roupa/masculino/bermuda",
+        "noFollow": false,
+        "tagTitle": "Bermuda",
+        "text": "Bermuda"
+      }
+    }
+  }
+}
