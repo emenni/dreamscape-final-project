@@ -9,17 +9,21 @@ export async function someStates(
   const orderId = body.orderId
   const orderBody = await ctx.clients.order.order(orderId)
 
-  const products: string[] = []
-  orderBody.items.map((product: any) => {
-    products.push(product.id)
+  const products = orderBody.items.map((product: any) => {
+    return product.id
   })
   const creationDate = new Date(orderBody.creationDate)
+
+  const source = ctx.vtex.workspace !== "master" ? `${ctx.vtex.workspace}--${ctx.vtex.account}` : ctx.vtex.account
+  const data = [
+    {
+      orderDate: creationDate.toISOString().split('T')[0],
+      items: [products],
+    }
+  ]
   await axios
     .post(
-      `/_v/combination/organizer`, {
-        orderDate: creationDate.toISOString().split('T')[0],
-        items: [products],
-      },
+      `http://${source}.myvtex.com/_v/combination/organizer`, data,
       {
         headers: {
           'Cache-Control': 'no-cache, no-store, must-revalidate',

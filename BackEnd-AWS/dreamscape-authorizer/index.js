@@ -1,14 +1,13 @@
 const normalizeEvent = require('./normalizer');
 const axios = require('axios')
 
-exports.handler = async function(event, context, callback) {        
-        
+exports.handler = async function(event, context, callback) { 
     // Perform authorization to return the Allow policy for correct parameters and 
     // the 'Unauthorized' error, otherwise.
     const { headers } = normalizeEvent(event); 
 
      
-    const authorization = headers['Proxy-Authorization'] ?? headers['proxy-authorization']
+    const authorization = headers['Authorization'] ?? headers['authorization']
     if (authorization) {
         const responseGetUserVtex = await axios.get( `https://${process.env.account}.myvtex.com/api/vtexid/pub/authenticated/user?authToken=${authorization}`,{ // CHECK IF IS A VTEX AUTHENTICATED USER
             headers: {
