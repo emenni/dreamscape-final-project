@@ -14,22 +14,22 @@ exports.handler = async event => {
             throw new Error('No table name defined.');
         }
     
-        const { data,pathParameters } = normalizeEvent(event);
+        const { data, pathParameters } = normalizeEvent(event);
         
         if(!pathParameters || !pathParameters['combination'] || !pathParameters['combinationId']){
             throw new Error('Invalid Request.');
         }
-        data = await dynamo
+        const dataOldCombination = await dynamo
                     .get({
-                        ...params,
+                        TableName: table,
                         Key: {// get data that has the date requested and month
                             combination: pathParameters['combination'],
-                            orderId: pathParameters['combinationId'],
+                            combinationId: pathParameters['combinationId'],
                         },
                         
                     })
                     .promise();
-        if(!data.Item)
+        if(!dataOldCombination.Item)
            return response(404, 'Not found');
         const params = {
             TableName: table,
@@ -37,20 +37,21 @@ exports.handler = async event => {
                 combination: pathParameters['combination'],
                 combinationId: pathParameters['combinationId']
             },
-            UpdateExpression: 'set #a = :d, #f = :h, #j = :l',
+            UpdateExpression: 'set #a = :d, #f = :h',
             ExpressionAttributeNames: {
                 '#a': 'updated_at',
-                '#f': 'occurrences',
-                '#j': 'showInShop'
+                '#f': 'occurrences'
             },
             ExpressionAttributeValues: {
                 ':d': new Date().toISOString().split('T')[0],
-                ':h': data.Item + (data.occurrences ?? 0),
-                ':l': data.showInShop ?? false
+                ':h': dataOldCombination.Item.occurrences + (data?.occurrences ?? 0)
             },
         };
-        
-        
+        if(data?.showInShop !== undefined) {
+            params.UpdateExpression = params.UpdateExpression + ', #j = :l'
+            params.ExpressionAttributeNames['#j'] = 'showInShop'
+            params.ExpressionAttributeValues[':l'] = data.showInShop ?? dataOldCombination.Item.showInShop ?? false
+        }
         
         
         await dynamo.update(params).promise();
