@@ -67,7 +67,7 @@
 }
 
 @media only screen and (max-width: 1025px) {
-  .newsletter--newsletter {
+  /* .newsletter--newsletter {
     height: 15rem;
   }
   .form--newsletter {
@@ -81,7 +81,7 @@
   }
   .newsletter .container {
     padding: 140px;
-  }
+  } */
   .label {
     font-size: 40px;
   }
@@ -98,10 +98,26 @@
   }
   .imageElement--logo-footer-mobile1 {
     height: 2rem;
-    margin-top: 35px;
-      margin-left: 72%;
-      position: relative;
-      bottom: 7.5rem
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-left: 10rem;
+    /* margin-top: 35px;
+      margin-left: 72%; */
+      /* position: relative;
+      bottom: 7.5rem */
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .imageElement--logo-footer-mobile1 {
+    height: 2rem;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-left: 8rem;
+    /* margin-top: 35px;
+      margin-left: 72%; */
+      /* position: relative;
+      bottom: 7.5rem */
   }
 }
 
@@ -114,25 +130,12 @@
 
   .imageElement--logo-footer-mobile1 {
     height: 2rem;
-    margin-left: 70%;
-    position: relative;
-    bottom: 6rem;
+    display: flex !important;
+    /* justify-content: flex-end; */
+    margin-left: 20rem;
   }
 
-  .imageElement--logo-footer-mobile2 {
-    height: 2rem;
-    margin-left: 70%;
-    position: relative;
-    bottom: 7rem;
-  }
-
-  .imageElement--logo-footer-mobile3 {
-    height: 2rem;
-    margin-left: 70%;
-    position: relative;
-    bottom: 7.8rem;
-  }
-  .newsletter--newsletter {
+  /* .newsletter--newsletter {
     height: 15rem;
   }
   .form--newsletter {
@@ -143,7 +146,7 @@
   }
   .container--newsletter {
     padding: 2rem !important;
-  }
+  } */
 }
 .productImagesContainer--quickview .carouselContainer {
   justify-content: flex-start;
@@ -184,24 +187,14 @@
 
 .imageElement--logo-footer {
   height: 3rem;
-  margin-left: 300%;
-  position: relative;
+  /* margin-left: 300%; */
+  /* position: relative; */
+  
+  align-items: center;
+  justify-content: center;
   bottom: 2rem;
 }
 
-.imageElement--logo-footer2 {
-  height: 3rem;
-  margin-left: 146%;
-  position: relative;
-  bottom: 2rem;
-}
-
-.imageElement--logo-footer3 {
-  height: 3rem;
-  margin-left: -9%;
-  position: relative;
-  bottom: 2rem;
-}
 .imageElement--image-home {
   z-index: 2;
   width: 100%;
