@@ -14,7 +14,7 @@ exports.handler = async event => {
     }
 
     const { pathParameters, querystring } = normalizeEvent(event); // get pathparameters
-    
+    console.log(querystring)
 
     try {
         let data = {};
@@ -48,15 +48,21 @@ exports.handler = async event => {
         } else {
             const params = {
                 TableName: table,
+                BackwardSearch: true,
                 FilterExpression: "occurrences >= :num",
-                ScanIndexForward: false,
+                LastEvaluatedKey: false,
                 ExpressionAttributeValues: {
                     ":num": Number(querystring?.occurrencesMoreThan ?? '1'),
                 }
             }; 
+            if(querystring['pageSize']) {
+                params.Limit = querystring['pageSize'] ?? 15
+            }
+            if(querystring['index']){
+                params.ExclusiveStartKey = JSON.parse(querystring['index'])
+            }
             data = await dynamo.scan(params).promise();// get all data
         }
-        
         
         if(!data?.Items && !data?.Item){ // check if has items or item
             return response(404, "Not Found")
@@ -65,7 +71,12 @@ exports.handler = async event => {
             const sortedData = data?.Items.sort((a,b) => {
                 return b.occurrences - a.occurrences
             })
-            return response(200, sortedData);
+            return response(200, {
+                Items: sortedData,
+                Count: data.Count,
+                ScannedCount: data.ScannedCount,
+                LastEvaluatedKey: data.LastEvaluatedKey
+            });
         }
         return response(200, data);
     } catch (err) {
