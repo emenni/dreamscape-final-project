@@ -15,9 +15,8 @@ export async function combinationAll(ctx: Context, next: () => Promise<any>) {
     return result;
   }
   const querystring = queryObj(ctx.originalUrl)
-  console.log("🚀 ~ file: combinationAll.ts ~ line 18 ~ combinationAll ~ querystring", querystring)
 
-  const res = await ctx.clients.combination.getCombination(`?pageSize=${querystring.pageSize}&index=${querystring.index}`, {
+  const res = await ctx.clients.combination.getCombination(``, {
     pageSize: querystring?.pageSize,
     index: querystring?.index
   }).catch((reason: any)=>{

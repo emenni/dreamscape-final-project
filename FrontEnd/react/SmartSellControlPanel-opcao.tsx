@@ -17,7 +17,7 @@ import  {useCombinations} from './components/Hooks/useCombinations'
      const { loading: loadingAuth, data: dataAuth } =  useFullSession()
   
      const handlerGetCombination = (async() =>{
-     const {data:combinationData,loading:loadinngCombination,error:combinationE} = await useCombinations(dataAuth)
+     const {data:combinationData,loading:loadinngCombination} = await useCombinations(dataAuth)
 
 //3 Renderizacao - Renderiza mais 2 vezes (4/5)
 
@@ -49,7 +49,7 @@ import  {useCombinations} from './components/Hooks/useCombinations'
             {combinations ? (
               <>
                 {combinations?.length > 0 && (
-                  <Combo combinations={combinations} getCombinations={handlerGetCombination} setLoading={setLoading} />
+                  <Combo combinations={combinations} />
                 )}
               </>
             ) : (
