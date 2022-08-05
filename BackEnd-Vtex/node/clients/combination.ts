@@ -6,15 +6,17 @@ export default class Combination extends ExternalClient {
       ...options,
       headers: {
         ...(options && options.headers),
-        Authorization: context.authToken
+        Authorization: context.authToken,
+        'Cache-Control': 'no-cache no-store',
       },
-      retries: 0,
+      retries: 0
     })
   }
 
-  public async getCombination(combination: string): Promise<string> {
+  public async getCombination(combination: string, data?: any): Promise<string> {
     return this.http.get(combination, {
       metric: 'combination-getCombination',
+      params: data
     })
   }
 

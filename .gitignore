@@ -28,6 +28,7 @@ build/Release
 
 # Dependency directories
 node_modules
+**/node_modules
 jspm_packages
 
 # Optional npm cache directory
@@ -51,4 +52,8 @@ jsconfig.json
 
 .DS_Store
 
+.eslintrc
+
 **/yarn-error.log
+
+/tools/anotacoes.txt

@@ -1,5 +1,5 @@
 {
-  "memory": 256,
+  "memory": 10,
   "ttl": 10,
   "timeout": 360,
   "minReplicas": 2,
