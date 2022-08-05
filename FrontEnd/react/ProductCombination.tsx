@@ -1,24 +1,76 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import {useProduct} from 'vtex.product-context'
-import { Combo } from './components/Combo';
+import { ComboInProductDetail } from './components/showInProductDetail/Combo';
+import { useCombinations } from './components/Hooks/useCombinations';
+import { useFullSession } from 'vtex.session-client'
+import { Layout, PageBlock, Spinner } from 'vtex.styleguide'
+
+
 
 const ProductCombination: FC = () => {
 
-  const productContext = useProduct()
+    console.log('Renderizou')
 
-useEffect(() => {
-  
-  if (!productContext) return 
+    const productContext = useProduct()
+    const [combinations, setCombinations] = useState([])
+    const [loading, setLoading] = useState(true)
 
-}, [productContext.selectedItem])
+    const { loading: loadingAuth, data: dataAuth } =  useFullSession()
 
 
-const skuItems = `${productContext.product.items.map(item => item.itemId)}`
+    const handlerGetCombination = (async() =>{
+ 
+        const {data:combinationData,loading:loadinngCombination,error:combinationE} = await useCombinations(dataAuth,productContext.selectedItem.itemId)
+         setCombinations(combinationData);
+         setLoading(loadinngCombination)
+         
+       })
+    
 
-let arr = [{combination:"40,56,38"}]
+    //console.log('ProductContextSelectedItem',productContext.selectedItem)
 
-//return  <Combo combinations={arr} />
+       // useEffect(() => {
 
+    // if (!productContext) return 
+
+    // }, [productContext.selectedItem])
+
+       useEffect(() => {
+        if(!loadingAuth && loading ){
+
+            handlerGetCombination()
+        }
+
+      },[loadingAuth])
+
+        
+    if (loading || loadingAuth) {
+        return (
+          <Spinner color="#f71964" />
+        )
+      }   
+     return (
+        <>
+          <Layout>           
+           <h1>Ola $NomeCliente|Null. Será que estas combinações te animam ? Olha o que preparamos pra você! </h1>
+              <div>
+                {combinations ? (
+                  <>
+                    {combinations?.length > 0 && (
+                      <ComboInProductDetail combinations={combinations} />
+                    )}
+                  </>
+                ) : (
+                  <Spinner color="#f71964" />
+                )}
+              </div>
+          </Layout>
+        </>
+      )
+    
+
+
+//const skuItems = `${productContext.product.items.map(item => item.itemId)}`
 //return (<>{skuItems + '->' + productContext.selectedItem.itemId }</>)
 
 
