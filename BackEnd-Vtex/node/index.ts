@@ -1,4 +1,4 @@
-import type { ClientsConfig, ServiceContext, EventContext, RecorderState } from '@vtex/api'
+import { ClientsConfig, ServiceContext, EventContext, RecorderState, LRUCache } from '@vtex/api'
 import { method, Service } from '@vtex/api'
 
 import { Clients } from './clients'
@@ -14,7 +14,14 @@ import { combinationByCombinationId } from './middlewares/combinationByCombinati
 
 
 const TIMEOUT_MS = 360000
-
+const memoryCache = new LRUCache<string, any>({ max: 10 })
+const SettingsCache = new LRUCache<string, any>({ max: 10 })
+const BudgetCache = new LRUCache<string, any>({
+  max: 10,
+})
+metrics.trackCache('status', memoryCache)
+metrics.trackCache('settings', SettingsCache)
+metrics.trackCache('BU', BudgetCache)
 const clients: ClientsConfig<Clients> = {
   implementation: Clients,
   options: {
@@ -22,7 +29,14 @@ const clients: ClientsConfig<Clients> = {
       retries: 2,
       timeout: TIMEOUT_MS,
     },
+    combination: {
+      memoryCache,
+    },
+    status: {
+      memoryCache,
+    },
   },
+
 }
 
 declare global {

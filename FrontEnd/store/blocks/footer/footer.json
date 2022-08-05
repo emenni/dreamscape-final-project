@@ -25,7 +25,6 @@
       "paddingBottom": 3
     }
   },
-
   "flex-layout.col#footer-icons": {
     "children": [
       "social-networks",
@@ -33,7 +32,6 @@
       "flex-layout.row#footer-2-desktop"
     ]
   },
-
   "social-networks": {
     "props": {
       "socialNetworks": [
@@ -88,30 +86,38 @@
       "blockClass": "footer"
     }
   },
+  "image#hiring": {
+    "props": {
+      "src": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/0a35e21a-da34-4e72-959e-b07c1b9d46e8___5d1bbb78b8b2de0d5cc559ee62970afe.png",
+      "blockClass": "logo-footer"
+    }
+  },
   "footer-layout.mobile": {
     "children": [
-      "flex-layout.col#1-footer-mobile",
-      "flex-layout.col#2-footer-mobile",
-      "flex-layout.col#3-footer-mobile"
+      "flex-layout.row#1-footer-mobile",
+      "flex-layout.row#2-footer-mobile",
+      "flex-layout.row#3-footer-mobile"
     ]
   },
-  "flex-layout.col#3-footer-mobile": {
+  "flex-layout.row#2-footer-mobile": {
     "children": [
-      "rich-text#footer-mobile"
-    ]
+      "flex-layout.row#footer-1-mobile"
+    ],
+    "props": {
+      "blockClass": "footer"
+    }
   },
-  "flex-layout.col#2-footer-mobile": {
+  "flex-layout.row#footer-1-mobile": {
     "children": [
       "social-networks",
       "accepted-payment-methods",
-      "flex-layout.row#footer-mobile"
+      "image#hiring-mobile"
     ],
     "props": {
-      "blockClass": "payment-methods",
-      "colGap": 4
+      "blockClass": "payment-methods"
     }
   },
-  "flex-layout.col#1-footer-mobile": {
+  "flex-layout.row#1-footer-mobile": {
     "props": {
       "paddingTop": 4,
       "paddingBottom": 4
@@ -123,27 +129,18 @@
   "rich-text#footer-mobile": {
     "props": {
       "text": "© 2022 All Rights Reserved | Desenvolvido por | [Equipe Dreamscape](https://github.com/emenni/dreamscape-final-project)",
-      "textPosition": "CENTER",
       "blockClass": "footer"
     }
-  },
-  "image#hiring": {
-    "props": {
-      "src": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/0a35e21a-da34-4e72-959e-b07c1b9d46e8___5d1bbb78b8b2de0d5cc559ee62970afe.png",
-      "blockClass": "logo-footer"
-    }
-  },
-  "flex-layout.row#footer-mobile": {
-    "children": [
-      "image#hiring-mobile"
-    ]
   },
   "image#hiring-mobile": {
     "props": {
       "src": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/0a35e21a-da34-4e72-959e-b07c1b9d46e8___5d1bbb78b8b2de0d5cc559ee62970afe.png",
-      "blockClass": "logo-footer-mobile1",
-      "horizontalAlign": "right",
-      "verticalAlign": "right"
+      "blockClass": "logo-footer-mobile1"
     }
+  },
+  "flex-layout.row#3-footer-mobile": {
+    "children": [
+      "rich-text#footer-mobile"
+    ]
   }
 }

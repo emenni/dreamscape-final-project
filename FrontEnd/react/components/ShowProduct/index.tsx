@@ -21,9 +21,9 @@ export function ShowProduct({ combination }) {
     <>
       {products?.productsByIdentifier && products?.productsByIdentifier.map((product: any) => {
         return (
-          <div className={style.preetieCombo}>
-            <tr key={combination?.combinationId}>
-              <a href={`https://amandateste--dreamscape.myvtex.com/${product.linkText}/p`} target='blank'>
+          <div key={ `${combination?.combinationId} ${product.productId} showProduct`} className={style.preetieCombo}>
+            <tr>
+              <a href={`/${product.linkText}/p`} target='blank'>
                 <td>
                   <img src={product.items[0].images[0].imageUrl} alt={product.items[0].images[0].imageLabel} />
                 </td>
