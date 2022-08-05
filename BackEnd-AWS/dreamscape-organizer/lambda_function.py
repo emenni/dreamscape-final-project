@@ -31,8 +31,10 @@ def products_combinations(orders_list):
         orders = list(set(orders))
         # Ordena a lista de menor para maior
         orders.sort()
+        # Seleciona o limite max de combinacao entre 5 o tamanho da lista
+        combination_limit = min(len(orders)+1, 6)
         # O combinations gera combinações de 2 itens até o tamanho da lista
-        for index in range(2, 6):
+        for index in range(2, combination_limit):
             if orders not in orders_list_unraveled:
                 orders_list_unraveled.append(list(
                     map(list, itertools.combinations(orders, index))))
