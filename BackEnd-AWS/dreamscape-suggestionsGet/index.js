@@ -50,7 +50,8 @@ exports.handler = async event => {
                 TableName: table,
                 BackwardSearch: true,
                 FilterExpression: "occurrences >= :num",
-                LastEvaluatedKey: false,
+                LastEvaluatedKey: true,
+                ScanIndexForward: false,
                 ExpressionAttributeValues: {
                     ":num": Number(querystring?.occurrencesMoreThan ?? '1'),
                 }
@@ -58,6 +59,7 @@ exports.handler = async event => {
             if(querystring['pageSize']) {
                 params.Limit = querystring['pageSize'] ?? 15
             }
+            
             if(querystring['index']){
                 params.ExclusiveStartKey = JSON.parse(querystring['index'])
             }
