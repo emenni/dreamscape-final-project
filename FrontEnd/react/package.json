@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
-    "@types/node": "^18.6.1",
-    "typescript": "3.9.7"
+    "@types/node": "^18.6.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
