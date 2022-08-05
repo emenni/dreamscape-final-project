@@ -7,31 +7,14 @@
   width: 0;
 }
 
-@media only screen and (max-width: 1025.5px) {
-    .socialNetworksContainer {
-    padding-left: 2rem;
-  } 
-
-   .acceptedPaymentMethodContainer {
-    justify-content: center;
-  } 
-
-  .footerLayout {
-    border-top: 1px solid gray;
+@media screen and (max-width: 430px) {
+  .acceptedPaymentMethodContainer, .socialNetworkWrapper{
+    max-width: 100px;
   }
 }
 
-@media only screen and (max-width: 755px) {
-  .socialNetworksContainer {
-    width: 100%;
+@media only screen and (max-width: 280px){
+  .acceptedPaymentMethodContainer, .socialNetworkWrapper{
+    max-width: 90px;
   }
-
-  .acceptedPaymentMethodContainer {
-      width: 75%;
   }
-
-  .footerLayout {
-    border-top: 1px solid gray;
-    
-  }
-}
