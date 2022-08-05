@@ -94,7 +94,6 @@
 }
 
 .container--footer {
-  /* height: 0; */
   width: 100%;
 }
 
@@ -134,6 +133,21 @@
   }
 }
 
+@media only screen and (max-width: 700px){
+  .paragraph--footer {
+    position: relative;
+    left: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 280px){
+  .strong--text-home{
+    font-size: 2rem;
+  }
+  .heading--text-home{
+    font-size: 1rem;
+  }
+  }
 .strong--text-endpoint {
   color: #141f31;
   font-size: 1.5rem;
@@ -170,11 +184,4 @@
   width: 24rem;
 }
 
-/* @media only screen and (max-width: 755px) {
-  .paragraph--footer {
-    position: relative;
-    left: 3%;
-    top: -1rem;
-    font-size: 1.2rem;
-  }
-} */
+

@@ -67,21 +67,7 @@
 }
 
 @media only screen and (max-width: 1025px) {
-  /* .newsletter--newsletter {
-    height: 15rem;
-  }
-  .form--newsletter {
-    max-width: 100%;
-  }
-  .label--newsletter {
-    font-size: 3rem;
-  }
-  .container--newsletter {
-    padding: 3rem !important;
-  }
-  .newsletter .container {
-    padding: 140px;
-  } */
+
   .label {
     font-size: 40px;
   }
@@ -96,58 +82,50 @@
     margin-bottom: 0px;
     max-height: 600px;
   }
-  .imageElement--logo-footer-mobile1 {
-    height: 2rem;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-left: 10rem;
-    /* margin-top: 35px;
-      margin-left: 72%; */
-      /* position: relative;
-      bottom: 7.5rem */
+
+  .container--footer{
+    width: 500px;
+  }
+  .imageElement--logo-footer-mobile1{
+    max-width: 100px;
   }
 }
 
-@media only screen and (max-width: 740px) {
-  .imageElement--logo-footer-mobile1 {
-    height: 2rem;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-left: 8rem;
-    /* margin-top: 35px;
-      margin-left: 72%; */
-      /* position: relative;
-      bottom: 7.5rem */
-  }
-}
 
-@media only screen and (max-width: 639px) {
+
+@media only screen and (max-width: 600px) {
   .autoCompleteOuterContainer--search-bar {
-    width: 125px;
-    margin-left: 15%;
+    margin-left:22%;
     margin-right: 20px;
   }
 
-  .imageElement--logo-footer-mobile1 {
-    height: 2rem;
-    display: flex !important;
-    /* justify-content: flex-end; */
-    margin-left: 20rem;
+  .imageElement--logo-footer-mobile1{
+    max-width: 100px;
+  }
+}
+
+
+
+@media only screen and (max-width: 500px){
+
+
+  .imageElement--image-home {
+    z-index: 2;
+    width: 60%;
   }
 
-  /* .newsletter--newsletter {
-    height: 15rem;
+  .autoCompleteOuterContainer--search-bar {
+    margin-left: 25%;
   }
-  .form--newsletter {
-    max-width: 100%;
-  }
-  .label--newsletter {
-    font-size: 2rem;
-  }
-  .container--newsletter {
-    padding: 2rem !important;
-  } */
 }
+
+@media only screen and (max-width: 280px){
+  .imageElement--logo-footer-mobile1{
+    max-width: 73px;
+    max-height: 25px;
+  }
+}
+
 .productImagesContainer--quickview .carouselContainer {
   justify-content: flex-start;
 }

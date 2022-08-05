@@ -106,3 +106,28 @@
 .flexRowContent--menu-row {
   border-top: 1px solid gray;
 }
+
+
+
+@media screen and (max-width: 1025.5px){
+  .flexRowContent--payment-methods{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .flexRowContent--payment-methods{
+    align-items: flex-end;
+    gap: 5%;
+    padding: 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 280px){
+  .flexRowContent--payment-methods{
+    align-items: center;
+  }
+  }
