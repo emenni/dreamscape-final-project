@@ -1,6 +1,8 @@
 import React from 'react'
 import { ShowProduct } from '../../ShowProduct'
 import style from '../Combo/style.css'
+import { Button } from 'vtex.styleguide'
+
 
 export const ComboInProductDetail = ({ combinations }) => {
 
@@ -23,6 +25,7 @@ export const ComboInProductDetail = ({ combinations }) => {
                 {combinations.length > 0 && (
                   <tbody>
                     <ShowProduct combination={combination} />
+                    <Button variation="secondary" size="small" href={comboLink} target='blank' >Comprar</Button>
                   </tbody>
                 )}
               </div>
