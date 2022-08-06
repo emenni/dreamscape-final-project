@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import React from 'react'
-import { Layout, PageBlock, Spinner, Pagination } from 'vtex.styleguide'
+import { Layout, PageBlock, Spinner } from 'vtex.styleguide'
 import { useFullSession } from 'vtex.session-client'
 import { Combo } from './components/Combo';
 import axios from 'axios'
@@ -10,31 +10,26 @@ const SmartSellControlPanel: FC = () => {
   const { loading: loadingAuth, data: dataAuth } = useFullSession()
   const [loading, setLoading] = useState(true)
   const [combinations, setCombinations] = useState([])
-  const [nextIndex, setNextIndex] = useState([])
-  const [prevIndex, setPrevIndex] = useState('')
-
-  const getCombinations = async (pageSize = 10, index = '') => {
+  const [combinationsToTable, setCombinationsToTable] = useState([])
+  const [totalItems, setTotalItems] = useState(0)
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1)
+ 
+  const getCombinations = async () => {
     setLoading(true)
-    try {
-      const dataSession: any = dataAuth
-      const cookie = dataSession?.session?.namespaces?.cookie.VtexIdclientAutCookie.value
-      const response = await axios.get(`/_v/combination?pageSize=${pageSize}&index=${index}`, {
-        headers: {
-          'content-type': "application/json",
-          "accept": "application/json",
-          VtexIdclientAutCookie: cookie
+    await axios.get(`/_v/combination`)
+      .then(async (response: any) => {
+        const items = await response?.data?.Items
+        if (items) {
+          setCombinations(items)
+          setCombinationsToTable(items)
+          setTotalItems(items.length)
+          setLoading(false)
         }
-      });
-      const items = await response?.data?.Items
-      if (items) {
-        setCombinations(items)
-        setNextIndex(JSON.stringify(response?.data?.LastEvaluatedKey))
+      }).catch(() => {
+        setCombinations([])
         setLoading(false)
-      }
-    } catch (error) {
-      setCombinations([])
-      setLoading(false)
-    }
+      })
   }
   useEffect(() => {
     if (!loadingAuth) {
@@ -44,45 +39,53 @@ const SmartSellControlPanel: FC = () => {
   }, [dataAuth,loadingAuth])
 
 
+  const tableRows = React.useMemo(() => {
+    setLoading(true)
+		const lastIndex = currentPage * rowsPerPage;
+    const firstIndex = parseInt((lastIndex - rowsPerPage).toString());
 
+    setLoading(false)
+    return combinationsToTable?.slice(firstIndex, lastIndex);
+	}, [currentPage, rowsPerPage, combinationsToTable]);
 
+  function handleCombinationsChange(newCombos: any = undefined) {
+    if (newCombos) {
+      setCombinationsToTable(newCombos)
+      setTotalItems(newCombos.length)
+      setLoading(false)
+      return
+    }
+    setCombinationsToTable(combinations)
+    setTotalItems(combinations.length)
+    setCurrentPage(1)
+    setLoading(false)
+    
+  }
   let textoExplicativo = "Abaixo estão listados alguns produtos identificados com alta correlação entre si (numero de vendas, idade do cliente, etc"
   return (
     <>
-      <Layout>
+      <Layout fullWidth>
         <h1>Painel de Controle para solução Smart Sell</h1>
-        <PageBlock title="Analise de Product Matching" subtitle={textoExplicativo} variation="full">
+        <PageBlock title="Analise de Product Matching" subtitle={textoExplicativo} variation="full" fullWidth>
           {(loading || loadingAuth) ? (
             <Spinner color="#f71964" />
           ) : (
             <>
               <h3>Combos mais vendidos:</h3>
               <div>
-                {combinations && (
+                {combinationsToTable && (
                   <>
-                    <Combo combinations={combinations} />
-                    <div>
-                      <button
-                        onClick={() => {
-                          prevIndex.pop();
-                          setPrevIndex(prevIndex)
-                          getCombinations(10, prevIndex[prevIndex.length - 1] ?? '')
-                        }}
-                        disabled={prevIndex.length > 0 ? false : true}
-                      >
-                        {'<'}
-                      </button> 
-                      <button
-                        onClick={() => {
-                          if (prevIndex[prevIndex.length - 1] === nextIndex) {
-                            setPrevIndex((prevState: any) => [...prevState, nextIndex])
-                          }
-                          getCombinations(10, nextIndex)
-                        }}
-                      >
-                        {'>'}
-                      </button>    
-                    </div>
+                    <Combo
+                        combinations={tableRows}
+                        currentItemFrom={(rowsPerPage * currentPage) - rowsPerPage}
+                        currentItemTo={rowsPerPage * currentPage}
+                        setRowsPerPage={setRowsPerPage}
+                        totalItems={totalItems}
+                        setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                        handleCombinationsChange={handleCombinationsChange}
+                        combinationsToSearch={combinations}
+                    />
                   </>
                 )}
               </div>
