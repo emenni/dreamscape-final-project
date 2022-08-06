@@ -20,6 +20,7 @@ export async function combinationPut(ctx: Context, next: () => Promise<any>) {
      return response.data
 
   }).catch((reason: any)=>{
+    ctx.status = reason?.response?.status
     return reason?.response?.data
   })
 

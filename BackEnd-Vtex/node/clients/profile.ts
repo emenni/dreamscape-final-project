@@ -6,11 +6,12 @@ export class Profile extends JanusClient {
       ...options,
       headers: {
         ...(options && options.headers),
-        VtexIdClientAutCookie: context.authToken,
+        VtexIdClientAutCookie: context.authToken
       },
     })
   }
-  public async getEmail(id: string): Promise<any> {
-    return this.http.get(`/api/profile-system/pvt/profiles/${id}/personalData`)
+
+  public async getUserById(token: string): Promise<any> {
+    return this.http.get(`/api/vtexid/pub/authenticated/user?authToken=${token}`)
   }
 }

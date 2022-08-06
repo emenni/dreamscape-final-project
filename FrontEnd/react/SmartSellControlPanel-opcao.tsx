@@ -10,26 +10,32 @@ const SmartSellControlPanel: FC = () => {
   const { loading: loadingAuth, data: dataAuth } = useFullSession()
   const [loading, setLoading] = useState(true)
   const [combinations, setCombinations] = useState([])
-  const [combinationsToTable, setCombinationsToTable] = useState([])
   const [totalItems, setTotalItems] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1)
  
   const getCombinations = async () => {
     setLoading(true)
-    await axios.get(`/_v/combination`)
-      .then(async (response: any) => {
-        const items = await response?.data?.Items
-        if (items) {
-          setCombinations(items)
-          setCombinationsToTable(items)
-          setTotalItems(items.length)
-          setLoading(false)
+    try {
+      const dataSession: any = dataAuth
+      const cookie = dataSession?.session?.namespaces?.cookie.VtexIdclientAutCookie.value
+      const response = await axios.get(`/_v/combination`, {
+        headers: {
+          'content-type': "application/json",
+          "accept": "application/json",
+          VtexIdclientAutCookie: cookie
         }
-      }).catch(() => {
-        setCombinations([])
+      });
+      const items = await response?.data?.Items
+      if (items) {
+        setCombinations(items)
+        setTotalItems(items.length)
         setLoading(false)
-      })
+      }
+    } catch (error) {
+      setCombinations([])
+      setLoading(false)
+    }
   }
   useEffect(() => {
     if (!loadingAuth) {
@@ -40,40 +46,26 @@ const SmartSellControlPanel: FC = () => {
 
 
   const tableRows = React.useMemo(() => {
-    setLoading(true)
 		const lastIndex = currentPage * rowsPerPage;
-    const firstIndex = parseInt((lastIndex - rowsPerPage).toString());
+    const firstIndex = lastIndex - rowsPerPage;
 
-    setLoading(false)
-    return combinationsToTable?.slice(firstIndex, lastIndex);
-	}, [currentPage, rowsPerPage, combinationsToTable]);
+    return combinations.slice(firstIndex, lastIndex);
+	}, [currentPage, rowsPerPage, combinations]);
 
-  function handleCombinationsChange(newCombos: any = undefined) {
-    if (newCombos) {
-      setCombinationsToTable(newCombos)
-      setTotalItems(newCombos.length)
-      setLoading(false)
-      return
-    }
-    setCombinationsToTable(combinations)
-    setTotalItems(combinations.length)
-    setCurrentPage(1)
-    setLoading(false)
-    
-  }
+
   let textoExplicativo = "Abaixo estão listados alguns produtos identificados com alta correlação entre si (numero de vendas, idade do cliente, etc"
   return (
     <>
-      <Layout fullWidth>
+      <Layout>
         <h1>Painel de Controle para solução Smart Sell</h1>
-        <PageBlock title="Analise de Product Matching" subtitle={textoExplicativo} variation="full" fullWidth>
+        <PageBlock title="Analise de Product Matching" subtitle={textoExplicativo} variation="full">
           {(loading || loadingAuth) ? (
             <Spinner color="#f71964" />
           ) : (
             <>
               <h3>Combos mais vendidos:</h3>
               <div>
-                {combinationsToTable && (
+                {combinations && (
                   <>
                     <Combo
                         combinations={tableRows}
@@ -83,8 +75,8 @@ const SmartSellControlPanel: FC = () => {
                         totalItems={totalItems}
                         setCurrentPage={setCurrentPage}
                         currentPage={currentPage}
-                        handleCombinationsChange={handleCombinationsChange}
-                        combinationsToSearch={combinations}
+                        handleCombinationsChange={setCombinations}
+                        combinationsToSearch={[]}
                     />
                   </>
                 )}
