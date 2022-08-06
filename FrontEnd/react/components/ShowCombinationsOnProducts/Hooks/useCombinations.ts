@@ -1,7 +1,6 @@
 import axios from 'axios'
 import combinationsObj from './combinationsObj.js'
 
-
 export const useCombinations = async (dataAuth,sku?:string) => {
   
   try {
@@ -9,17 +8,21 @@ export const useCombinations = async (dataAuth,sku?:string) => {
     const dataSession: any = dataAuth
     const cookie = dataSession?.session?.namespaces?.cookie.VtexIdclientAutCookie.value
 
-    const mock = true
+    const mock = false
 
     interface CombinationsResponse {
       combination:string;
   }
 
-    interface CombinationsResponseObj {
-      data:CombinationsResponse[];
+    interface CombinationsResponseItems {
+      Items:CombinationsResponse[];
   }
 
-    let response: CombinationsResponseObj = {data:[{combination:""}]}
+    interface CombinationsResponseObj {
+      data:CombinationsResponseItems;
+  }
+
+    let response = <CombinationsResponseObj>{data:{Items:[{combination:""}]}}
    
     if (mock) {
 
@@ -27,12 +30,13 @@ export const useCombinations = async (dataAuth,sku?:string) => {
         resolve => setTimeout(resolve, ms)
       );
       
-      await sleep(1000);
+      await sleep(100);
          console.log('mockedCombinationData',combinationsObj.data)
          response = combinationsObj
+         
       } else {
 
-        response = await axios.get('/_v/combination', {
+      response = await axios.get('/_v/combination', {
         headers: {
           'content-type': "application/json",
           "accept": "application/json",
@@ -41,23 +45,34 @@ export const useCombinations = async (dataAuth,sku?:string) => {
       })
     }
     
-    let foundCombinations 
+     let foundCombinations 
 
       if (await response) {
 
         if(sku){
-             foundCombinations = response.data.filter(record => {
+             foundCombinations = response.data.Items.filter(record => {
               const regex  = "^(" + sku + ",)|(," + sku + ",)|(," + sku + ")$|^(" + sku + ")$"
               const regexp = new RegExp(regex,'gm');
               return  record.combination.match(regexp)
           });
+
+          foundCombinations.sort((a,b) => { return a.ocurrence - b.ocurrence })
+          
+          response.data.Items = foundCombinations
+          
         }
-        
-        return {data: sku ? foundCombinations : response.data ,loading:false,error:false}
+  
+      response.data.Items.forEach((combinationObj) => {
+        combinationObj['combinationDetails'] = []
+        combinationObj.combination.split(",")?.forEach((value) => {
+        combinationObj['combinationDetails'].push({  sku: value })
+        } ) 
+      })
+        return {data: response.data.Items ,loading:false,error:false}
 
       } else{ 
         console.log('ErroGetCombination:',`No Combination Found.`)
-        return {data:"No Combination Found",loading:false,error:true}
+         return {data:[],loading:false,error:true}
 
        }
 
