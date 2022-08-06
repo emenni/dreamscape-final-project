@@ -91,8 +91,8 @@
       "drawer",
       "logo#mobile",
       "flex-layout.col#spacer",
-      "search-bar",
       "login",
+     
       "minicart.v2"
     ],
     "props": {
@@ -114,6 +114,7 @@
 
   "menu#drawer": {
     "children": [
+      "search-bar",
       "menu-item#vestuario-mobile-header",
       "menu-item#acessorio-mobile-header"
     ],
