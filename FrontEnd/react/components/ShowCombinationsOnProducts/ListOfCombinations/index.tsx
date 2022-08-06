@@ -2,6 +2,7 @@ import React from 'react'
 import { ProductDetail } from '../ProductDetail'
 import style from './style.css'
 import { Button } from 'vtex.styleguide'
+import ShoppingCart from '@vtex/styleguide/lib/icon/ShoppingCart'
 import { SKUDetail } from '../SKUDetail'
 
 export const ListOfCombinations = ({ combinations }) => {
@@ -17,25 +18,30 @@ export const ListOfCombinations = ({ combinations }) => {
 
 
         return (
-          <div className={style.combo}>
-            <div key={combination.combinationId + ' div'} className={style.combo}>
-              <table>
-                <div className={style.showProduct}>
+          <div  
+            key={combination.combinationId + ' div'} 
+            className={style.combosContent}
+          >
+            <div className={style.combo}>
+              <table>              
                   {combinations.length === 0 && (
                     <>Carregando...</>
                   )}
                   {combinations.length > 0 && (
                     <tbody>
 
-                      {combination.combinationDetails.map((valor) => { return ( <SKUDetail sku={valor.sku} /> )})}
+                      {/* {combination.combinationDetails.map((valor) => { return ( <SKUDetail sku={valor.sku} /> )})} */}
                       
                       {<ProductDetail combination={combination} />}
-                
-                      <Button variation="secondary" size="small" href={comboLink} target='blank' >Comprar</Button>
+                              
                     </tbody>
-                  )}
-                </div>
+                  )}            
               </table>
+            </div>
+            <div className={style.bt}>
+              <Button variation="primary" size="small" href={comboLink} >
+                <ShoppingCart />
+              </Button>
             </div>
           </div>
         )

@@ -23,7 +23,7 @@ if ((data?.inventoryProduct?.quantity - data?.inventoryProduct?.reservedQuantity
           <div key={ `${data?.inventoryProduct?.id} ${data?.inventoryProduct?.CatalogProduct?.id} SKUDetail`} className={style.preetieCombo}>
             <tr>
                 <td>
-                <span>{'PRODUTO ESGOTADO'}</span>
+                {/* <span>{'PRODUTO ESGOTADO'}</span> */}
                 </td>
               </tr>
           </div>

@@ -19,28 +19,26 @@ export function ProductDetail({ combination }) {
   return (
     <>
       {products?.productsByIdentifier && products?.productsByIdentifier.map((product: any) => {
-        return (
-          <div key={ `${combination?.combinationId} ${product.productId} showProduct`} className={style.preetieCombo}>
-              <a href={`/${product.linkText}/p`} target='blank'>
-            <tr>
+        return (            
+            <tr 
+            onClick={() => {window.open(`/${product.linkText}/p`)}} 
+            target='blank' 
+            key={ `${combination?.combinationId} ${product.productId} showProduct`} 
+            className={style.preetieCombo}>
                 <td>
-                  <img src={product.items[0].images[0].imageUrl} alt={product.items[0].images[0].imageLabel} />
+                  <img 
+                    src={product.items[0].images[0].imageUrl} 
+                    alt={product.items[0].images[0].imageLabel}
+                    width="54" 
+                    height="54" 
+                  />
                 </td>
-                <td>
+                <td valign="top">
                   <span>{product.productName}</span>
-                </td>
-                <td>
-                  <span>{'ID: ' + product.productId}</span>
-                </td>
-                <td>
-                  <span>{'OCCURRENCES: ' + combination.occurrences}</span>
-                </td>
+                </td>            
                 <td>
                 </td>
-            </tr>
-              </a>
-
-          </div>
+            </tr>              
         )
       })}
     </>
