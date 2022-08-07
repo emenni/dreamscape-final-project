@@ -31,13 +31,13 @@
  <img src="https://img.shields.io/static/v1?label=&message=HTML&color=blue">
  <img src="https://img.shields.io/static/v1?label=&message=CSS&color=orange">
  <img src="https://img.shields.io/static/v1?label=&message=JAVASCRIPT &color=green">
- <img src="https://img.shields.io/badge/-TypeScript-/?style=flat&color=3178c6">
+ <img src="https://img.shields.io/badge/-TYPESCRIPT-/?style=flat&color=3178c6">
  <img src="https://img.shields.io/static/v1?label=&message= NODE JS &color=red">
  <img src="https://img.shields.io/badge/-REACT-/?style=flat&color=20232a">
  <img src="https://img.shields.io/static/v1?label=&message=VTEX IO&color=deeppink">
  <img src="https://img.shields.io/static/v1?label=&message=AWS SERVICES&color=orange">
- <img src="https://img.shields.io/badge/-GraphQL-/?style=flat&color=e00097">
- <img src="https://img.shields.io/badge/-Python-/?style=flat&color=1e415e">
+ <img src="https://img.shields.io/badge/-GRAPHQL-/?style=flat&color=e00097">
+ <img src="https://img.shields.io/badge/-PYTHON-/?style=flat&color=1e415e">
 </div>
 
 <hr>
@@ -59,12 +59,11 @@
 
 <hr>
 
-:small_blue_diamond: [Desafio Final](#-desafio-final-)<br>
-
 <!--SUMARIO-->
 ### Sumário
-:small_blue_diamond: [Desafio Final](#-desafio-final-)<br>
-:small_blue_diamond: [Cenário](#cenário)<br>
+
+:small_blue_diamond: [Desafio Final](#-desafio-final---)<br>
+:small_blue_diamond: [Cenário](#cenário-)<br>
 :small_blue_diamond: [Objetivo](#objetivo)<br>
 :small_blue_diamond: [Projeto](#--projeto-)<br>
 :small_blue_diamond: [Meios de Comunicação](#meios-de-comunicação)<br>
@@ -90,9 +89,13 @@
 <hr>
 
 <!--DESAFIO FINAL-->
-<h2 style="color: #ff6865" align="center">💥 Desafio Final 💥</h2>
+<h2 style="color: #ff6865" align="center">💥 Desafio Final 💥 
+ <a href=#sum%C3%A1rio><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a>
+</h2>
 
-### Cenário
+
+### Cenário [<img width="20px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/>](#sum%C3%A1rio)
+
 João é dono de uma loja que vende roupas e acessórios.
 * A loja possui uma grande base de pedidos, que em sua maioria possui apenas 2 itens;
 * João quer sugerir produtos que sejam comuns na compra;
@@ -107,7 +110,7 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 <hr>
 
 <!--PROJETO-->
-<h2 style="color: #ff6865" align="center">💻  Projeto 💻</h2>
+<h2 style="color: #ff6865" align="center">💻 Projeto 💻</h2>
 
 ### Meios de Comunicação
 * **Gather:** comunicação síncrona - ambiente de comunicação por de áudio e vídeo.
