@@ -8,7 +8,7 @@ export const useCombinations = async (dataAuth,sku?:string) => {
     const dataSession: any = dataAuth
     const cookie = dataSession?.session?.namespaces?.cookie.VtexIdclientAutCookie.value
 
-    const mock = false
+    const mock = true
 
     interface CombinationsResponse {
       combination:string;

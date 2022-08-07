@@ -45,9 +45,12 @@ const ProductCombination: FC = () => {
           {
         return   <>
               <Layout>           
-                <div>
+                <div style={{
+                  padding: "1rem",
+                  border: "none"
+                }}>
                     <PageBlock title="" variation="full">  
-                      <h1> Ola, Veja as combinações que separamos pra você: </h1>
+                      <h1> Separamos essas combinações para você: </h1>
                     <ListOfCombinations combinations={combinations} />
                   </PageBlock>
                 </div>
