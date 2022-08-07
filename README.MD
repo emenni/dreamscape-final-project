@@ -1,311 +1,319 @@
-
-# 💻 Projeto
-
-
-
-Projeto de E-commerce desenvolvido pela casa Dreamscape para o Hiring Coders edição 3 da VTEX e Gama Academy.
-
-Dreamscape Store é um e-commerce funcional e responsivo, conta com sistema de sugestões personalidas para que os clientes recebam sugestões dos produtos mais vendidos e que combinam com a compra atual deles.
-
-
-<h1 align="center">
-    <img alt="Capa do Projeto" title="Projeto" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/capa.png" />
-</h1>
-
-
-<h1 align="center">
-    <img alt="Capa do Projeto Responsivo" title="Projeto responsivo" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/responsivo-iphone.png" />
-</h1>
-
-
-
-
-Link da Aplicação: 
-
-
-
-## Arquitetura
-
-<h1 align="center">
-    <img alt="Arquitetura do Projeto" title="Arquitetura" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/arquitetura.png" />
-</h1>
-
-# Fluxograma
-
-
-<h1 align="center">
-    <img alt="Fluxograma do Projeto 1" title="Fluxograma1" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/fluxograma1.png" />
-</h1>
-
-
-<h1 align="center">
-    <img alt="Fluxograma do Projeto 2" title="Fluxograma2" src="https://github.com/emenni/dreamscape-final-project/blob/master/FrontEnd/assets/fluxograma2.png" />
-</h1>
-
-
-## 🛠 Tecnologias Usadas :heart_eyes:
-
-- HTML
-- CSS
-- Typescript
-- Javascript
-- REACT
-- VTEX
-- AWS
-- Python
-- Shell
-- Graphql
-
-
-### Organização do Projeto
-
-Whimsical: 
-
-https://whimsical.com/desafio-final-1-2-G6KkDw9UqBjTnHHFz9F34R 
-
-https://whimsical.com/desafio-final-2-2-HeXt1t7JF55pRRWapQK78m 
-
-
-## APIS DA VTEX
-
-
-
-## APIS DA AWS
-
-1. Get All Combinations
-
-```
-Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion
-
-Método: GET
-
-headers: {
-
-“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
-
-“Content-Type”: “application/json”
-
-}
-```
-
-2. Get One Combination
-
-```
-combination exemplo: ‘1,2,3,4’
-
-Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion/{{combination}}
-
-Método: GET
-
-headers: {
-
-“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
-
-“Content-Type”: “application/json”
-
-}
-```
-
-
-3. Get One Combination by CombinationId
-
-```
-combination exemplo: ‘1,2,3,4’
-
-combinationId exemplo: ‘123e4567-e89b-12d3-a456-426655440000’
-
-Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion/{{combination}}/{{combinationId}}
-
-Método: GET
-
-headers: {
-
-“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
-
-“Content-Type”: “application/json”
-
-}
-```
-
-4. Post new combination
-
-```
-Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion
-
-Método: POST
-
-headers: {
-
-“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
-
-“Content-Type”: “application/json”
-
-}
-
-Body: 
-
-{
-
-                combination: "1,5,9,2", (SkuId dos produtos no pedido formato string)
-
-                orderDate: “YYYY-mm-dd” (formato - “2022-01-20”),
-
-                occurrences: 1, (number) (opcional)
-
-                showInShop: true, (boolean) (opcional)
-
-},
-
-```
-
-5. Post New Skus to combinate
-
-```
-Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion/organizer
-
-Método: POST
-
-headers: {
-
-“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
-
-“Content-Type”: “application/json”
-
-}
-
-Body: 
-
-[
-    {
-
-    “items”: [
-
-          [“1”,”2”], 
-
-          [“1”,”2”,“3”,”6”,“5”],
-
-          [“4”,”3”], 
-
-          [“20”,”30”,“45”,”68”],
-
-          [“189”,”122”,“89”],
-
-          [“7”,”5”]
-
-    ], (Array com Arrays de SkuId no formato string)
-
-    “orderDate”: “YYYY-mm-dd” (formato - “2022-01-20”)
-
-    }
-],
-
-```
-
-6. Put update combination by CombinationId
-
-```
-combination exemplo: ‘1,2,3,4’
-
-combinationId exemplo: ‘123e4567-e89b-12d3-a456-426655440000’
-
-Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion/{{combination}}/{{combinationId}}
-
-Método: POST
-
-headers: {
-
-“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
-
-“Content-Type”: “application/json”
-
-}
-
-Body: 
-
-{
-
-“occurrences”: 1 (number) (opcional)
-
-“showInShop”: true (boolean) (opcional)
-
-}
-
-```
-
-7. Delete combination by CombinationId
-
-```
-combination exemplo: ‘1,2,3,4’
-
-combinationId exemplo: ‘123e4567-e89b-12d3-a456-426655440000’
-
-Rota: https://2zxs9i4im3.execute-api.us-east-1.amazonaws.com/v1/suggestion/{{combination}}/{{combinationId}}
-
-Método: DELETE
-
-headers: {
-
-“Authorization:” “token da sessão vtex (VtexIdclientAutCookie)”,
-
-“Content-Type”: “application/json”
-
-}
-```
-
-
-
-
-
-
-### Como Utilizar esse Projeto
-
-1. Faça o Clone do Projeto
-
-```
-git clone git@github.com:emenni/dreamscape-final-project.git
-```
-
-2. Fazer Login na Vtex
-
-```
-vtex login AccountName
-```
-
-OBS: No Lugar do **AccountName** colocar o nome da sua conta vtex
-
-3. Depois de Logar em seu workspace, rode o Comando vtex setup na pasta react-front e na pasta react
-
-```
-vtex setup
-```
-
-4.Use o Vtex Link na pasta raiz e na pasta react-front, para conectar seu código a sua loja
-
-```
-vtex link
-```
-
-
-# 📝 Licença
-
-Esse projeto foi desenvolvido por:
-
-[Alessia Casado](https://www.linkedin.com/in/alessia-casado/)
-
-[Amanda Almeida](https://www.linkedin.com/in/amanda-almeida-bab4541ab/)
-
-[Arthur Candido](https://www.linkedin.com/in/arthurcandido/)
-
-[Alberto Rebello](https://www.linkedin.com/in/albertorebello/)
-
-[Ciro Carvalho](https://www.linkedin.com/in/cirocj/)
-
-[Michel Negrão](https://www.linkedin.com/in/michelnegrao/)
-
-[Phelipe Lima](https://www.linkedin.com/in/phenogueira/)
-
-[Thiago Feitoza](https://www.linkedin.com/in/tiago-feitoza-oliveira/)
-
-[Victor Evangelista](https://www.linkedin.com/in/victor-cesar-dos-evangelista-a440aa230/)
-
-[Vinicius Lima](https://www.linkedin.com/in/marcos-vinicius-lima/)
+<!--BANNER-->
+<img src="https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/923aab7b-457b-4a72-90f9-b4641f810fc2___ffe6b2b6cf146ec503007dc90e070d76.png"/>
+
+<!--IDEALIZADORES E REALIZADORES-->
+<div style="padding:5px 50px" align="center">
+<br><b>Idealizadores:</b><br>
+ <a href="https://community.vtex.com/">
+  <img src="https://user-images.githubusercontent.com/104858887/183300217-6a364880-ce71-4d4b-8ac5-50011c718542.svg" height="35px"/></a><span> &nbsp; &nbsp; </span>
+ <a href="https://www.hiringcoders.com.br/">
+  <img src="https://user-images.githubusercontent.com/104858887/183249767-d2244bdb-c7ec-4b1b-bfab-fd0f42245cc7.svg" height="30px"/></a><span> &nbsp; &nbsp; </span>
+ <a href="https://app.gama.academy/">
+  <img src="https://user-images.githubusercontent.com/104858887/183249770-1b021f8d-4256-4152-b469-164dd036347f.png" height="35px"/></a>
+</div>
+
+<!--PATROCINADORES-->
+<div style="padding:5px 50px" align="center">
+<br><b>Patrocinadores:</b><br>
+ <a href="https://app.gama.academy/">
+  <img src="https://user-images.githubusercontent.com/104858887/183286948-48da9e6a-2304-4e14-b3b0-ca171e7e75e1.png" height="35px"/></a><span> &nbsp; &nbsp; </span>
+ <a href="https://app.gama.academy/">
+  <img src="https://user-images.githubusercontent.com/104858887/183286990-a09d3a4e-b06b-479e-9b4d-58c3e1ea48ca.svg" height="20px"/></a><span> &nbsp; &nbsp; </span>
+ <a href="https://app.gama.academy/">
+  <img src="https://user-images.githubusercontent.com/104858887/183301347-95cc267c-687b-474b-b768-595ba4696f04.svg" height="25px"/></a>
+</div>
+
+<!--TECNOLOGIAS-->
+<div style="padding:5px 50px" align="center">
+<br><b>Tecnologias:</b><br>
+ <img src="https://img.shields.io/static/v1?label=&message=VS CODE&color=red">
+ 
+ <img src="https://img.shields.io/badge/-GraphQL-e02da6/static/v1?label">
+ <img src="https://img.shields.io/badge/-GraphQL-4adaf0/static/v1?label">
+ <img src="">
+ <img src="">
+ <img src="">
+ <img src="https://img.shields.io/static/v1?label=&message=GIT&color=blueviolet">
+ <img src="https://img.shields.io/static/v1?label=&message=HTML&color=blue">
+ <img src="https://img.shields.io/static/v1?label=&message=CSS&color=orange">
+ <img src="https://img.shields.io/static/v1?label=&message=JAVASCRIPT &color=green">
+ <img src="https://img.shields.io/static/v1?label=&message= NODE JS &color=red">
+ <img src="https://img.shields.io/static/v1?label=&message=VTEX IO&color=deeppink">
+ <img src="https://img.shields.io/static/v1?label=&message=AWS SERVICES&color=orange">
+</div>
+
+<hr>
+
+<!--EQUIPE-->
+<h2 style="color: Cyan" align="center">Hiring Coders #3</h1>
+<h3 style="color: Cyan">Equipe DreamScape </h3>
+
+>🔸 [Alberto Rebello](https://www.linkedin.com/in/albertorebello/)</br>
+🔸 [Alessia Casado](https://www.linkedin.com/in/alessia-casado/)</br>
+🔸 [Amanda Almeida](https://www.linkedin.com/in/amanda-almeida-bab4541ab/)</br>
+🔸 [Arthur Candido](https://www.linkedin.com/in/arthurcandido/)</br>
+🔸 [Ciro Carvalho](https://www.linkedin.com/in/cirocj/)</br>
+🔸 [Michel Negrão](https://www.linkedin.com/in/michelnegrao/)</br>
+🔸 [Phelipe Lima](https://www.linkedin.com/in/phenogueira/)</br>
+🔸 [Tiago Feitoza](https://www.linkedin.com/in/tiago-feitoza-oliveira/)</br>
+🔸 [Victor Evangelista](https://www.linkedin.com/in/victor-cesar-dos-evangelista-a440aa230/)</br>
+🔸 [Vinicius Lima](https://www.linkedin.com/in/marcos-vinicius-lima/)</br>
+
+<hr>
+
+<!--SUMARIO-->
+### Sumário
+> :small_blue_diamond: [Cenário](#cenário)<br>
+:small_blue_diamond: [Organização das Tarefas](#organização-das-tarefas)<br>
+:small_blue_diamond: [Pré-requisitos de Uso](#pré-requisitos)<br>
+:small_blue_diamond: [Instruções de Uso](#instruções-de-uso)<br>
+:small_blue_diamond: [Agradecimentos](#agradecimentos)<br>
+
+<hr>
+
+<!--DESAFIO FINAL-->
+<h2 style="color: #ff6865" align="center">💥 Desafio Final 💥</h2>
+
+### Cenário
+João é dono de uma loja que vende roupas e acessórios.
+* A loja possui uma grande base de pedidos, que em sua maioria possui apenas 2 itens;
+* João quer sugerir produtos que sejam comuns na compra;
+* A combinação deve permitir a mudança do carrinho de compras para que não seja enquadrado como venda casada;
+
+Atualmente João entra no OMS da VTEX e navega nos pedidos para entender o perfil de compra dos consumidores, em alguns dos casos ele percebeu que a calça jeans e camiseta branca é um combinação comum e por isso resolveu montar uma sugestão de venda.
+* A sugestão de venda fez com que o consumidor já inicie o carrinho com os itens da combinção, agilizando a compra e criando oportunidade para que o comprador adicione mais itens ao carrinho.
+
+### Objetivo
+Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, <b>sugestões de itens combinados com base no histórico de vendas da loja.</b>
+
+<hr>
+
+<!--PROJETO-->
+<h2 style="color: #ff6865" align="center">💻  Projeto 💻</h2>
+
+### Meios de Comunicação
+* **Gather:** comunicação sincrona - ambiente de comunicação por de áudio e vídeo.
+* **Slack:** comunicação assíncrona - ambiente de recados.
+* **Whimsical:** quadro branco - ambiente de planejamento e organzação de tarefas.
+<br>
+
+### Organização das Tarefas
+* [WHISCAL - Workspace (Link)](https://whimsical.com/desafio-final-1-2-G6KkDw9UqBjTnHHFz9F34R)
+    - Resumos;
+    - Lista de Tarefas;
+    - Fluxograma de Desenvolvimento;
+    - Arquitetura do Projeto;
+    - Geração e Distribuição de Tarefas;
+    - Materiais de Referência;
+    - Quadro de Dúvidas;
+    - Quadro de Comunicação;
+    - Datas Importantes;
+    - Links Importantes;
+    - Documentação de Uso.
+
+### Fluxo de Desenvolvimento (Estratégico)
+- Desenvolvimento de um workspace VTEX IO funcional;
+- Construção de um tema próprio e responsivo;
+- Criação de SKUs;
+- Leitura do histórico de vendas da loja;
+- Monitoramento de novas vendas;
+- Processamento de combinações de SKUs vendidas;
+- Armazenamento de dados processados na AWS;
+- Disponibilização das combinações para a provação do lojista (Administrativo da Loja);
+- Disponibilização das combinações aprovadas para os consumidores (Página de Produto).
+
+### Extras
+* Criação de ferramentas de automação para melhorar a integração das sugestões de combinação com outras ferramentas da VTEX:
+    - Automação da criação de URL de Carrinho;
+    - <s>Automação da criação de Promoções;</s>
+    - <s>Automação da criação de Kit Look.</s>
+
+<hr>
+<h2 style="color: #ff6865" align="center">🎨 Front-End 🎨</h2>
+
+##### Administrativo da Loja (Gestão de Combinações)
+Apresentação da lista de combinações atualizada e ordanada pelo maior número de ocorrências.
+
+* **Renderização de detalhes das SKUs que compõem cada combinação:**
+    - Imagem do produto;
+    - Nome do produto;
+    - Total de ocorrências da combinação;
+    - Status (ativo ou inativo).
+<br>
+* **Ferramentas:**
+    - Opção de seleção do total de combinações que devem aparecer por página;
+    - Botões para avançar e recuar páginas;
+    - Botão para alternar o status de apresentação de cada combinação (ativo ou inativo);
+    - Menu para deletar combinações;
+    - Menu para ocultar colunas.
+    - Campo para buscar combinações por nome ou ID da SKU.
+     
+
+##### Página de produto (Experiência de Compra)
+* **Disponibilização das combinações aprovadas para os clientes;**
+    - Na página de cada produto são apresentadas sugestões de combinações aprovadas pelo lojista e que tenham estoque disponível;
+    - O consumidor pode iteragir com as sugestões adicionando combinações ao carrinho;
+    - No carrinho o consumidor pode remover SKUs da combinações.
+
+<hr>
+
+<!--BACKEND E BANCO DE DADOS-->
+<h2 style="color: #ff6865" align="center">🦾 Back-End e Banco de Dados 💾</h2>
+
+<h3 style="color:cyan">DREAMSCAPE<h3/>
+##### APP/API <code>(dreamscape.backendapi@0.x)</code>
+* Aplicativo criado pela equipe DreamScape para conectar o Workspace da VTEX IO com o Back-End e o Banco de Dados na AWS.
+<h3 align="center">***</h3>
+<h3 style="color:rgb(247,25,99)">VTEX IO</h3>
+##### APIs implementadas no projeto
+- Master Data V2 (Data Entities) - xxxx ...usado para... xxxx
+- Orders Feed V3 (Get Order) - xxxx ...usado para... xxxx
+- Orders Broadcast (OrderID) - xxxx ...usado para... xxxx
+<h3 align="center">***</h3>
+<h3 style="color:#ec7211">AWS</h3>
+##### DynamoDB AWS
+* Banco de dados não relacional, criado para o armazenamento das combinações processadas, que são consumidas pelo Administrativo da Loja e pela Página de Produto.
+##### API Gateway
+* Construido para funcionar como router para o Lambda Functions.
+##### Lambda Functions
+* Usado para implementar funções de CRUD que interagem com o banco de dados DynamoDB (processamento, consulta e edição de dados).
+
+* **Função de Processamento de Dados:**
+    - Recebe o histórico de ordens e novas ordens;
+        - Para cada ordem, verfica se a ordem foi paga e contem mais de uma sku:
+        - Processa todas as possíveis combinações de itens(SKUs) dentro de cada ordem;
+        - Soma o total de ocorrências de cada combinação processada;
+        - Verifica se a combinação já existe no banco de dados DynamoDB:
+            * Se a combinação já existir, atualiza a data de criação e o total de ocorrências no DynamoDB;
+            * Se a combinação não existir, grava a nova combinação no DynamoBD com os seguintes campos:
+            ```combination: number[] (secondary Key)
+    	       paymentDate: date
+               createDate: date
+               occurrences: number
+               showInShop(default: false): boolean```            
+    - Consulta de combinações: 
+        - Lista Completa;        
+        - Lista Parcial - passando o valor mínimo de ocorrências;
+        - Item - passando o skuID dos itens da combinação e o Uuid da combinação;
+    - Adição do total de ocorrências;
+        - Item;
+    - Adição de combinações:
+        - Item;
+        - Lista de Itens;
+    - Exclusão de combinação:
+        - Item;
+        [?] Todos os Itens.
+
+<hr>
+
+<!--MANUAL DE USO-->
+<h2 style="color: #ff6865" align="center">📕 Instruções de Uso 📕</h2>
+
+#### Organização de arquivos
+- Pasta Raiz com xxx.
+- Pasta BackEnd com xxx.
+- Pasta FrontEnd com xxx.
+
+#### Pré-Requisitos
+- Ter uma conta VTEX IO
+- Ter instalado:
+    - Git
+    - Node.js;    
+    - VTEX Toolbelt.
+
+#### Documentação de Uso
+##### Sistema de Sugestões - Administrador
+- Clone o projeto github para uma máquina local;  
+  `$ git clone https://github.com/emenni/dreamscape-final-project/`
+- Abra o terminal de comandos de sua preferência
+- Dentro do terminal acesse a raiz da pasta do projeto baixado
+  - Faça o login na sua conta VTEX:
+  `$ vtex login`
+  Obs.: uma página de login deve abrir no seu navegador padrão, entrar com os dados de login e senha da sua conta VTEX
+  - Acesse o seu workspace:
+  `$ vtex use <workspace-name>`
+  - Caso esteja criando um novo workspace, confirme a criação:
+  Digite `y` e pressione a tecla `Enter`
+  - Acesse a raiz da pasta `BackEnd` e execute o comando:
+   `$ vtex link`
+  - Acesse a raiz da pasta `FrontEnd` e execute o comando:
+   `$ vtex link`
+  - Obs.: se tudo ocorreu certo, o endereço web do seu workspace será impresso no console do terminal.
+- Acesse a página do seu workspace pelo seu navegador;
+- Crie uma conta para acessar a loja;
+- Faça o login;
+- Realize uma compra com vários produtos (esse processo é genérico, não precisa de um pagamento real, uso o modo de pagamento por vale);
+- Acesse a aba `admin > promoções > smarcell`;
+- Todas as combinações possíveis devem aparecer.
+- Ative uma combinação clicando no botão `Ativar`
+##### Sistema de Sugestões - Cliente
+- Retorne para a workspace da loja, acesse a página de um dos produtos que comprou, e verifique na parte inferior da tela se foram renderizadas as combinações.
+- Clique no botão de carrinho para adicionar a combinação ao carrinho;
+- Dentro do carrinho você pode remover itens da combinação.
+
+##### APIs na AWS
+Caso queira testar chamadas na API, você pode utilizar os nossos modelos salvos, que estão disponibilizados no POSTMAN.
+
+Acesse o link:
+https://www.postman.com/dreamscape-public/workspace/dreamscape/documentation/21601187-db4de19b-c17f-4f45-9106-c9cfc1967511?entity=folder-d6103e30-aed1-473d-8853-1eaf0c5da587
+
+* Crie uma conta POSTMAN, pode ser uma versão gratuita.
+* Faça o fork do projeto;
+* Substitua a chave de atutenticação.
+* Agora basta enviar as requisições seguindo os padrãos existentes
+
+> Obs.: A exclusão total ou parcial de dados do banco de dados via chamada direta no endpoint da API não é possível.
+
+Pra excluir dados:
+* É permitido reconstruir o banco de dados usando a ferramenta ***rebase***.
+* Também é permitido excluir combinações diretamente pelo admin da loja (Produtos > Smart Sell Control Panel)
+
+Para executar o ***rebase***:
+* Acesse o Admin da Loja
+* Siga para:
+    * Configurações da Conta > Meus Aplicativos
+* Busque por:
+    * BackendApi app
+* Click no botão "Salvar"
+
+<hr>
+
+<!--AGRADECIMENTOS-->
+### Agradecimentos
+Agradecemos especiais aos:     
+- Idealizadores e Realizadores
+    - VTEX
+        - Time da VTEX
+        - Lalá
+        - Luciano Santos
+        - Natália Molena
+    - GAMA ACADEMY
+        - Time da Gama
+        - Gabi
+        - Tio Bruce
+        - Tio Fred
+        - Yellow Belts
+- Patrocinadores:
+    - ACCT
+    - Lebiscuit
+    - AWS
+- Mentores
+    - Time de Mentores das Lives
+    - Time de Mentores dos Desafios
+    - Zorza
+    - Ana ...
+- Palestrantes
+- Alunos
+
+ Agradecemos também a toda a rede de colaboração que fez o <b style=color:lightgreen>Hiring Coders #3</b> acontecer e ser um sucesso. 🎉🎊🎇🥳🎆🎈🚀
+<hr>
+
+<!--RODAPE-->
+<div align=center style="color:cyan; padding:0 10%; line-height: 1;" >
+    <b><small>Este desafio foi proposto pela VTEX em parceria com a Gama Academy durante a etapa final do Hiring Coders #3
+    <br><br>
+    🐝🐿🐘🐙🦅🦔
+    <br><br>
+    © DreamScape 2022
+    </small></b>
+</div>
