@@ -1,7 +1,7 @@
 {
   "name": "backendapi",
   "vendor": "dreamscape",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "title": "BackendApi app",
   "description": "App develop to query and change combinations using AWS API",
   "categories": [],

@@ -14,6 +14,8 @@ export async function combinationPost(ctx: Context, next: () => Promise<any>) {
     return reason?.response?.data
   })
 
+  console.log("🚀 ~ file: combinationPost.ts ~ line 16 ~ combinationPost ~ res", res)
+
 
   ctx.body = res;
 
