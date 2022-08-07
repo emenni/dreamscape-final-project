@@ -1,8 +1,8 @@
 {
   "section": "orders",
-  "titleId": "smart-sell-control-panel.navigation.label",
-  "path": "/admin/smart-sell-control-panel",
+  "titleId": "smart-suggestion.navigation.label",
+  "path": "/admin/smart-suggestion",
   
-  "searchKeyWordsHelpers": "smart-sell-control-panel.navigation.search.kws"
+  "searchKeyWordsHelpers": "smart-suggestion.navigation.search.kws"
 
 }
