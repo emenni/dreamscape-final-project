@@ -18,6 +18,7 @@ const ProductCombination: FC = () => {
     const handlerGetCombination = (async() =>{
  
         const {data:combinationData,loading:loadinngCombination,error:combinationE} = await useCombinations(dataAuth,productContext.selectedItem.itemId)
+        console.log('combiationData',combinationData)
          setCombinations(combinationData);
          setLoading(loadinngCombination)
   })

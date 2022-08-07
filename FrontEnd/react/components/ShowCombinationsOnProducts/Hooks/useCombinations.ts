@@ -1,5 +1,4 @@
 import axios from 'axios'
-import combinationsObj from './combinationsObj.js'
 
 export const useCombinations = async (dataAuth,sku?:string) => {
   
@@ -24,33 +23,8 @@ export const useCombinations = async (dataAuth,sku?:string) => {
 
     let response = <CombinationsResponseObj>{data:{Items:[{combination:""}]}}
    
-    if (mock) {
-
-      const sleep = ms => new Promise(
-        resolve => setTimeout(resolve, ms)
-      );
-      
-      await sleep(100);
-         console.log('mockedCombinationData',combinationsObj.data)
-         response = combinationsObj
-         
-      } else {
-
-      response = await axios.get('/_v/combination', {
-        headers: {
-          'content-type': "application/json",
-          "accept": "application/json",
-          VtexIdclientAutCookie: cookie
-        }
-      })
-    }
-    
-     let foundCombinations 
-
-      if (response) {
-
         if(sku){
-            
+            console.log("sku",sku)
           response = await axios.get(`/_v/combination`, {
             headers: {
               'content-type': "application/json",
@@ -58,14 +32,24 @@ export const useCombinations = async (dataAuth,sku?:string) => {
               VtexIdclientAutCookie: cookie
             },params:{ 
               skuId:sku,
-              ocurrences:1,
+             //CombinationsResponseObj>/ occurrencesMoreThan:1,
               isActive:true
             }
           })
 
-          response.data.Items = foundCombinations
-          
+       } else {
+        console.log('sem Sku')
+          response = await axios.get('/_v/combination', {
+            headers: {
+              'content-type': "application/json",
+              "accept": "application/json",
+              VtexIdclientAutCookie: cookie
+            }
+          })
         }
+    
+
+    if (response) {
   
       response.data.Items.forEach((combinationObj) => {
         combinationObj['combinationDetails'] = []
@@ -77,12 +61,11 @@ export const useCombinations = async (dataAuth,sku?:string) => {
 
       } else{ 
         console.log('ErroGetCombination:',`No Combination Found.`)
-         return {data:[],loading:false,error:true}
-
+        return {data:[],loading:false,error:true}
        }
 
     } catch (e) {
 
       console.log({  e  })
         }
-      }
+}
