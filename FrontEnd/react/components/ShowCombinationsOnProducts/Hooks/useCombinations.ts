@@ -8,7 +8,7 @@ export const useCombinations = async (dataAuth,sku?:string) => {
     const dataSession: any = dataAuth
     const cookie = dataSession?.session?.namespaces?.cookie.VtexIdclientAutCookie.value
 
-    const mock = true
+    const mock = false
 
     interface CombinationsResponse {
       combination:string;
@@ -47,17 +47,22 @@ export const useCombinations = async (dataAuth,sku?:string) => {
     
      let foundCombinations 
 
-      if (await response) {
+      if (response) {
 
         if(sku){
-             foundCombinations = response.data.Items.filter(record => {
-              const regex  = "^(" + sku + ",)|(," + sku + ",)|(," + sku + ")$|^(" + sku + ")$"
-              const regexp = new RegExp(regex,'gm');
-              return  record.combination.match(regexp)
-          });
+            
+          response = await axios.get(`/_v/combination`, {
+            headers: {
+              'content-type': "application/json",
+              "accept": "application/json",
+              VtexIdclientAutCookie: cookie
+            },params:{ 
+              skuId:sku,
+              ocurrences:1,
+              isActive:true
+            }
+          })
 
-          foundCombinations.sort((a,b) => { return a.ocurrence - b.ocurrence })
-          
           response.data.Items = foundCombinations
           
         }
