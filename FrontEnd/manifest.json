@@ -1,7 +1,7 @@
 {
   "vendor": "dreamscape",
   "name": "dreamscape",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "builders": {
     "styles": "2.x",
     "store": "0.x",
@@ -57,7 +57,11 @@
     "vtex.product-context": "0.x",
     "vtex.store-image": "0.x",
     "vtex.search": "2.x",
-    "vtex.inventory-graphql": "0.18.2"
+    "vtex.inventory-graphql": "0.x"
+  },
+  "settingsSchema": {
+    "title": "DreamscapeTheme",
+    "type": "object"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

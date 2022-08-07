@@ -63,6 +63,10 @@ exports.handler = async event => {
             if(querystring['index']){
                 params.ExclusiveStartKey = JSON.parse(querystring['index'])
             }
+            if(querystring['skuId']) { //contains(#movie_name, :movie_name)
+                params.FilterExpression += ", contains( combination, :combination)"
+                params.ExpressionAttributeValues[":combination"] = querystring['skuId']
+            }
             data = await dynamo.scan(params).promise();// get all data
         }
         

@@ -1,8 +1,8 @@
 import { ForbiddenError } from '@vtex/api'
 
 export async function validateToken(ctx: Context, next: () => Promise<any>) {
-
-  const user = await ctx.clients.profile.getUserById(ctx.vtex.adminUserAuthToken ?? '').catch((reason: any) => {
+  const authToken = ctx?.headers?.vtexidclientautcookie as string
+  const user = await ctx.clients.profile.getUserById(authToken ?? ctx.vtex.adminUserAuthToken ?? '').catch((reason: any) => {
     return reason?.response?.data
   })
 

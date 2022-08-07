@@ -27,6 +27,7 @@ export async function someStates(
       {
         headers: {
           'Cache-Control': 'no-cache, no-store, must-revalidate',
+          VtexIdClientAutCookie: ctx.vtex.authToken
         }
       }
     )
