@@ -18,7 +18,6 @@ export const Combo = ({
   handleCombinationsChange,
   combinationsToSearch
 }) => {
-  const [combos, setCombos] = React.useState(combinations)
   const [isModalOpen, setIsModalOpen] = React.useState(null)
   const [combinationIsLoading, setCombinationIsLoading] = React.useState(null)
   const [loading, setLoading] = React.useState(true)
@@ -31,38 +30,11 @@ export const Combo = ({
   const [isModalCreationOpen, setIsModalCreationOpen] = React.useState(false)
   const [checkCreateCombination, setCheckCreateCombination] = React.useState(true)
 
-  React.useEffect(() => {
-    const renderComponent = async () => {
-      let productSkusId: any = undefined
-      if (Number.isNaN(Number(searchValue))) {
-        productSkusId = await searchProductIdByName(searchValue)
-      }
-      if (searchValue.trim() !== '' && productSkusId) {
-        handleCombinationsChange(combinationsToSearch.filter((item: any) => { 
-          if (productSkusId) {
-            const findedProducts = productSkusId?.filter((skuId: any) => {
-              return item.combination.includes(skuId)
-            })
-            if (findedProducts && findedProducts?.length > 0) {
-              return item
-            }
-          }
-          
-          if (typeof hasToBeActive !== "undefined") {
-            return item.combination.includes(searchValue) && item.showInShop === hasToBeActive
-          }
-          return item.combination.includes(searchValue)
-        }))
-      }
+  React.useState(() => {
+    if (combinations) {
+      setLoading(false)
     }
-    renderComponent()
-    
-  }, [])
-
-  React.useEffect(() => {
-    setCombos(combinations)
-    setLoading(false)
-  }, [combinations])
+  },[])
 
   async function handleShowInShop(combination: any) {
     setCombinationIsLoading(combination.combinationId)
@@ -70,19 +42,21 @@ export const Combo = ({
       "showInShop": !combination.showInShop
     })
       .then(() => {
-        const newCombos = combinationsToSearch
-        const index = combinationsToSearch.findIndex((element: any) => element.combinationId === combination.combinationId)
+        const newCombos = combinations
+        const index = combinations.findIndex((element: any) => element.combinationId === combination.combinationId)
         newCombos[index] = { ...newCombos[index], showInShop: !combination.showInShop }
 
         handleCombinationsChange(newCombos)
         setCombinationIsLoading(null)
+        setLoading(false)
       }).catch(() => {
-        const newCombos = combinationsToSearch 
-        const index = combinationsToSearch.findIndex((element: any) => element.combinationId === combination.combinationId)
+        const newCombos = combinations 
+        const index = combinations.findIndex((element: any) => element.combinationId === combination.combinationId)
         newCombos[index] = { ...newCombos[index], showInShop: !combination.showInShop }
 
         handleCombinationsChange(newCombos)
         setCombinationIsLoading(null)
+        setLoading(false)
       })
   }
 
@@ -90,14 +64,10 @@ export const Combo = ({
     setCombinationIsLoading(combination.combinationId)
     await axios.delete(`/_v/combination/${combination.combination}/${combination.combinationId}/delete`)
       .then(() => {
-        const newCombos = combinations.filter((combo: any) => combo.combinationId !== combination.combinationId) 
-        setCombos(newCombos)
-        handleCombinationsChange(newCombos)
+        handleCombinationsChange(combinations.filter((combo: any) => combo.combinationId !== combination.combinationId))
         setCombinationIsLoading(null)
       }).catch(() => {
-        const newCombos = combinations.filter((combo: any) => combo.combinationId !== combination.combinationId) 
-        setCombos(newCombos)
-        handleCombinationsChange(newCombos)
+        handleCombinationsChange(combinations.filter((combo: any) => combo.combinationId !== combination.combinationId))
         setCombinationIsLoading(null)
         setIsModalOpen(null)
       })
@@ -414,14 +384,14 @@ export const Combo = ({
  }
   return (
     <div className={style.combos}>
-      {loading ? (
+      {(loading && !combinations) ? (
         <Spinner color="#f71964" />
       ) : (
         <>
           <Table
             fullWidth
             schema={customSchema}
-            items={combos}
+            items={combinations}
             loading={loading}
             lineActions={lineActions}
             toolbar={{
