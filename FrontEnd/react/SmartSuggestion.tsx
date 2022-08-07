@@ -65,7 +65,7 @@ const SmartSuggestion: FC = () => {
   return (
     <Layout fullWidth>
       <>
-        <h1>Painel de Controle para Sugestões Inteligentes</h1>
+        <h1>Painel de Controle para solução Smart Sell</h1>
         <PageBlock title="Analise de Product Matching" subtitle={textoExplicativo} variant="full" >
           {(loading || loadingAuth) ? (
             <Spinner color="#f71964" />

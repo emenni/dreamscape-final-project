@@ -68,7 +68,7 @@ exports.handler = async event => {
             }
             if(querystring['isActive']) { //contains(#movie_name, :movie_name)
                 params.FilterExpression += " AND showInShop = :showInShop"
-                params.ExpressionAttributeValues[":showInShop"] = querystring['isActive'] === "true" ? true : false
+                params.ExpressionAttributeValues[":showInShop"] = querystring['isActive']
             }
             data = await dynamo.scan(params).promise();// get all data
         }

@@ -10,13 +10,12 @@ import itertools
 
 def responseApi(status,body):
     return {
-                "statusCode": status,
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "body": body
-            }
-    
+        "statusCode": status,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": body
+    }
 
 
 def products_combinations(orders_list):
@@ -32,10 +31,8 @@ def products_combinations(orders_list):
         orders = list(set(orders))
         # Ordena a lista de menor para maior
         orders.sort()
-        # Seleciona o limite max de combinacao entre 5 o tamanho da lista
-        combination_limit = min(len(orders)+1, 6)
         # O combinations gera combinações de 2 itens até o tamanho da lista
-        for index in range(2, combination_limit):
+        for index in range(2, 6):
             if orders not in orders_list_unraveled:
                 orders_list_unraveled.append(list(
                     map(list, itertools.combinations(orders, index))))
@@ -67,10 +64,11 @@ def products_combinations(orders_list):
 
     return ranked_orders_dict
 
-def insertIntoTable(table,combination,order):
+
+def insertIntoTable(table, combination, order):
     try:
         table.put_item(
-            Item = {
+            Item={
                 'combination': ",".join(combination["ID"]),
                 'combinationId': f"{uuid.uuid4()}",
                 "orderDate": order["orderDate"],
@@ -83,6 +81,7 @@ def insertIntoTable(table,combination,order):
     except Exception as e:
         return e
 
+
 def lambda_handler(event, context):
     client = boto3.resource('dynamodb')
     table = client.Table(os.environ['TABLE'])
@@ -91,12 +90,9 @@ def lambda_handler(event, context):
     if not event['body']:
         return responseApi(400, {"message": "body is required"})
     event['body'] = json.loads(event['body'])
-    
-    if event['body'] is None:
-        return responseApi(400, {"message": "items is required"})
     if len(event['body']) <= 0:
         return responseApi(400, {"message": "items is required"})
-    
+
     for order in event['body']:
         countError = 0
         countSuccess = 0
@@ -114,7 +110,7 @@ def lambda_handler(event, context):
             countError += 1
             errors.append('No items in order')
             continue
-        
+
         combinations = products_combinations(order["items"])
         for combination in combinations:
             try:
