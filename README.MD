@@ -27,7 +27,6 @@
 <div style="padding:5px 50px" align="center">
 <br><b>Tecnologias:</b><br>
  <img src="https://img.shields.io/static/v1?label=&message=VS CODE&color=red">
- 
  <img src="https://img.shields.io/badge/-GraphQL-e02da6/static/v1?label">
  <img src="https://img.shields.io/badge/-GraphQL-4adaf0/static/v1?label">
  <img src="">
@@ -48,7 +47,7 @@
 <h2 style="color: Cyan" align="center">Hiring Coders #3</h1>
 <h3 style="color: Cyan">Equipe DreamScape </h3>
 
->🔸 [Alberto Rebello](https://www.linkedin.com/in/albertorebello/)</br>
+🔸 [Alberto Rebello](https://www.linkedin.com/in/albertorebello/)</br>
 🔸 [Alessia Casado](https://www.linkedin.com/in/alessia-casado/)</br>
 🔸 [Amanda Almeida](https://www.linkedin.com/in/amanda-almeida-bab4541ab/)</br>
 🔸 [Arthur Candido](https://www.linkedin.com/in/arthurcandido/)</br>
@@ -63,7 +62,7 @@
 
 <!--SUMARIO-->
 ### Sumário
-> :small_blue_diamond: [Cenário](#cenário)<br>
+:small_blue_diamond: [Cenário](#cenário)<br>
 :small_blue_diamond: [Organização das Tarefas](#organização-das-tarefas)<br>
 :small_blue_diamond: [Pré-requisitos de Uso](#pré-requisitos)<br>
 :small_blue_diamond: [Instruções de Uso](#instruções-de-uso)<br>
@@ -140,6 +139,7 @@ Apresentação da lista de combinações atualizada e ordanada pelo maior númer
     - Total de ocorrências da combinação;
     - Status (ativo ou inativo).
 <br>
+
 * **Ferramentas:**
     - Opção de seleção do total de combinações que devem aparecer por página;
     - Botões para avançar e recuar páginas;
@@ -161,16 +161,19 @@ Apresentação da lista de combinações atualizada e ordanada pelo maior númer
 <h2 style="color: #ff6865" align="center">🦾 Back-End e Banco de Dados 💾</h2>
 
 <h3 style="color:cyan">DREAMSCAPE<h3/>
+
 ##### APP/API <code>(dreamscape.backendapi@0.x)</code>
 * Aplicativo criado pela equipe DreamScape para conectar o Workspace da VTEX IO com o Back-End e o Banco de Dados na AWS.
 <h3 align="center">***</h3>
 <h3 style="color:rgb(247,25,99)">VTEX IO</h3>
+
 ##### APIs implementadas no projeto
 - Master Data V2 (Data Entities) - xxxx ...usado para... xxxx
 - Orders Feed V3 (Get Order) - xxxx ...usado para... xxxx
 - Orders Broadcast (OrderID) - xxxx ...usado para... xxxx
 <h3 align="center">***</h3>
 <h3 style="color:#ec7211">AWS</h3>
+
 ##### DynamoDB AWS
 * Banco de dados não relacional, criado para o armazenamento das combinações processadas, que são consumidas pelo Administrativo da Loja e pela Página de Produto.
 ##### API Gateway
@@ -186,11 +189,13 @@ Apresentação da lista de combinações atualizada e ordanada pelo maior númer
         - Verifica se a combinação já existe no banco de dados DynamoDB:
             * Se a combinação já existir, atualiza a data de criação e o total de ocorrências no DynamoDB;
             * Se a combinação não existir, grava a nova combinação no DynamoBD com os seguintes campos:
-            ```combination: number[] (secondary Key)
+            ```
+            combination: number[] (secondary Key)
     	       paymentDate: date
                createDate: date
                occurrences: number
-               showInShop(default: false): boolean```            
+               showInShop(default: false): boolean
+            ```            
     - Consulta de combinações: 
         - Lista Completa;        
         - Lista Parcial - passando o valor mínimo de ocorrências;
@@ -243,7 +248,7 @@ Apresentação da lista de combinações atualizada e ordanada pelo maior númer
 - Crie uma conta para acessar a loja;
 - Faça o login;
 - Realize uma compra com vários produtos (esse processo é genérico, não precisa de um pagamento real, uso o modo de pagamento por vale);
-- Acesse a aba `admin > promoções > smarcell`;
+- Acesse a aba `Admin > Promoções > Soluções Inteligentes`;
 - Todas as combinações possíveis devem aparecer.
 - Ative uma combinação clicando no botão `Ativar`
 ##### Sistema de Sugestões - Cliente
@@ -266,7 +271,7 @@ https://www.postman.com/dreamscape-public/workspace/dreamscape/documentation/216
 
 Pra excluir dados:
 * É permitido reconstruir o banco de dados usando a ferramenta ***rebase***.
-* Também é permitido excluir combinações diretamente pelo admin da loja (Produtos > Smart Sell Control Panel)
+* Também é permitido excluir combinações diretamente pelo admin da loja (Produtos > Sugestões Inteligentes)
 
 Para executar o ***rebase***:
 * Acesse o Admin da Loja
@@ -310,7 +315,7 @@ Agradecemos especiais aos:
 
 <!--RODAPE-->
 <div align=center style="color:cyan; padding:0 10%; line-height: 1;" >
-    <b><small>Este desafio foi proposto pela VTEX em parceria com a Gama Academy durante a etapa final do Hiring Coders #3
+    <b><small style="padding:5px 50px">Este desafio foi proposto pela VTEX em parceria com a Gama Academy durante a etapa final do Hiring Coders #3
     <br><br>
     🐝🐿🐘🐙🦅🦔
     <br><br>
