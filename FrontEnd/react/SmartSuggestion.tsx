@@ -6,7 +6,7 @@ import { Combo } from './components/Combo';
 import axios from 'axios'
 // O hook abaixo recebe via graphQL dados dos produtos da loja
 
-const SmartSellControlPanel: FC = () => {
+const SmartSuggestion: FC = () => {
   const { loading: loadingAuth, data: dataAuth } = useFullSession()
   const [loading, setLoading] = useState(true)
   const [combinations, setCombinations] = useState([])
@@ -97,4 +97,4 @@ const SmartSellControlPanel: FC = () => {
   )
 }
 
-export default SmartSellControlPanel
+export default SmartSuggestion
