@@ -20,8 +20,6 @@ export async function combinationAll(ctx: Context, next: () => Promise<any>) {
   }
   const querystring = queryObj(ctx.originalUrl)
 
-  console.log("🚀 ~ file: combinationAll.ts ~ line 22 ~ combinationAll ~ querystring", querystring)
-
   const res = await ctx.clients.combination.getCombination(``, querystring).catch((reason: any) => {
     ctx.status = reason?.response?.status
     return reason?.response?.data
