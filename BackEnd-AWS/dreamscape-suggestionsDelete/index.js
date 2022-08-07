@@ -11,19 +11,26 @@ exports.handler = async event => {
         throw new Error('No table name defined.');
     }
 
-    const { pathParameters } = normalizeEvent(event);
-
+    let data = {};
     const params = {
-        TableName: table,
-        "Key": {
-            "combination": pathParameters['combination'],
-            "combinationId": pathParameters['combinationId']
-        }
+        TableName: table
     };
 
     try {
-        await dynamo.delete(params, () => {}).promise();
-        return response(200, `Record ${pathParameters['combinationId']} has been deleted`);
+        data = await dynamo.scan(params).promise();
+        if(await data?.Items?.length > 0) {
+            data?.Items.map( async (item) => {
+                 const params = {
+                    TableName: table,
+                    "Key": {
+                        "combination": item['combination'],
+                        "combinationId": item['combinationId']
+                    }
+                };
+                await dynamo.delete(params, () => {}).promise().catch((err) => console.log(err))
+            });
+        }
+        return response(200, `Database has been restore`);
     } catch (err) {
         console.error(err);
         return response(500, 'Somenthing went wrong');

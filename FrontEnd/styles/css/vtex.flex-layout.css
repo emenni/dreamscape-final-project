@@ -2,13 +2,11 @@
 .flexRowContent--main-header {
   padding: 0 0.5rem;
 }
-
 .flexCol--product {
-  padding: 0 3rem 0 3rem;
+  padding: 3rem;
 }
 
 @media screen and (min-width: 40em) {
-
   .flexRowContent--menu-link,
   .flexRowContent--main-header {
     padding: 0 1rem;
@@ -16,7 +14,6 @@
 }
 
 @media screen and (min-width: 80rem) {
-
   .flexRowContent--menu-link,
   .flexRowContent--main-header {
     padding: 0 0.25rem;
@@ -112,8 +109,8 @@
 
 
 
-@media screen and (max-width: 1025.5px) {
-  .flexRowContent--payment-methods {
+@media screen and (max-width: 1025.5px){
+  .flexRowContent--payment-methods{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,16 +118,16 @@
   }
 }
 
-@media screen and (max-width: 600px) {
-  .flexRowContent--payment-methods {
+@media screen and (max-width: 600px){
+  .flexRowContent--payment-methods{
     align-items: flex-end;
     gap: 5%;
     padding: 0.7rem;
   }
 }
 
-@media only screen and (max-width: 280px) {
-  .flexRowContent--payment-methods {
+@media only screen and (max-width: 280px){
+  .flexRowContent--payment-methods{
     align-items: center;
   }
-}
+  }

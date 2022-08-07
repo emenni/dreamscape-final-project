@@ -5,11 +5,11 @@ const orderData = require('./cancelarPedidos.json')
 
         orderData.data.ordersExtendSearch.list.forEach(async (record) => {
 
-            if (record.status === "ready-for-handling") {
+            if (record.status === "handling") {
 
                 
                 
-                let response = await axios.post(`https://dreamscape.vtexcommercestable.com.br/api/oms/pvt/orders/${record.orderId}/start-handling`,{},
+                let response = await axios.post(`https://dreamscape.vtexcommercestable.com.br/api/oms/pvt/orders/${record.orderId}/cancel`,{},
                 
                 {
                     headers: {

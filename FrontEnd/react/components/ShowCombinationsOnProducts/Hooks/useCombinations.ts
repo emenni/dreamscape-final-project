@@ -24,7 +24,6 @@ export const useCombinations = async (dataAuth,sku?:string) => {
     let response = <CombinationsResponseObj>{data:{Items:[{combination:""}]}}
    
         if(sku){
-            console.log("sku",sku)
           response = await axios.get(`/_v/combination`, {
             headers: {
               'content-type': "application/json",
@@ -38,7 +37,6 @@ export const useCombinations = async (dataAuth,sku?:string) => {
           })
 
        } else {
-        console.log('sem Sku')
           response = await axios.get('/_v/combination', {
             headers: {
               'content-type': "application/json",

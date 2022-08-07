@@ -96,9 +96,7 @@
       "product-summary-name",
       "product-rating-inline",
       "product-summary-space",
-      "product-list-price#frontshelf",
-      "product-selling-price#frontshelf",
-      "product-installments#frontshelf",
+      "product-summary-price",
       "product-summary-buy-button"
     ]
   },
@@ -110,17 +108,12 @@
   },
   "modal-layout#quickview": {
     "children": [
-      "product-summary-name#modal",
+      "product-summary-name",
       "product-images",
       "product-summary-sku-selector",
       "product-summary-quantity",
       "add-to-cart-button"
     ]
-  },
-  "product-summary-name#modal":{
-    "props":{
-      "blockClass": "modalName"
-    }
   },
   "info-card#button-left": {
     "props": {
@@ -151,22 +144,6 @@
   "newsletter":{
     "props":{
       "blockClass": "newsletter"
-    }
-  },
-
-  "product-selling-price#frontshelf":{
-    "props":{
-      "blockClass": "frontshelf"
-    }
-  },
-  "product-list-price#frontshelf":{
-    "props":{
-      "blockClass": "frontshelf"
-    }
-  },
-  "product-installments#frontshelf":{
-    "props":{
-      "blockClass": "frontshelf"
     }
   }
 }

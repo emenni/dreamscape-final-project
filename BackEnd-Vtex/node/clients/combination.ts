@@ -24,12 +24,14 @@ export default class Combination extends ExternalClient {
   public async postCombination(combination: string, data: CombinationPostData): Promise<string> {
     return this.http.post(combination, data,{
       metric: 'combination-postCombination',
+      retries: 0
     })
   }
 
   public async postOrganizer(combination: string, data: CombinationPostOrganizerData): Promise<string> {
     return this.http.post(combination, data,{
       metric: 'combination-postOrganizer',
+      retries: 0
     })
   }
 

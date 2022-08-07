@@ -4,7 +4,7 @@ const axios = require('axios')
 exports.handler = async function(event, context, callback) { 
     // Perform authorization to return the Allow policy for correct parameters and 
     // the 'Unauthorized' error, otherwise.
-    const { headers,method } = normalizeEvent(event); 
+    const { headers } = normalizeEvent(event); 
 
      
     const authorization = headers['Authorization'] ?? headers['authorization']
@@ -19,11 +19,7 @@ exports.handler = async function(event, context, callback) {
         
         if(await userVtex) {
             if(userVtex.user){ // ACCEPT IF HAS EMAIL
-                if(method === "DELETE" && userVtex.userType !== "A" && !userVtex.user.includes(process.env.account)){
-                    callback(null, generateDeny(userVtex.user, event.routeArn));
-                }else{
-                    callback(null, generateAllow(userVtex.user, event.routeArn));
-                }
+                callback(null, generateAllow(userVtex.user, event.routeArn));
             } else {
                 callback(null, generateDeny(userVtex.user, event.routeArn));
             }
