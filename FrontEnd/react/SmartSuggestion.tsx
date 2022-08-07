@@ -97,4 +97,4 @@ const SmartSuggestion: FC = () => {
   )
 }
 
-export default SmartSellControlPanel
+export default SmartSuggestion

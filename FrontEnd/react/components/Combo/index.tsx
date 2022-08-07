@@ -42,21 +42,15 @@ export const Combo = ({
       "showInShop": !combination.showInShop
     })
       .then(() => {
-        const newCombos = combinations
-        const index = combinations.findIndex((element: any) => element.combinationId === combination.combinationId)
-        newCombos[index] = { ...newCombos[index], showInShop: !combination.showInShop }
 
-        handleCombinationsChange(newCombos)
         setCombinationIsLoading(null)
         setLoading(false)
+        location.reload()
       }).catch(() => {
-        const newCombos = combinations 
-        const index = combinations.findIndex((element: any) => element.combinationId === combination.combinationId)
-        newCombos[index] = { ...newCombos[index], showInShop: !combination.showInShop }
 
-        handleCombinationsChange(newCombos)
         setCombinationIsLoading(null)
         setLoading(false)
+        location.reload()
       })
   }
 
@@ -64,12 +58,12 @@ export const Combo = ({
     setCombinationIsLoading(combination.combinationId)
     await axios.delete(`/_v/combination/${combination.combination}/${combination.combinationId}/delete`)
       .then(() => {
-        handleCombinationsChange(combinations.filter((combo: any) => combo.combinationId !== combination.combinationId))
         setCombinationIsLoading(null)
+        location.reload()
       }).catch(() => {
-        handleCombinationsChange(combinations.filter((combo: any) => combo.combinationId !== combination.combinationId))
         setCombinationIsLoading(null)
         setIsModalOpen(null)
+        location.reload()
       })
   }
 
