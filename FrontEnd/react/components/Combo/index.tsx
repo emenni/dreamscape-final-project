@@ -384,7 +384,7 @@ export const Combo = ({
  }
   return (
     <div className={style.combos}>
-      {(loading && !combinations) ? (
+      {(loading && combinations?.length <= 0) ? (
         <Spinner color="#f71964" />
       ) : (
         <>
