@@ -3,7 +3,7 @@
 
 <!--IDEALIZADORES E REALIZADORES-->
 <div style="padding:5px 50px" align="center">
-<br><b>Idealizadores:</b><br>
+<br><b>Idealizadores:</b><br><br>
  <a href="https://community.vtex.com/">
   <img src="https://user-images.githubusercontent.com/104858887/183300217-6a364880-ce71-4d4b-8ac5-50011c718542.svg" height="35px"/></a><span> &nbsp; &nbsp; </span>
  <a href="https://www.hiringcoders.com.br/">
@@ -14,7 +14,7 @@
 
 <!--PATROCINADORES-->
 <div style="padding:5px 50px" align="center">
-<br><b>Patrocinadores:</b><br>
+<br><b>Patrocinadores:</b><br><br>
  <a href="https://app.gama.academy/">
   <img src="https://user-images.githubusercontent.com/104858887/183286948-48da9e6a-2304-4e14-b3b0-ca171e7e75e1.png" height="35px"/></a><span> &nbsp; &nbsp; </span>
  <a href="https://app.gama.academy/">
@@ -25,26 +25,25 @@
 
 <!--TECNOLOGIAS-->
 <div style="padding:5px 50px" align="center">
-<br><b>Tecnologias:</b><br>
+<br><b>Tecnologias:</b><br><br>
  <img src="https://img.shields.io/static/v1?label=&message=VS CODE&color=red">
- <img src="https://img.shields.io/badge/-GraphQL-e02da6/static/v1?label">
- <img src="https://img.shields.io/badge/-GraphQL-4adaf0/static/v1?label">
- <img src="">
- <img src="">
- <img src="">
  <img src="https://img.shields.io/static/v1?label=&message=GIT&color=blueviolet">
  <img src="https://img.shields.io/static/v1?label=&message=HTML&color=blue">
  <img src="https://img.shields.io/static/v1?label=&message=CSS&color=orange">
  <img src="https://img.shields.io/static/v1?label=&message=JAVASCRIPT &color=green">
+ <img src="https://img.shields.io/badge/-TypeScript-/?style=flat&color=3178c6">
  <img src="https://img.shields.io/static/v1?label=&message= NODE JS &color=red">
+ <img src="https://img.shields.io/badge/-REACT-/?style=flat&color=20232a">
  <img src="https://img.shields.io/static/v1?label=&message=VTEX IO&color=deeppink">
  <img src="https://img.shields.io/static/v1?label=&message=AWS SERVICES&color=orange">
+ <img src="https://img.shields.io/badge/-GraphQL-/?style=flat&color=e00097">
+ <img src="https://img.shields.io/badge/-Python-/?style=flat&color=1e415e">
 </div>
 
 <hr>
 
 <!--EQUIPE-->
-<h2 style="color: Cyan" align="center">Hiring Coders #3</h1>
+<h2 style="color: Cyan" align="center">Hiring Coders #3</h2>
 <h3 style="color: Cyan">Equipe DreamScape </h3>
 
 🔸 [Alberto Rebello](https://www.linkedin.com/in/albertorebello/)</br>
@@ -60,12 +59,32 @@
 
 <hr>
 
+:small_blue_diamond: [Desafio Final](#-desafio-final-)<br>
+
 <!--SUMARIO-->
 ### Sumário
+:small_blue_diamond: [Desafio Final](#-desafio-final-)<br>
 :small_blue_diamond: [Cenário](#cenário)<br>
+:small_blue_diamond: [Objetivo](#objetivo)<br>
+:small_blue_diamond: [Projeto](#--projeto-)<br>
+:small_blue_diamond: [Meios de Comunicação](#meios-de-comunicação)<br>
 :small_blue_diamond: [Organização das Tarefas](#organização-das-tarefas)<br>
-:small_blue_diamond: [Pré-requisitos de Uso](#pré-requisitos)<br>
-:small_blue_diamond: [Instruções de Uso](#instruções-de-uso)<br>
+:small_blue_diamond: [Fluxo de Desenvolvimento (Estratégico)](#fluxo-de-desenvolvimento-estratégico)<br>
+:small_blue_diamond: [Extras](#extras)<br>
+:small_blue_diamond: [Front-End](#-front-end-)<br>
+:small_blue_diamond: [Administrativo da Loja (Gestão de Combinações)](#administrativo-da-loja-gestão-de-combinações)<br>
+:small_blue_diamond: [Página de produto (Experiência de Compra)](#página-de-produto-experiência-de-compra)<br>
+:small_blue_diamond: [Back-End e Banco de Dados ](#-back-end-e-banco-de-dados-)<br>
+:small_blue_diamond: [DREAMSCAPE](#dreamscape)<br>
+:small_blue_diamond: [VTEX IO](#vtex-io)<br>
+:small_blue_diamond: [AWS](#aws)<br>
+:small_blue_diamond: [Instruções de Uso](#-instruções-de-uso-)<br>
+:small_blue_diamond: [Organização de arquivos](#organização-de-arquivos)<br>
+:small_blue_diamond: [Pré-Requisitos](#pré-requisitos)<br>
+:small_blue_diamond: [Documentação de Uso](#documentação-de-uso)<br>
+:small_blue_diamond: [Sistema de Sugestões - Administrador](#sistema-de-sugestões---administrador)<br>
+:small_blue_diamond: [Sistema de Sugestões - Cliente](#sistema-de-sugestões---cliente)<br>
+:small_blue_diamond: [APIs na AWS](#apis-na-aws)<br>
 :small_blue_diamond: [Agradecimentos](#agradecimentos)<br>
 
 <hr>
@@ -146,8 +165,7 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
     - Botão para alternar o status de apresentação de cada combinação (ativo ou inativo);
     - Menu para deletar combinações;
     - Menu para ocultar colunas.
-    - Campo para buscar combinações por nome ou ID da SKU.
-     
+    - Campo para buscar combinações por nome ou ID da SKU.     
 
 ##### Página de produto (Experiência de Compra)
 * **Disponibilização das combinações aprovadas para os clientes;**
@@ -190,12 +208,12 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
             * Se a combinação já existir, atualiza a data de criação e o total de ocorrências no DynamoDB;
             * Se a combinação não existir, grava a nova combinação no DynamoBD com os seguintes campos:
             ```
-combination: number[] (secondary Key)
-    	paymentDate: date
-createDate: date
-               occurrences: number
-               showInShop(default: false): boolean
-            ```            
+            combination: number[] (secondary Key)
+            paymentDate: date
+            createDate: date
+            occurrences: number
+            showInShop(default: false): boolean
+            ```
     - Consulta de combinações: 
         - Lista Completa;        
         - Lista Parcial - passando o valor mínimo de ocorrências;
@@ -208,7 +226,7 @@ createDate: date
     - Exclusão de combinação:
         - Item;
         [?] Todos os Itens.
-
+ 
 <hr>
 
 <!--MANUAL DE USO-->
@@ -229,20 +247,20 @@ createDate: date
 #### Documentação de Uso
 ##### Sistema de Sugestões - Administrador
 - Clone o projeto github para uma máquina local;  
-  `$ git clone https://github.com/emenni/dreamscape-final-project/`
+  `git clone https://github.com/emenni/dreamscape-final-project/`
 - Abra o terminal de comandos de sua preferência
 - Dentro do terminal acesse a raiz da pasta do projeto baixado
   - Faça o login na sua conta VTEX:
-  `$ vtex login`
+  `vtex login`
   Obs.: uma página de login deve abrir no seu navegador padrão, entrar com os dados de login e senha da sua conta VTEX
   - Acesse o seu workspace:
-  `$ vtex use <workspace-name>`
+  `vtex use <workspace-name>`
   - Caso esteja criando um novo workspace, confirme a criação:
   Digite `y` e pressione a tecla `Enter`
   - Acesse a raiz da pasta `BackEnd` e execute o comando:
-   `$ vtex link`
+   `vtex link`
   - Acesse a raiz da pasta `FrontEnd` e execute o comando:
-   `$ vtex link`
+   `vtex link`
   - Obs.: se tudo ocorreu certo, o endereço web do seu workspace será impresso no console do terminal.
 - Acesse a página do seu workspace pelo seu navegador;
 - Crie uma conta para acessar a loja;
