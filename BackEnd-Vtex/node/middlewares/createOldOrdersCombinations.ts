@@ -40,15 +40,18 @@ export async function createOldOrdersCombinations(ctx: InstalledAppEvent, next: 
   }
   //@ts-ignore
   const resMap = await orders.map(async (order: any, index: number) => { //Filtro de informações
-    const orderItems = await order?.items.map(async (item: any) => {
-      return item.id
-    })
-    const items = await Promise.all(orderItems);
-    countOrders += 1
-    return {
-      items: [items],
-      orderDate: order.creationDate.split('T')[0]
+    if (order.status !== "canceled") {
+      const orderItems = await order?.items.map(async (item: any) => {
+        return item.id
+      })
+      const items = await Promise.all(orderItems);
+      countOrders += 1
+      return {
+        items: [items],
+        orderDate: order.creationDate.split('T')[0]
+      }
     }
+
   });
 
   const resultBody = await Promise.all(resMap);
