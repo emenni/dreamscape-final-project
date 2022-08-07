@@ -41,7 +41,7 @@ export function ShowProduct({ combination, handleOnHover, handleOnHoverEnd }) {
             }}
             onMouseLeave={handleOnHoverEnd}
           >
-            <a href={`/admin/Site/SkuForm.aspx?IdSku=${product.productId}`} target='blank'>
+            <a href={`/admin/Site/SkuForm.aspx?IdSku=${product.items[0].itemId}`} target='_blank'>
               <span className="nowrap">{product.productName}</span>
             </a>
           </div>

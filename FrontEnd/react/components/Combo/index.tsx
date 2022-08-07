@@ -1,7 +1,7 @@
 import React from 'react'
 // import { ShowProduct } from '../ShowProduct'
 import style from '../Combo/style.css'
-import { Spinner, Table, Pagination, Tag, Button, Modal } from 'vtex.styleguide'
+import { Spinner, Table, Pagination, Tag, Button, Modal, Checkbox, Input } from 'vtex.styleguide'
 import axios from 'axios'
 import { ShowProduct } from '../ShowProduct';
 
@@ -26,30 +26,61 @@ export const Combo = ({
   const [imageUrl, setImageUrl] = React.useState('')
   const [imageLabel, setImageLabel] = React.useState('')
   const [showImage, setShowImage] = React.useState(false)
+  const [filterStatements, setFilterStatements] = React.useState([])
+  const [hasToBeActive, setHasToBeActive] = React.useState(undefined)
+  const [isModalCreationOpen, setIsModalCreationOpen] = React.useState(false)
+  const [checkCreateCombination, setCheckCreateCombination] = React.useState(true)
+
+  React.useEffect(() => {
+    const renderComponent = async () => {
+      let productSkusId: any = undefined
+      if (Number.isNaN(Number(searchValue))) {
+        productSkusId = await searchProductIdByName(searchValue)
+      }
+      if (searchValue.trim() !== '' && productSkusId) {
+        handleCombinationsChange(combinationsToSearch.filter((item: any) => { 
+          if (productSkusId) {
+            const findedProducts = productSkusId?.filter((skuId: any) => {
+              return item.combination.includes(skuId)
+            })
+            if (findedProducts && findedProducts?.length > 0) {
+              return item
+            }
+          }
+          
+          if (typeof hasToBeActive !== "undefined") {
+            return item.combination.includes(searchValue) && item.showInShop === hasToBeActive
+          }
+          return item.combination.includes(searchValue)
+        }))
+      }
+    }
+    renderComponent()
+    
+  }, [])
 
   React.useEffect(() => {
     setCombos(combinations)
     setLoading(false)
   }, [combinations])
+
   async function handleShowInShop(combination: any) {
     setCombinationIsLoading(combination.combinationId)
     await axios.put(`/_v/combination/${combination.combination}/${combination.combinationId}/put`, {
       "showInShop": !combination.showInShop
     })
       .then(() => {
-        const newCombos = combinations 
-        const index = combinations.findIndex((element: any) => element.combinationId === combination.combinationId)
+        const newCombos = combinationsToSearch
+        const index = combinationsToSearch.findIndex((element: any) => element.combinationId === combination.combinationId)
         newCombos[index] = { ...newCombos[index], showInShop: !combination.showInShop }
 
-        setCombos(newCombos)
         handleCombinationsChange(newCombos)
         setCombinationIsLoading(null)
       }).catch(() => {
-        const newCombos = combinations 
-        const index = combinations.findIndex((element: any) => element.combinationId === combination.combinationId)
+        const newCombos = combinationsToSearch 
+        const index = combinationsToSearch.findIndex((element: any) => element.combinationId === combination.combinationId)
         newCombos[index] = { ...newCombos[index], showInShop: !combination.showInShop }
 
-        setCombos(newCombos)
         handleCombinationsChange(newCombos)
         setCombinationIsLoading(null)
       })
@@ -106,11 +137,13 @@ export const Combo = ({
     setImageLabel(imageLabel)
     setShowImage(true)
   }
+
   function handleOnHoverEnd() {
     setImageUrl('')
     setImageLabel('')
     setShowImage(false)
   }
+
   const customSchema = {
     properties: {
       combination: {
@@ -124,7 +157,7 @@ export const Combo = ({
             />
           )
         },
-        width: 1150,
+        width: 980,
       },
       occurrences: {
         title: 'Num. Ocorrência',
@@ -153,6 +186,7 @@ export const Combo = ({
       
     }
   }
+
   const lineActions = [
     {
       label: ({ rowData }) => {
@@ -182,6 +216,9 @@ export const Combo = ({
   }
 
   function handleSearchChange(e: any) {
+    if (e?.target?.value?.trim() === '') {
+      handleCombinationsChange()
+    }
     setSearchValue(e?.target?.value ?? '')
   }
 
@@ -189,7 +226,12 @@ export const Combo = ({
     const value = e && e?.target && e?.target?.value
     
     if (!value) {
-      handleCombinationsChange()
+      handleCombinationsChange(combinationsToSearch.filter((item: any) => {
+        if (typeof hasToBeActive !== "undefined") {
+          return item.showInShop === hasToBeActive
+        }
+        return true
+      }))
     } else {
       // const getProductsSearchedData = showProductsRef?.current?.handleSearchSubmit(value)
       let productSkusId: any = undefined
@@ -207,6 +249,9 @@ export const Combo = ({
         }
         
 
+        if (typeof hasToBeActive !== "undefined") {
+          return item.combination.includes(value) && item.showInShop === hasToBeActive
+        }
         return item.combination.includes(value)
       }))
       setCurrentPage(1)
@@ -214,6 +259,24 @@ export const Combo = ({
     }
   }
   
+  async function handleCreateCombination(e: any) {
+    const { combination: {
+        value: combination
+      }, showInShop: {
+        checked: showInShop
+      }, occurrences: {
+        value: occurrences
+      } } = e.target
+    const body = { combination, showInShop, occurrences }
+    await axios.post(`/_v/combination/new`, body)
+      .then(() => {
+        setIsModalCreationOpen(false)
+        e.persist()
+      }).catch(() => {
+        setIsModalCreationOpen(false)
+        e.persist()
+      })
+  }
   ////
 
   function handleOnRowsChange(_: any, value: any){
@@ -228,6 +291,127 @@ export const Combo = ({
   function handleOnPrevClick(){
     setCurrentPage(currentPage - 1)
   }
+  
+  function colorSelectorObject({
+    statements,
+    values,
+    statementIndex,
+    error,
+    extraParams,
+    onChangeObjectCallback,
+  }) {
+    const initialValue = {
+      Ativo: true,
+      Inativo: true,
+      ...(values || {}),
+    }
+    const toggleValueByKey = key => {
+      const newValues = {
+        ...(values || initialValue),
+        [key]: values ? !values[key] : false,
+      }
+      return newValues
+    }
+    return (
+      <div>
+        {Object.keys(initialValue).map((opt, index) => {
+          return (
+            <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
+              <Checkbox
+                checked={values ? values[opt] : initialValue[opt]}
+                label={opt}
+                name="default-checkbox-group"
+                onChange={() => {
+                  const newValue = toggleValueByKey(`${opt}`)
+                  const newValueKeys = Object.keys(newValue)
+                  const isEmptyFilter = !newValueKeys.some(
+                    key => !newValue[key]
+                  )
+                  onChangeObjectCallback(isEmptyFilter ? null : newValue)
+                }}
+                value={opt}
+              />
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
+
+  async function handleFiltersChange(statements = []) {
+    // here you should receive filter values, so you can fire mutations ou fetch filtered data from APIs
+    // For the sake of example I'll filter the data manually since there is no API
+    let newData = undefined
+    let productSkusId: any = undefined
+    if (Number.isNaN(Number(searchValue))) {
+      productSkusId = await searchProductIdByName(searchValue)
+    }
+    let oldData = undefined
+    if (searchValue.trim() !== '' && productSkusId) {
+      oldData = combinationsToSearch.filter((item: any) => { 
+        if (productSkusId) {
+          const findedProducts = productSkusId?.filter((skuId: any) => {
+            return item.combination.includes(skuId)
+          })
+          if (findedProducts && findedProducts?.length > 0) {
+            return item
+          }
+        }
+        
+  
+        return item.combination.includes(searchValue)
+      })
+    } else {
+      oldData = combinationsToSearch
+    }
+    statements?.forEach((st: any) => {
+      if (!st || !st.object) return
+      const { subject, object } = st
+      switch (subject) {
+        case 'showInShop':
+          if (!object) return
+          if (object['Inativo'] == true) {
+            setHasToBeActive(false)
+          } else if (object['Ativo'] == true) {
+            setHasToBeActive(true)
+          }
+          if (object['Ativo'] && object['Inativo']) {
+            newData = oldData
+            setHasToBeActive(undefined)
+            break
+          } else if (!object['Ativo'] && !object['Inativo']) {
+            newData = oldData
+            setHasToBeActive(undefined)
+            break
+          }
+          if (oldData) {
+            newData = oldData.filter((item: any) => item['showInShop'] === hasToBeActive )
+            break
+          }
+          newData = oldData.filter((item: any) => item['showInShop'] === hasToBeActive )
+          break
+        
+      }
+    })
+
+    setFilterStatements(statements)
+    handleCombinationsChange(newData ?? oldData ?? combinationsToSearch)
+    setCurrentPage(1)
+  }
+  function onlynumber(evt: any, combination = undefined) {
+    let theEvent = evt || window.event;
+    let key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode( key );
+    //var regex = /^[0-9.,]+$/;
+    let regex = /^[0-9]+$/
+    if (combination) {
+      regex = /^[0-9,]+$/
+    }
+    if( !regex.test(key) ) {
+       theEvent.returnValue = false;
+       if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+ }
   return (
     <div className={style.combos}>
       {loading ? (
@@ -235,7 +419,6 @@ export const Combo = ({
       ) : (
         <>
           <Table
-            className={style.tableCustomCss}
             fullWidth
             schema={customSchema}
             items={combos}
@@ -248,8 +431,74 @@ export const Combo = ({
                 onClear: handleSearchClear,
                 onChange: handleSearchChange,
                 onSubmit: handleSearchSubmit,
-              }
-            }}
+              },
+              density: {
+                buttonLabel: 'Line density',
+                lowOptionLabel: 'Low',
+                mediumOptionLabel: 'Medium',
+                highOptionLabel: 'High',
+              },
+              fields: {
+                label: 'Alternar visibilidade das colunas',
+                showAllLabel: 'Exibe Todas',
+                hideAllLabel: 'Esconde Todas',
+              },
+              extraActions: {
+                label: 'Aguarde',
+                actions: [
+                  {
+                    label: 'Aguarde',
+                    handleCallback: () => console.log('Aguarde'),
+                  }
+                ],
+              },
+              newLine: {
+                label: 'New',
+                handleCallback: () => setIsModalCreationOpen(true),
+               
+              },
+              }}
+              filters={{
+                alwaysVisibleFilters: ['showInShop'],
+                statements: filterStatements,
+                onChangeStatements: handleFiltersChange,
+                clearAllFiltersButtonLabel: 'Limpar Filtros',
+                collapseLeft: true,
+                options: {
+                  showInShop: {
+                    label: 'Ativo',
+                    renderFilterLabel: (st: any) => {
+                      if (!st || !st.object) {
+                        // you should treat empty object cases only for alwaysVisibleFilters
+                        return 'Todos'
+                      }
+                      const keys = st.object ? Object.keys(st.object) : undefined
+                      const isAllTrue = !keys?.some(key => !st.object[key])
+                      const isAllFalse = !keys?.some(key => st.object[key])
+                      const trueKeys = keys?.filter(key => st.object[key])
+                      let trueKeysLabel = ''
+                      trueKeys.forEach((key, index) => {
+                        trueKeysLabel += `${key}${
+                          index === trueKeys.length - 1 ? '' : ', '
+                        }`
+                      })
+                      return `${
+                        isAllTrue ? 'Todos' : isAllFalse ? 'Nenhum' : `${trueKeysLabel}`
+                      }`
+                    },
+                    verbs: [
+                      {
+                        label: 'Ativo',
+                        value: 'showInShop',
+                        object: {
+                          renderFn: colorSelectorObject,
+                          extraParams: {},
+                        },
+                      },
+                    ],
+                  },
+                },
+              }}
           />
           <Pagination
             rowsOptions={[10, 15, 20, 25]}
@@ -296,7 +545,81 @@ export const Combo = ({
                 </ Button>
               </div>
             </div>
-          </Modal>
+            </Modal>
+            
+            <Modal
+              centered
+              isOpen={isModalCreationOpen ? true : false}
+              onClose={() => setIsModalCreationOpen(null)}
+            >
+              <div className="dark-gray"
+                style={{
+                  display: 'flex',
+                  gap: '1rem',
+                  flexDirection: 'column'
+                }}
+              >
+                <p>Para criar suas combinação preencha o campo abaixo.</p>
+                <form onSubmit={(e: any) => {handleCreateCombination(e)}}>
+                  <div className="mb5">
+                    <Input name="combination"
+                      placeholder="Preencha com o os skus"
+                      size="small"
+                      label="Combinações  são skus separados por virgula Ex.: 1,2,3,4"
+                      required={true}
+                      onKeyPress={(e: any) => {
+                        onlynumber(e, true)
+                      }}
+                    />
+                  </div>
+
+                  <div className="mb5">
+                  <Checkbox
+                    id="checked-fromsCreation"
+                    label="Ativo"
+                    name="showInShop"
+                    value={true}
+                    onChange={(e: any) => setCheckCreateCombination(!checkCreateCombination)}
+                    checked={checkCreateCombination}
+                  />
+                  </div>
+
+                  <div className="mb5">
+                    <Input
+                      placeholder="Núm. Ocorrências"
+                      size="small"
+                      label="Núm. Ocorrências"
+                      name="occurrences"
+                      type="number"
+                      onKeyPress={(e: any) => {
+                        onlynumber(e)
+                      }}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      backgroundColor: '#edf4fa',
+                      borderRadius: '4px',
+                      border: 'solid green',
+                      borderWidth: '0 0 0 4px',
+                      boxSizing: 'border-box',
+                      padding: '12px 16px',
+                    }}
+                    className="mb4"
+                  >
+                    Poderar haver combinações repetidadas
+                  </div>
+                  <div className="mb4">
+                    <Button
+                      variation={"primary"}
+                      type="submit"
+                    > 
+                      Criar
+                    </ Button>
+                  </div>
+                </form>
+              </div>
+            </Modal>
           
         </>
       )}

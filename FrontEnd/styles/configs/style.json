@@ -323,6 +323,9 @@
       20
     ],
     "styles": {
+      "left-0": {
+        "left": "-210px!important"
+      },
       "heading-1": {
         "fontFamily": "San Francisco, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
         "fontWeight": "700",

@@ -63,28 +63,28 @@ const SmartSellControlPanel: FC = () => {
   }
   let textoExplicativo = "Abaixo estão listados alguns produtos identificados com alta correlação entre si (numero de vendas, idade do cliente, etc"
   return (
-    <>
-      <Layout fullWidth>
+    <Layout fullWidth>
+      <>
         <h1>Painel de Controle para solução Smart Sell</h1>
-        <PageBlock title="Analise de Product Matching" subtitle={textoExplicativo} variation="full" fullWidth>
+        <PageBlock title="Analise de Product Matching" subtitle={textoExplicativo} variant="full" >
           {(loading || loadingAuth) ? (
             <Spinner color="#f71964" />
           ) : (
             <>
-              <h3>Combos mais vendidos:</h3>
-              <div>
+              <div style={{ padding: "5rem"}}>
+                <h3>Combos Vendidos</h3>
                 {combinationsToTable && (
                   <>
                     <Combo
-                        combinations={tableRows}
-                        currentItemFrom={(rowsPerPage * currentPage) - rowsPerPage}
-                        currentItemTo={rowsPerPage * currentPage}
-                        setRowsPerPage={setRowsPerPage}
-                        totalItems={totalItems}
-                        setCurrentPage={setCurrentPage}
-                        currentPage={currentPage}
-                        handleCombinationsChange={handleCombinationsChange}
-                        combinationsToSearch={combinations}
+                      combinations={tableRows}
+                      currentItemFrom={(rowsPerPage * currentPage) - rowsPerPage}
+                      currentItemTo={rowsPerPage * currentPage}
+                      setRowsPerPage={setRowsPerPage}
+                      totalItems={totalItems}
+                      setCurrentPage={setCurrentPage}
+                      currentPage={currentPage}
+                      handleCombinationsChange={handleCombinationsChange}
+                      combinationsToSearch={combinations}
                     />
                   </>
                 )}
@@ -92,8 +92,8 @@ const SmartSellControlPanel: FC = () => {
             </>
           )}
         </PageBlock>
-      </Layout>
-    </>
+      </ >
+    </Layout>
   )
 }
 

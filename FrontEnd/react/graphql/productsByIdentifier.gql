@@ -24,6 +24,7 @@ query productsByIdentifier(
       }
     }
     items {
+      itemId
       images {
         imageLabel
         imageUrl
