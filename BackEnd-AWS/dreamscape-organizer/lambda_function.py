@@ -105,8 +105,8 @@ def lambda_handler(event, context):
             countError += 1
             errors.append('No items in order')
             continue
-        if status in order:
-            if status == "canceled" and status == "cancel":
+        if "status" in order:
+            if order["status"] == "canceled" and order["status"] == "cancel":
                 countError += 1
                 errors.append('Order is canceled')
                 continue
@@ -118,14 +118,15 @@ def lambda_handler(event, context):
         combinations = products_combinations(order["items"])
         for combination in combinations:
             try:
-                response = table.query(KeyConditionExpression=Key(
-                    'combination').eq(",".join(combination["ID"])))
+                response = table.query(
+                    KeyConditionExpression=Key('combination').eq(",".join(combination["ID"]))
+                )
                 # Items []
                 # []
                 if 'Items' in response:
                     if len(response["Items"]) > 0:
                         updateCombination = response["Items"][0]
-                        updateCombination["occurrences"] += combination["Ocorrencia"]
+                        updateCombination["occurrences"] = int(updateCombination["occurrences"]) + combination["Ocorrencia"]
 
                         table.update_item(
                             Key={
