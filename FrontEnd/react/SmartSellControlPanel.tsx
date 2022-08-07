@@ -61,7 +61,7 @@ const SmartSellControlPanel: FC = () => {
     setLoading(false)
     
   }
-  let textoExplicativo = "Abaixo estão listados alguns produtos identificados com alta correlação entre si (numero de vendas, idade do cliente, etc"
+  let textoExplicativo = "Abaixo estão listados alguns produtos identificados com alta correlação entre si."
   return (
     <Layout fullWidth>
       <>

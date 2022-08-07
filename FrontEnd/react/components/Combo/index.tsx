@@ -292,7 +292,7 @@ export const Combo = ({
     setCurrentPage(currentPage - 1)
   }
   
-  function colorSelectorObject({
+  function activeSelectorObject({
     statements,
     values,
     statementIndex,
@@ -433,10 +433,10 @@ export const Combo = ({
                 onSubmit: handleSearchSubmit,
               },
               density: {
-                buttonLabel: 'Line density',
-                lowOptionLabel: 'Low',
-                mediumOptionLabel: 'Medium',
-                highOptionLabel: 'High',
+                buttonLabel: 'Espessura das Linhas',
+                lowOptionLabel: 'Pequena',
+                mediumOptionLabel: 'Mediana',
+                highOptionLabel: 'Alta',
               },
               fields: {
                 label: 'Alternar visibilidade das colunas',
@@ -453,7 +453,7 @@ export const Combo = ({
                 ],
               },
               newLine: {
-                label: 'New',
+                label: 'Novo',
                 handleCallback: () => setIsModalCreationOpen(true),
                
               },
@@ -491,7 +491,7 @@ export const Combo = ({
                         label: 'Ativo',
                         value: 'showInShop',
                         object: {
-                          renderFn: colorSelectorObject,
+                          renderFn: activeSelectorObject,
                           extraParams: {},
                         },
                       },
@@ -506,7 +506,7 @@ export const Combo = ({
             currentItemTo={currentItemTo}
             onRowsChange={handleOnRowsChange}
             textOf="de"
-            textShowRows="Filas por página"
+            textShowRows="Combos por página"
             totalItems={totalItems}
             onNextClick={handleOnNextClick}
             onPrevClick={handleOnPrevClick}
@@ -607,7 +607,7 @@ export const Combo = ({
                     }}
                     className="mb4"
                   >
-                    Poderar haver combinações repetidadas
+                    Poderar haver combinações repetidas
                   </div>
                   <div className="mb4">
                     <Button
