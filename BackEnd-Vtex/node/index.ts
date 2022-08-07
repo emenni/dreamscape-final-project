@@ -16,14 +16,14 @@ import { validateToken } from './middlewares/validateToken'
 
 
 const TIMEOUT_MS = 360000
-const memoryCache = new LRUCache<string, any>({ max: 10 })
-const SettingsCache = new LRUCache<string, any>({ max: 10 })
-const BudgetCache = new LRUCache<string, any>({
-  max: 10,
+const memoryCache = new LRUCache<string, any>({ max: 1 })
+const SettingsCache = new LRUCache<string, any>({ max: 1 })
+const CombinationCache = new LRUCache<string, any>({
+  max: 1,
 })
 metrics.trackCache('status', memoryCache)
 metrics.trackCache('settings', SettingsCache)
-metrics.trackCache('BU', BudgetCache)
+metrics.trackCache('combination', CombinationCache)
 const clients: ClientsConfig<Clients> = {
   implementation: Clients,
   options: {

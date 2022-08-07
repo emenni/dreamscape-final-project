@@ -1,5 +1,5 @@
 
-const axios = require("axios").default;
+const axios = require("axios");
 const orderData = require('./order.json')
 const paymentData = require('./payment.json')
 

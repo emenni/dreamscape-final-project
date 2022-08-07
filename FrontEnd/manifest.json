@@ -1,7 +1,7 @@
 {
   "vendor": "dreamscape",
   "name": "dreamscape",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "builders": {
     "styles": "2.x",
     "store": "0.x",
