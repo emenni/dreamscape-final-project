@@ -1,5 +1,5 @@
 {
-  "name": "react",
+  "name": "dreamscape",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vtex/styleguide": "^9.146.1",
     "axios": "^0.27.2"
   }
 }

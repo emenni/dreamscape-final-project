@@ -7,21 +7,23 @@ import { combinationOrganizer } from './middlewares/combinationOrganizer'
 import { combinationAll } from './middlewares/combinationAll'
 import { combinationPut } from './middlewares/combinationPut'
 import { combinationPost } from './middlewares/combinationPost'
+import { combinationDelete } from './middlewares/combinationDelete'
 import { someStates } from './middlewares/someStates'
 import { createOldOrdersCombinations } from './middlewares/createOldOrdersCombinations'
 import {  testHelloWorldResolver } from './resolvers/testHelloWorld'
 import { combinationByCombinationId } from './middlewares/combinationByCombinationId'
+import { validateToken } from './middlewares/validateToken'
 
 
 const TIMEOUT_MS = 360000
-const memoryCache = new LRUCache<string, any>({ max: 10 })
-const SettingsCache = new LRUCache<string, any>({ max: 10 })
-const BudgetCache = new LRUCache<string, any>({
-  max: 10,
+const memoryCache = new LRUCache<string, any>({ max: 1 })
+const SettingsCache = new LRUCache<string, any>({ max: 1 })
+const CombinationCache = new LRUCache<string, any>({
+  max: 1,
 })
 metrics.trackCache('status', memoryCache)
 metrics.trackCache('settings', SettingsCache)
-metrics.trackCache('BU', BudgetCache)
+metrics.trackCache('combination', CombinationCache)
 const clients: ClientsConfig<Clients> = {
   implementation: Clients,
   options: {
@@ -86,22 +88,25 @@ declare global {
   clients,
   routes: {
     combinationByCombination: method({
-      GET: [combinationByCombination],
+      GET: [validateToken,combinationByCombination],
     }),
     combinationByCombinationId: method({
-      GET: [combinationByCombinationId],
+      GET: [validateToken,combinationByCombinationId],
     }),
     combinationAll: method({
-      GET: [combinationAll],
+      GET: [validateToken,combinationAll],
     }),
     combinationPut: method({
-      PUT: [combinationPut],
+      PUT: [validateToken,combinationPut],
     }),
     combinationPost: method({
-      POST: [combinationPost],
+      POST: [validateToken,combinationPost],
     }),
     combinationOrganizer: method({
-      POST: [combinationOrganizer],
+      POST: [validateToken,combinationOrganizer],
+    }),
+    combinationDelete: method({
+      DELETE: [validateToken,combinationDelete],
     })
   },
   events: {

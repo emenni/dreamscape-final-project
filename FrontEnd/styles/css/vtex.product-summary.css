@@ -1,5 +1,5 @@
 .buyButton {
-  width: 15rem;
+  width: 90%;
   height: 2rem;
   margin-bottom: 1rem;
 }
@@ -44,7 +44,6 @@
   color: #2E2E2E;
 }
 
-
 .container:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 50px 3px;
 }
@@ -58,5 +57,4 @@
 
 .nameContainer--modalName {
   border-bottom: 1px solid #72727346;
-  padding-left: 4rem;
 }

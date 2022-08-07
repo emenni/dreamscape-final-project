@@ -8,16 +8,22 @@ export async function createOldOrdersCombinations(ctx: InstalledAppEvent, next: 
   let errorsCount = 0;
   let countOrders = 0
   let orders: any = []
-  // async function sendToAWS(data: any) {// Envia todos os dados para aws
-  //   await ctx.clients.combination.postOrganizer('/organizer', data)
-  //     .then((response: any) => {
-  //       if (response?.data?.countError) {
-  //         errorsCount += response?.data?.countError
-  //       }
-  //     }).catch(() => {
-  //       errorsCount += 1
-  //     })
-  // }
+  async function sendToAWS(data: any) {// Envia todos os dados para aws
+    await ctx.clients.combination.deleteCombination(`/deleteAll`)
+      .then(async (response) => {
+        console.log("🚀 ~ ", response)
+        await ctx.clients.combination.postOrganizer('/organizer', data)
+        .then((response: any) => {
+          if (response?.data?.countError) {
+            errorsCount += response?.data?.countError
+          }
+        }).catch(() => {
+          errorsCount += 1
+        })
+      })
+      .catch((error: any) => console.log(error))
+
+  }
 
   let page = 1;
   while ( page <= pagesCount ){ // Pega todos os pedidos do cliente
@@ -48,12 +54,12 @@ export async function createOldOrdersCombinations(ctx: InstalledAppEvent, next: 
       items: [items],
       orderDate: order.creationDate.split('T')[0]
     }
+
   });
 
   const resultBody = await Promise.all(resMap);
-  console.log("🚀 ~ file: createOldOrdersCombinations.ts ~ line 53 ~ createOldOrdersCombinations ~ resultBody", resultBody.length)
   if (countOrders > 0) {
-    // await sendToAWS(resultBody)
+    await sendToAWS(resultBody)
     ctx.vtex.logger.info({
       setupAppConfigurationInfo: {
         status: 'success',

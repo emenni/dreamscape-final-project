@@ -5,7 +5,11 @@ export async function combinationAll(ctx: Context, next: () => Promise<any>) {
   ctx.set('Proxy-Authorization','ctx.authToken')
   ctx.set('Authorization', 'ctx.authToken')
   function queryObj(url: string) {
-    var result: any = {}, keyValuePairs: any = url.split('?')[1].split("&");
+    if (!url || !url.includes('?')) {
+      return null
+    }
+    var result: any = {}, keyValuePairs: any = url?.split('?')[1].split("&");
+
     keyValuePairs.forEach(function(keyValuePair: any) {
       keyValuePair = keyValuePair.split('=')
       const decodeURIName = decodeURIComponent(keyValuePair[0]) as any
@@ -16,10 +20,10 @@ export async function combinationAll(ctx: Context, next: () => Promise<any>) {
   }
   const querystring = queryObj(ctx.originalUrl)
 
-  const res = await ctx.clients.combination.getCombination(``, {
-    pageSize: querystring?.pageSize,
-    index: querystring?.index
-  }).catch((reason: any)=>{
+  console.log("🚀 ~ file: combinationAll.ts ~ line 22 ~ combinationAll ~ querystring", querystring)
+
+  const res = await ctx.clients.combination.getCombination(``, querystring).catch((reason: any) => {
+    ctx.status = reason?.response?.status
     return reason?.response?.data
   })
 

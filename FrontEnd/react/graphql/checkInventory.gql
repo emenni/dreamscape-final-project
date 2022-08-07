@@ -1,0 +1,10 @@
+query checkInventory ($sku:ID!) {
+  inventoryProduct(sku:$sku, warehouseId: "1_1") {
+    id
+    catalogProduct {
+      id
+    }
+    quantity
+    reservedQuantity
+  }
+}

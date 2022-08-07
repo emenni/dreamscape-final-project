@@ -14,7 +14,6 @@ exports.handler = async event => {
     }
 
     const { pathParameters, querystring } = normalizeEvent(event); // get pathparameters
-    console.log(querystring)
 
     try {
         let data = {};
@@ -63,6 +62,14 @@ exports.handler = async event => {
             if(querystring['index']){
                 params.ExclusiveStartKey = JSON.parse(querystring['index'])
             }
+            if(querystring['skuId']) { //contains(#movie_name, :movie_name)
+                params.FilterExpression += " AND contains( combination, :combination)"
+                params.ExpressionAttributeValues[":combination"] = querystring['skuId']
+            }
+            if(querystring['isActive']) { //contains(#movie_name, :movie_name)
+                params.FilterExpression += " AND showInShop = :showInShop"
+                params.ExpressionAttributeValues[":showInShop"] = querystring['isActive']
+            }
             data = await dynamo.scan(params).promise();// get all data
         }
         
@@ -70,11 +77,23 @@ exports.handler = async event => {
             return response(404, "Not Found")
         }
         if(data?.Items) {
-            const sortedData = data?.Items.sort((a,b) => {
+            let newData = data?.Items
+            if(querystring["skuId"]) {
+                newData = data?.Items.filter((item) => {
+                    
+                    const skuIds = item.combination.split(',').filter((skuId) => skuId === querystring["skuId"])
+                    if(skuIds.length > 0){
+                        return true
+                    }
+                })
+            } else {
+                newData = data?.Items
+            }
+            const sortedData = newData?.sort((a,b) => {
                 return b.occurrences - a.occurrences
             })
             return response(200, {
-                Items: sortedData,
+                Items: sortedData ?? [],
                 Count: data.Count,
                 ScannedCount: data.ScannedCount,
                 LastEvaluatedKey: data.LastEvaluatedKey

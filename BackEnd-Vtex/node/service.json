@@ -52,6 +52,10 @@
     "combinationOrganizer": {
       "path": "/_v/combination/organizer",
       "public": true
+    },
+    "combinationDelete": {
+      "path": "/_v/combination/:combination/:combinationId/delete",
+      "public": true
     }
   }
 }

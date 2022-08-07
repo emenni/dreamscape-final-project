@@ -11,7 +11,6 @@
   "flex-layout.row#main": {
     "props": {
       "marginTop": 4,
-      // "marginBottom": 0,
       "blockClass": "product"
     },
     "children": [
@@ -62,13 +61,7 @@
       "product-price-savings"
     ]
   },
-  // "product-selling-price": {
-  //   "props": {
-  //     "showSavings": true,
-  //     "showListPrice": true,
-  //     "blockClass": "product"
-  //   }
-  // },
+
   "sku-selector": {
     "props": {
       "variationsSpacing": 3
