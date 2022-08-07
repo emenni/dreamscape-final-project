@@ -1,7 +1,7 @@
 {
   "name": "backendapi",
   "vendor": "dreamscape",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "title": "BackendApi app",
   "description": "App develop to query and change combinations using AWS API",
   "categories": [],
@@ -86,7 +86,7 @@
       "getOldOrders": {
         "title": "Rebase",
         "type": "boolean",
-        "description": "Para realizar uma nova listagem de combinações click em salvar/n\n<br>&nbsp ‼‼ ATENÇÃO ISTO IRÁ APAGAR TODAS AS SUAS COMBINAÇÕES PERSONALIZADAS, E IRÁ UTILIZAR DO HISTÓRICO DE VENDAS PARA RECRIAR NOVAS COMBINAÇÕES ‼‼ Isto pode levar um tempo."
+        "description": "Para realizar uma nova listagem de combinações click em salvar ‼‼ ATENÇÃO ISTO IRÁ APAGAR TODAS AS SUAS COMBINAÇÕES PERSONALIZADAS, E IRÁ UTILIZAR DO HISTÓRICO DE VENDAS PARA RECRIAR NOVAS COMBINAÇÕES ‼‼ Isto pode levar um tempo mínimo de  30 minutos."
       }
     }
   },

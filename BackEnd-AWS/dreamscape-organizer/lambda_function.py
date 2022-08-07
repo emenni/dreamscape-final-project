@@ -105,11 +105,16 @@ def lambda_handler(event, context):
             countError += 1
             errors.append('No items in order')
             continue
+        if status in order:
+            if status == "canceled" and status == "cancel":
+                countError += 1
+                errors.append('Order is canceled')
+                continue
         if not 'items' in order:
             countError += 1
             errors.append('No items in order')
             continue
-        print(order["items"])
+        
         combinations = products_combinations(order["items"])
         for combination in combinations:
             try:
