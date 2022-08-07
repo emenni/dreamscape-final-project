@@ -21,7 +21,14 @@ export async function createOldOrdersCombinations(ctx: InstalledAppEvent, next: 
           errorsCount += 1
         })
       })
-      .catch((error: any) => console.log(error))
+      .catch((error: any) => {
+        ctx.vtex.logger.error({
+          setupAppConfigurationError: {
+            status: 'failed',
+            content: `Não foi possível realizar o rebase devido ao error :`+ error?.response?.data,
+          },
+        });
+      })
 
   }
 
@@ -52,7 +59,8 @@ export async function createOldOrdersCombinations(ctx: InstalledAppEvent, next: 
     countOrders += 1
     return {
       items: [items],
-      orderDate: order.creationDate.split('T')[0]
+      orderDate: order.creationDate.split('T')[0],
+      status: order.status
     }
 
   });
