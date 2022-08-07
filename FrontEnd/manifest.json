@@ -52,8 +52,7 @@
     "vtex.search-graphql": "0.x",
     "vtex.product-context": "0.x",
     "vtex.store-image": "0.x",
-    "vtex.search": "2.x",
-    "vtex.inventory-graphql": "0.x"
+    "vtex.search": "2.x"
   },
   "settingsSchema": {
     "title": "DreamscapeTheme",

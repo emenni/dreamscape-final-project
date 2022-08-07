@@ -71,9 +71,11 @@
   .label {
     font-size: 40px;
   }
+
   .infoCardContainer--info-card-home .infoCardTextContainer {
     width: 30%;
   }
+
   .infoCardContainer--info-card-home .infoCardImageContainer {
     width: 70%;
   }
@@ -83,10 +85,11 @@
     max-height: 600px;
   }
 
-  .container--footer{
+  .container--footer {
     width: 500px;
   }
-  .imageElement--logo-footer-mobile1{
+
+  .imageElement--logo-footer-mobile1 {
     max-width: 100px;
   }
 }
@@ -95,26 +98,26 @@
 
 @media only screen and (max-width: 600px) {
 
-  .imageElement--logo-footer-mobile1{
+  .imageElement--logo-footer-mobile1 {
     max-width: 100px;
   }
 
-  .logoImage{
+  .logoImage {
     width: 4rem;
   }
 }
 
 
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 500px) {
   .imageElement--image-home {
     z-index: 2;
     width: 60%;
   }
 }
 
-@media only screen and (max-width: 280px){
-  .imageElement--logo-footer-mobile1{
+@media only screen and (max-width: 280px) {
+  .imageElement--logo-footer-mobile1 {
     max-width: 73px;
     max-height: 25px;
   }
@@ -152,6 +155,7 @@
   color: #141f31;
   border: 3px solid rgba(25, 189, 211, 0.733);
 }
+
 .infoCardSubhead,
 .infoCardCallActionText {
   color: #141f31;
@@ -159,9 +163,6 @@
 
 .imageElement--logo-footer {
   height: 3rem;
-  /* margin-left: 300%; */
-  /* position: relative; */
-  
   align-items: center;
   justify-content: center;
   bottom: 2rem;
@@ -171,4 +172,3 @@
   z-index: 2;
   width: 100%;
 }
-
