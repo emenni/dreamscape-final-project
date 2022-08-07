@@ -10,6 +10,7 @@ export async function combinationPost(ctx: Context, next: () => Promise<any>) {
   ctx.set('Access-Control-Allow-Origin','*')
 
   const res = await ctx.clients.combination.postCombination('', body).catch((reason: any)=>{
+    ctx.status = reason?.response?.status
     return reason?.response?.data
   })
 

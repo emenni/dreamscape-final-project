@@ -131,7 +131,7 @@
     "text": {
       "action-primary": "#141f31",
       "action-secondary": "#eef3f7",
-      "link": "#64faf9",
+      "link": "#141f31",
       "emphasis": "#f71963",
       "disabled": "#979899",
       "success": "#8bc34a",
@@ -323,6 +323,9 @@
       20
     ],
     "styles": {
+      "left-0": {
+        "left": "-210px!important"
+      },
       "heading-1": {
         "fontFamily": "San Francisco, -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif",
         "fontWeight": "700",

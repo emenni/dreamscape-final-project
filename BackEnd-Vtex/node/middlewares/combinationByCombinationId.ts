@@ -13,6 +13,7 @@ export async function combinationByCombinationId(ctx: Context, next: () => Promi
     throw new UserInputError('Invalid params') // Wrapper for a Bad Request (400) HTTP Error. Check others in https://github.com/vtex/node-vtex-api/blob/fd6139349de4e68825b1074f1959dd8d0c8f4d5b/src/errors/index.ts
   }
   const res = await ctx.clients.combination.getCombination(`/${combination as string}/${combinationId as string}`).catch((reason: any)=>{
+    ctx.status = reason?.response?.status
     return reason?.response?.data
   })
 

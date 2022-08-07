@@ -16,7 +16,8 @@ export default class Combination extends ExternalClient {
   public async getCombination(combination: string, data?: any): Promise<string> {
     return this.http.get(combination, {
       metric: 'combination-getCombination',
-      params: data
+      params: data,
+      retries: 2
     })
   }
 
@@ -35,22 +36,16 @@ export default class Combination extends ExternalClient {
   public async putCombination(combination: string, data: CombinationPutData): Promise<string> {
     return this.http.put(combination, data,{
       metric: 'combination-putCombination',
+      retries: 2
     })
   }
 
 
-  public async getSuggestionAll(suggestion: string): Promise<string> {
-    return this.http.get(suggestion, {
-      metric: 'suggestion-get',
-    })
-  }
 
-
-  public async getSuggestionWithHeaders(
-    suggestion: string
-  ): Promise<IOResponse<string>> {
-    return this.http.getRaw(suggestion, {
-      metric: 'suggestion-get-raw',
+  public async deleteCombination(combination: string): Promise<IOResponse<void>> {
+    return this.http.delete(combination, {
+      metric: 'combination-delete',
+      retries: 2
     })
   }
 }

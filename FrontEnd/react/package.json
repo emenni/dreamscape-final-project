@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vtex/styleguide": "^9.146.1",
     "axios": "^0.27.2"
   }
 }

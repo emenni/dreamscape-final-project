@@ -7,7 +7,7 @@
 }
 
 .infoCardContainer--info-card-home {
-  max-width: 1520px;
+  max-width: 100%;
   margin: 0 auto;
   background-color: #141f31;
   padding: 0px;
@@ -15,7 +15,7 @@
 
 .newsletter {
   background-color: #141f31;
-  max-width: 1528px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -94,28 +94,22 @@
 
 
 @media only screen and (max-width: 600px) {
-  .autoCompleteOuterContainer--search-bar {
-    margin-left:22%;
-    margin-right: 20px;
-  }
 
   .imageElement--logo-footer-mobile1{
     max-width: 100px;
+  }
+
+  .logoImage{
+    width: 4rem;
   }
 }
 
 
 
 @media only screen and (max-width: 500px){
-
-
   .imageElement--image-home {
     z-index: 2;
     width: 60%;
-  }
-
-  .autoCompleteOuterContainer--search-bar {
-    margin-left: 25%;
   }
 }
 
@@ -177,3 +171,4 @@
   z-index: 2;
   width: 100%;
 }
+
