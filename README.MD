@@ -79,8 +79,8 @@ João é dono de uma loja que vende roupas e acessórios.
 * João quer sugerir produtos que sejam comuns na compra;
 * A combinação deve permitir a mudança do carrinho de compras para que não seja enquadrado como venda casada;
 
-Atualmente João entra no OMS da VTEX e navega nos pedidos para entender o perfil de compra dos consumidores, em alguns dos casos ele percebeu que a calça jeans e camiseta branca é um combinação comum e por isso resolveu montar uma sugestão de venda.
-* A sugestão de venda fez com que o consumidor já inicie o carrinho com os itens da combinção, agilizando a compra e criando oportunidade para que o comprador adicione mais itens ao carrinho.
+Atualmente João entra no OMS da VTEX e navega nos pedidos para entender o perfil de compra dos consumidores, em alguns dos casos ele percebeu que a calça jeans e a camiseta branca são uma combinação comum e por isso resolveu montar uma sugestão de venda.
+* A sugestão de venda fez com que o consumidor já inicie o carrinho com os itens da combinação, agilizando a compra e criando oportunidade para que o comprador adicione mais itens ao carrinho.
 
 ### Objetivo
 Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, <b>sugestões de itens combinados com base no histórico de vendas da loja.</b>
@@ -91,13 +91,13 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 <h2 style="color: #ff6865" align="center">💻  Projeto 💻</h2>
 
 ### Meios de Comunicação
-* **Gather:** comunicação sincrona - ambiente de comunicação por de áudio e vídeo.
+* **Gather:** comunicação síncrona - ambiente de comunicação por de áudio e vídeo.
 * **Slack:** comunicação assíncrona - ambiente de recados.
-* **Whimsical:** quadro branco - ambiente de planejamento e organzação de tarefas.
+* **Whimsical:** quadro branco - ambiente de planejamento e organização de tarefas.
 <br>
 
 ### Organização das Tarefas
-* [WHISCAL - Workspace (Link)](https://whimsical.com/desafio-final-1-2-G6KkDw9UqBjTnHHFz9F34R)
+* [WHIMSICAL - Workspace (Link)](https://whimsical.com/desafio-final-1-2-G6KkDw9UqBjTnHHFz9F34R)
     - Resumos;
     - Lista de Tarefas;
     - Fluxograma de Desenvolvimento;
@@ -131,7 +131,7 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 <h2 style="color: #ff6865" align="center">🎨 Front-End 🎨</h2>
 
 ##### Administrativo da Loja (Gestão de Combinações)
-Apresentação da lista de combinações atualizada e ordanada pelo maior número de ocorrências.
+Apresentação da lista de combinações atualizada e ordenada pelo maior número de ocorrências.
 
 * **Renderização de detalhes das SKUs que compõem cada combinação:**
     - Imagem do produto;
@@ -152,8 +152,8 @@ Apresentação da lista de combinações atualizada e ordanada pelo maior númer
 ##### Página de produto (Experiência de Compra)
 * **Disponibilização das combinações aprovadas para os clientes;**
     - Na página de cada produto são apresentadas sugestões de combinações aprovadas pelo lojista e que tenham estoque disponível;
-    - O consumidor pode iteragir com as sugestões adicionando combinações ao carrinho;
-    - No carrinho o consumidor pode remover SKUs da combinações.
+    - O consumidor pode interagir com as sugestões adicionando combinações ao carrinho;
+    - No carrinho o consumidor pode remover as SKUs da combinações.
 
 <hr>
 
@@ -177,29 +177,29 @@ Apresentação da lista de combinações atualizada e ordanada pelo maior númer
 ##### DynamoDB AWS
 * Banco de dados não relacional, criado para o armazenamento das combinações processadas, que são consumidas pelo Administrativo da Loja e pela Página de Produto.
 ##### API Gateway
-* Construido para funcionar como router para o Lambda Functions.
+* Construído para funcionar como router para o Lambda Functions.
 ##### Lambda Functions
 * Usado para implementar funções de CRUD que interagem com o banco de dados DynamoDB (processamento, consulta e edição de dados).
 
 * **Função de Processamento de Dados:**
     - Recebe o histórico de ordens e novas ordens;
-        - Para cada ordem, verfica se a ordem foi paga e contem mais de uma sku:
+        - Para cada ordem, verifica se a ordem foi paga e contém mais de uma SKU:
         - Processa todas as possíveis combinações de itens(SKUs) dentro de cada ordem;
         - Soma o total de ocorrências de cada combinação processada;
         - Verifica se a combinação já existe no banco de dados DynamoDB:
             * Se a combinação já existir, atualiza a data de criação e o total de ocorrências no DynamoDB;
             * Se a combinação não existir, grava a nova combinação no DynamoBD com os seguintes campos:
             ```
-            combination: number[] (secondary Key)
-    	       paymentDate: date
-               createDate: date
+combination: number[] (secondary Key)
+    	paymentDate: date
+createDate: date
                occurrences: number
                showInShop(default: false): boolean
             ```            
     - Consulta de combinações: 
         - Lista Completa;        
         - Lista Parcial - passando o valor mínimo de ocorrências;
-        - Item - passando o skuID dos itens da combinação e o Uuid da combinação;
+        - Item - passando o skuId dos itens da combinação e o Uuid da combinação;
     - Adição do total de ocorrências;
         - Item;
     - Adição de combinações:
@@ -252,7 +252,7 @@ Apresentação da lista de combinações atualizada e ordanada pelo maior númer
 - Todas as combinações possíveis devem aparecer.
 - Ative uma combinação clicando no botão `Ativar`
 ##### Sistema de Sugestões - Cliente
-- Retorne para a workspace da loja, acesse a página de um dos produtos que comprou, e verifique na parte inferior da tela se foram renderizadas as combinações.
+- Retorne para a Workspace da loja, acesse a página de um dos produtos que comprou, e verifique na parte inferior da tela se foram renderizadas as combinações.
 - Clique no botão de carrinho para adicionar a combinação ao carrinho;
 - Dentro do carrinho você pode remover itens da combinação.
 
@@ -264,12 +264,12 @@ https://www.postman.com/dreamscape-public/workspace/dreamscape/documentation/216
 
 * Crie uma conta POSTMAN, pode ser uma versão gratuita.
 * Faça o fork do projeto;
-* Substitua a chave de atutenticação.
-* Agora basta enviar as requisições seguindo os padrãos existentes
+* Substitua a chave de autenticação.
+* Agora basta enviar as requisições seguindo os padrões existentes
 
 > Obs.: A exclusão total ou parcial de dados do banco de dados via chamada direta no endpoint da API não é possível.
 
-Pra excluir dados:
+Para excluir dados:
 * É permitido reconstruir o banco de dados usando a ferramenta ***rebase***.
 * Também é permitido excluir combinações diretamente pelo admin da loja (Produtos > Sugestões Inteligentes)
 
@@ -306,7 +306,10 @@ Agradecemos especiais aos:
     - Time de Mentores das Lives
     - Time de Mentores dos Desafios
     - Zorza
-    - Ana ...
+    - Fernanda
+    - Bernardo
+    - Reginaldo Oliveira
+    - Ana Baptistão
 - Palestrantes
 - Alunos
 
