@@ -90,7 +90,7 @@
 
 <!--DESAFIO FINAL-->
 <h2 style="color: #ff6865" align="center">💥 Desafio Final 💥 
- <a href=#sum%C3%A1rio><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a>
+ <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a>
 </h2>
 
 
@@ -110,7 +110,7 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 <hr>
 
 <!--PROJETO-->
-<h2 style="color: #ff6865" align="center">💻 Projeto 💻 <a href=#sum%C3%A1rio><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
+<h2 style="color: #ff6865" align="center">💻 Projeto 💻 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 ### Meios de Comunicação
 * **Gather:** comunicação síncrona - ambiente de comunicação por de áudio e vídeo.
@@ -150,7 +150,7 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
     - <s>Automação da criação de Kit Look.</s>
 
 <hr>
-<h2 style="color: #ff6865" align="center">🎨 Front-End 🎨 <a href=#sum%C3%A1rio><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
+<h2 style="color: #ff6865" align="center">🎨 Front-End 🎨 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 
 ##### Administrativo da Loja (Gestão de Combinações)
@@ -180,7 +180,7 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
 <hr>
 
 <!--BACKEND E BANCO DE DADOS-->
-<h2 style="color: #ff6865" align="center">🦾 Back-End e Banco de Dados 💾 <a href=#sum%C3%A1rio><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
+<h2 style="color: #ff6865" align="center">🦾 Back-End e Banco de Dados 💾 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 <h3 style="color:cyan">DREAMSCAPE<h3/>
 
@@ -234,7 +234,7 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
 <hr>
 
 <!--MANUAL DE USO-->
-<h2 style="color: #ff6865" align="center">📕 Instruções de Uso 📕 <a href=#sum%C3%A1rio><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
+<h2 style="color: #ff6865" align="center">📕 Instruções de Uso 📕 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 #### Organização de arquivos
 - Pasta Raiz com xxx.
@@ -306,7 +306,7 @@ Para executar o ***rebase***:
 <hr>
 
 <!--AGRADECIMENTOS-->
-<h2 style="color: #ff6865" align="center"> 🙏 Agradecimentos 🤝 <a href=#sum%C3%A1rio><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
+<h2 style="color: #ff6865" align="center"> 🙏 Agradecimentos 🤝 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
  
 Agradecemos especiais aos:     
 - Idealizadores e Realizadores
