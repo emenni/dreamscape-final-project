@@ -63,28 +63,28 @@
 ### Sumário
 
 :small_blue_diamond: [Desafio Final](#-desafio-final---)<br>
-:small_blue_diamond: [Cenário](#cenário-)<br>
+:small_blue_diamond: [Cenário](#cenário)<br>
 :small_blue_diamond: [Objetivo](#objetivo)<br>
-:small_blue_diamond: [Projeto](#--projeto-)<br>
+:small_blue_diamond: [Projeto](#-projeto--)<br>
 :small_blue_diamond: [Meios de Comunicação](#meios-de-comunicação)<br>
 :small_blue_diamond: [Organização das Tarefas](#organização-das-tarefas)<br>
 :small_blue_diamond: [Fluxo de Desenvolvimento (Estratégico)](#fluxo-de-desenvolvimento-estratégico)<br>
 :small_blue_diamond: [Extras](#extras)<br>
-:small_blue_diamond: [Front-End](#-front-end-)<br>
+:small_blue_diamond: [Front-End](#-front-end--)<br>
 :small_blue_diamond: [Administrativo da Loja (Gestão de Combinações)](#administrativo-da-loja-gestão-de-combinações)<br>
 :small_blue_diamond: [Página de produto (Experiência de Compra)](#página-de-produto-experiência-de-compra)<br>
-:small_blue_diamond: [Back-End e Banco de Dados ](#-back-end-e-banco-de-dados-)<br>
+:small_blue_diamond: [Back-End e Banco de Dados](#-back-end-e-banco-de-dados--)<br>
 :small_blue_diamond: [DREAMSCAPE](#dreamscape)<br>
 :small_blue_diamond: [VTEX IO](#vtex-io)<br>
 :small_blue_diamond: [AWS](#aws)<br>
-:small_blue_diamond: [Instruções de Uso](#-instruções-de-uso-)<br>
+:small_blue_diamond: [Instruções de Uso](#-instruções-de-uso--)<br>
 :small_blue_diamond: [Organização de arquivos](#organização-de-arquivos)<br>
 :small_blue_diamond: [Pré-Requisitos](#pré-requisitos)<br>
 :small_blue_diamond: [Documentação de Uso](#documentação-de-uso)<br>
 :small_blue_diamond: [Sistema de Sugestões - Administrador](#sistema-de-sugestões---administrador)<br>
 :small_blue_diamond: [Sistema de Sugestões - Cliente](#sistema-de-sugestões---cliente)<br>
 :small_blue_diamond: [APIs na AWS](#apis-na-aws)<br>
-:small_blue_diamond: [Agradecimentos](#agradecimentos)<br>
+:small_blue_diamond: [Agradecimentos](#--agradecimentos--)<br>
 
 <hr>
 
@@ -94,7 +94,7 @@
 </h2>
 
 
-### Cenário [<img width="20px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/>](#sum%C3%A1rio)
+### Cenário
 
 João é dono de uma loja que vende roupas e acessórios.
 * A loja possui uma grande base de pedidos, que em sua maioria possui apenas 2 itens;
@@ -110,7 +110,7 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 <hr>
 
 <!--PROJETO-->
-<h2 style="color: #ff6865" align="center">💻 Projeto 💻</h2>
+<h2 style="color: #ff6865" align="center">💻 Projeto 💻 <a href=#sum%C3%A1rio><img width="20px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 ### Meios de Comunicação
 * **Gather:** comunicação síncrona - ambiente de comunicação por de áudio e vídeo.
@@ -150,7 +150,8 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
     - <s>Automação da criação de Kit Look.</s>
 
 <hr>
-<h2 style="color: #ff6865" align="center">🎨 Front-End 🎨</h2>
+<h2 style="color: #ff6865" align="center">🎨 Front-End 🎨 <a href=#sum%C3%A1rio><img width="20px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
+
 
 ##### Administrativo da Loja (Gestão de Combinações)
 Apresentação da lista de combinações atualizada e ordenada pelo maior número de ocorrências.
@@ -179,7 +180,7 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
 <hr>
 
 <!--BACKEND E BANCO DE DADOS-->
-<h2 style="color: #ff6865" align="center">🦾 Back-End e Banco de Dados 💾</h2>
+<h2 style="color: #ff6865" align="center">🦾 Back-End e Banco de Dados 💾 <a href=#sum%C3%A1rio><img width="20px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 <h3 style="color:cyan">DREAMSCAPE<h3/>
 
@@ -233,7 +234,7 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
 <hr>
 
 <!--MANUAL DE USO-->
-<h2 style="color: #ff6865" align="center">📕 Instruções de Uso 📕</h2>
+<h2 style="color: #ff6865" align="center">📕 Instruções de Uso 📕 <a href=#sum%C3%A1rio><img width="20px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 #### Organização de arquivos
 - Pasta Raiz com xxx.
@@ -305,7 +306,8 @@ Para executar o ***rebase***:
 <hr>
 
 <!--AGRADECIMENTOS-->
-### Agradecimentos
+<h2 style="color: #ff6865" align="center"> 🙏 Agradecimentos 🤝 <a href=#sum%C3%A1rio><img width="20px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
+ 
 Agradecemos especiais aos:     
 - Idealizadores e Realizadores
     - VTEX
