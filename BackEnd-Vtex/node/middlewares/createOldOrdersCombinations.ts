@@ -9,7 +9,7 @@ export async function createOldOrdersCombinations(ctx: InstalledAppEvent, next: 
   let countOrders = 0
   let orders: any = []
   async function sendToAWS(data: any) {// Envia todos os dados para aws
-    await ctx.clients.combination.deleteCombination(``)
+    await ctx.clients.combination.deleteCombination(`/deleteAll`).catch((error: any) => console.log(error))
     await ctx.clients.combination.postOrganizer('/organizer', data)
       .then((response: any) => {
         if (response?.data?.countError) {
