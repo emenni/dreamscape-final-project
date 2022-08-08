@@ -44,17 +44,21 @@ const ProductCombination: FC = () => {
       if (combinations?.length > 0)       
           {
         return   <>
-              <Layout>           
+              <div>           
                 <div style={{
                   padding: "1rem",
-                  border: "none"
+                  border: "none",
+                  textAlign: "center",
+                  width: "60%",
+                  marginLeft: "20%",
+                  boxShadow: "rgba(0, 0, 0, 0.2) 0px 8px 24px"
                 }}>
-                    <PageBlock title="" variation="full">  
+                    <div>  
                       <h1> Separamos essas combinações para você: </h1>
                     <ListOfCombinations combinations={combinations} />
-                  </PageBlock>
+                  </div>
                 </div>
-              </Layout>
+              </div>
             </>
           } 
       

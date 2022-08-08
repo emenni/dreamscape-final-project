@@ -44,6 +44,24 @@
   },
   "product-price": {
     "props": {
+      "variationsSpacing": 3
+    }
+  },
+  "flex-layout.row#description": {
+    "props": {
+      "marginTop": 7,
+      "marginBottom": 7
+    },
+    "children": ["product-description"]
+  },
+  "share#default": {
+    "props": {
+      "social": {
+        "Facebook": true,
+        "WhatsApp": true,
+        "Twitter": false,
+        "Pinterest": true
+      },
       "showSavings": true,
       "showListPrice": true,
       "blockClass": "product"
