@@ -1,7 +1,6 @@
 .gallery {
-  width: 110%;
-  margin-left: 10%;
-  margin-bottom: 12rem;
+  max-width: 75%;
+  margin-left: 20%;
 }
 
 .filters--layout {
@@ -17,13 +16,11 @@
 .orderByOptionsContainer {
   width: 38%;
 }
-
 .orderByOptionItem {
   text-align: center;
   width: auto;
   min-width: 100%;
 }
-
 .orderByButton {
   width: 38%;
   margin-left: 62%;
@@ -33,22 +30,11 @@
   max-width: 32% !important;
 }
 
-@media only screen and (max-width: 1231px) {
-  .gallery {
-    width: 90%;
-    margin: auto;
-    margin-left: 10%;
-    margin-bottom: 12rem;
-  }
-}
-
-
 @media only screen and (max-width: 1025.5px) {
   .gallery {
-    width: 100%;
+    max-width: 100%;
     margin: auto;
   }
-
   .filterPopupButton {
     position: absolute;
     margin-left: 7rem;
@@ -56,47 +42,36 @@
   }
 
   .orderByOptionsContainer {
-    width: 100%;
+    width: 38%;
   }
-
   .orderByOptionItem {
     text-align: center;
     width: auto;
     min-width: 100%;
   }
-
   .orderByButton {
     width: 38%;
     margin-left: 62%;
   }
 }
 
-
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 640px) {
   .orderByOptionsContainer {
     width: 100%;
   }
-
   .orderByButton {
     width: 100%;
     margin-left: 3%;
   }
-
-  .galleryItem--normal {
-    max-width: 50% !important;
-    margin: auto;
-  }
 }
-
-
-@media only screen and (max-width: 650px) {
-  .galleryItem--normal {
-    max-width: 80% !important;
-    margin: auto;
+@media only screen and (max-width: 722px) {
+  .orderByOptionsContainer {
+    width: 100%;
   }
-}
-
-@media only screen and (max-width: 465px) {
+  .orderByButton {
+    width: 100%;
+    margin-left: 3%;
+  }
   .galleryItem--normal {
     max-width: 100% !important;
     margin: auto;

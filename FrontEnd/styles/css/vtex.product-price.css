@@ -1,0 +1,40 @@
+.sellingPriceValue {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #2E2E2E;
+}
+
+.savings {
+    font-weight: 500;
+    color: #79B03A;
+}
+
+.installments {
+    color: #727273;
+    margin-bottom: 1rem;
+}
+
+.listPrice {
+    color: #727273;
+    margin-bottom: .25rem;
+    font-size: 1rem;
+}
+
+.sellingPriceValue--frontshelf {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #2E2E2E;
+}
+
+.listPriceValue--frontshelf {
+    color: #727273;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.installments--frontshelf {
+    color: #727273;
+    font-size: 0.8rem;
+    margin: 0.5rem 0 1rem 0;
+
+}
