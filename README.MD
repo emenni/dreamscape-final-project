@@ -156,7 +156,7 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 <h2 style="color: #ff6865" align="center">🎨 Front-End 🎨 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 ### Administrativo da Loja (Gestão de Combinações)
-#### Apresentação da lista de combinações atualizada e ordenada pelo maior número de ocorrências.
+* **Apresentação da lista de combinações atualizada e ordenada pelo maior número de ocorrências.**
 * **Renderização de detalhes das SKUs que compõem cada combinação:**
     - Imagem do produto;
     - Nome do produto;
@@ -173,7 +173,7 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
     - Campo para buscar combinações por nome ou ID da SKU;
     - Filtro de dados por Ativo/Inativo/Todos;        
 
-##### Página de produto (Experiência de Compra)
+### Página de produto (Experiência de Compra)
 * **Disponibilização das combinações aprovadas para os clientes;**
     - Na página de cada produto são apresentadas sugestões de combinações aprovadas pelo lojista;
     - O consumidor pode interagir com as sugestões adicionando combinações ao carrinho;
@@ -199,7 +199,18 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 <h3 style="color:#ec7211">AWS</h3>
 
 ##### DynamoDB AWS
-* Banco de dados não relacional, criado para o armazenamento das combinações processadas, que são consumidas pelo Administrativo da Loja e pela Página de Produto.
+- Banco de dados não relacional, criado para o armazenamento das combinações processadas, que são consumidas pelo Administrativo da Loja e pela Página de Produto. 
+ - Endpoints:
+  - GET allCombination - retorna todas as combinações
+  - GET combinationsBySkuId - retorna combinações que correspondem com o SkuID passado
+  - GET occurrencesMoreThan - retorna skus com ocorrências maiores que
+  - GET oneCombination - retorna combinações por combination
+  - GET oneCombinationByCombinationId - retorna uma combinação por combination e combinationId
+  - POST combination - cria uma combinação por skuId
+  - POST skuToCombinate - cria uma lista de combinações
+  - PUT combinationById - altera o total de ocorrências e o status (showInShop) da combinação
+  - DEL combinationById - deleta a combinação por skuId
+ 
 ##### API Gateway
 * Construído para funcionar como router para o Lambda Functions.
 ##### Lambda Functions
@@ -221,31 +232,11 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
             occurrences: integer
             showInShop(default: false): boolean
             ```
-    - Consulta de combinações:
-        - GET  allCombination - retorna todas as combinações
-        - GET  combinationsBySkuId - retorna combinações que correspondem com o SkuID passado
-        - GET  occurrencesMoreThan - retorna skus com ocorrências maiores que
-        - GET  oneCombination - retorna combinações por combination
-        - GET  oneCombinationByCombinationId - retorna uma combinação por combination e combinationId
-        - POST combination - cria uma combinação por skuId
-        - POST skuToCombinate - cria uma lista de combinações
-        - PUT  combinationById - altera o total de ocorrências e o status (showInShop) da combinação
-        - DEL  combinationById - deleta a combinação por skuId
 <hr>
 
 <!--MANUAL DE USO-->
 <h2 style="color: #ff6865" align="center">📕 Instruções de Uso 📕 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
-# Instruções de uso
-### Para testar nossa ferramenta siga os seguintes passos:
-
-- Faça login em sua conta Vtex e acesse um workspace de desenvolvimento, então digite:
-- `vtex install dreamscape.backendapi@0.x`
-- `vtex install dreamscape.dreamscape@0.x`
-- `vtex browse`
- 
-Uma aba com a aplicação deve ser aberta em seu navegador padrão.
- 
 #### Pré-Requisitos
 - Ter uma conta VTEX IO
 - Ter instalado:
@@ -255,31 +246,30 @@ Uma aba com a aplicação deve ser aberta em seu navegador padrão.
 
 #### Documentação de Uso
 ##### Sistema de Sugestões - Administrador
-- Clone o projeto github para uma máquina local;  
-  `git clone https://github.com/emenni/dreamscape-final-project/`
-- Abra o terminal de comandos de sua preferência
-- Dentro do terminal acesse a raiz da pasta do projeto baixado
-  - Faça o login na sua conta VTEX:
-   -`vtex login dreamscape`
-   - Obs.: uma página de login deve abrir no seu navegador padrão, entrar com os dados de login e senha da sua conta VTEX
+* Clone o projeto github para uma máquina local;  
+ * `git clone https://github.com/emenni/dreamscape-final-project/`
+* Abra o terminal de comandos de sua preferência
+* Dentro do terminal acesse a raiz da pasta do projeto baixado
+* Faça o login na sua conta VTEX:
+ * `vtex login dreamscape`
+> Obs.: uma página de login deve abrir no seu navegador padrão, entrar com os dados de login e senha da sua conta VTEX 
+* Acesse o seu workspace:
+ * `vtex use <workspace-name>`
+* Caso esteja criando um novo workspace, confirme a criação:
+* Digite `y` e pressione a tecla `Enter`
+> Obs.: se tudo ocorreu certo, o endereço web do seu workspace será impresso no console do terminal.
+* Instale os Apps DreamScape:
+ * `vtex install dreamscape.backendapi@0.x`
+ * `vtex install dreamscape.dreamscape@0.x`  
+* Acesse a página do seu workspace pelo seu navegador;
+ * `vtex browse`
+* Crie uma conta para acessar a loja;
+* Faça o login na loja;
+* Realize uma compra com vários produtos (esse processo é genérico, não precisa de um pagamento real;
+* Acesse a aba `Admin > Promoções > Soluções Inteligentes`;
+* Todas as combinações possíveis devem aparecer.
+* Ative uma combinação clicando no botão `Ativar`
  
- 
-  - Acesse o seu workspace:
-  `vtex use <workspace-name>`
-  - Caso esteja criando um novo workspace, confirme a criação:
-   - Digite `y` e pressione a tecla `Enter`
-  - Obs.: se tudo ocorreu certo, o endereço web do seu workspace será impresso no console do terminal.
-  - Instale os Apps DreamScape:
-   - `vtex install dreamscape.backendapi@0.x`
-   - `vtex install dreamscape.dreamscape@0.x`  
-- Acesse a página do seu workspace pelo seu navegador;
-  - `vtex browse`
-- Crie uma conta para acessar a loja;
-- Faça o login;
-- Realize uma compra com vários produtos (esse processo é genérico, não precisa de um pagamento real;
-- Acesse a aba `Admin > Promoções > Soluções Inteligentes`;
-- Todas as combinações possíveis devem aparecer.
-- Ative uma combinação clicando no botão `Ativar`
 ##### Sistema de Sugestões - Cliente
 - Retorne para a Workspace da loja, acesse a página de um dos produtos que comprou, e verifique na parte inferior da tela se foram renderizadas as combinações.
 - Clique no botão de carrinho para adicionar a combinação ao carrinho;
