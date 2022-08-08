@@ -79,6 +79,24 @@ const messages = defineMessages({
   },
   paginationTextOf: {
     id: "smart-suggestion.paginationTextOfTableText"
+  },
+  showInShopTitle: {
+    id: "smart-suggestion.showInShopTitleTableText"
+  },
+  showInShopStatusActive: {
+    id: "smart-suggestion.showInShopStatusActiveTableText"
+  },
+  showInShopStatusNotActive: {
+    id: "smart-suggestion.showInShopStatusNotActiveTableText"
+  },
+  ocurrencesTitle: {
+    id: "smart-suggestion.ocurrencesTitleTableText"
+  },
+  combinationTitle: {
+    id: "smart-suggestion.combinationTitleTableText"
+  },
+  allFilter: {
+    id: "smart-suggestion.allFilterTableText"
   }
 
 })
@@ -158,6 +176,18 @@ export const Combo = ({
   
   let paginationTextShowRows = formatMessage(messages.paginationTextShowRows) ?? "Combos por página"
 
+  let showInShopTitle = formatMessage(messages.showInShopTitle) ?? "Ativo"
+
+  let showInShopStatusActive = formatMessage(messages.showInShopStatusActive) ?? "Sim"
+
+  let showInShopStatusNotActive = formatMessage(messages.showInShopStatusNotActive) ?? "Não"
+
+  let ocurrencesTitle = formatMessage(messages.ocurrencesTitle) ?? "Num. Ocorrência"
+
+  let combinationTitle = formatMessage(messages.combinationTitle) ?? "Combinação"
+
+  let allFilter = formatMessage(messages.allFilter) ?? "Todos"
+  
   React.useEffect(() => {
     if (combinations) {
       setLoading(false)
@@ -239,7 +269,7 @@ export const Combo = ({
   const customSchema = {
     properties: {
       combination: {
-        title: "Combinação",
+        title: combinationTitle,
         cellRenderer: ({ rowData }) => {
           return (
             <ShowProduct
@@ -252,11 +282,11 @@ export const Combo = ({
         width: 980,
       },
       occurrences: {
-        title: 'Num. Ocorrência',
+        title: ocurrencesTitle,
         width: 150
       },
       showInShop: {
-        title: 'Ativo',
+        title: showInShopTitle,
         // you can customize cell component render (also header component with headerRenderer)
         cellRenderer: ({ rowData }) => {
           if (combinationIsLoading === rowData.combinationId) {
@@ -268,7 +298,7 @@ export const Combo = ({
               <Tag
                 bgColor={rowData.showInShop ? "#8bc34a" : "red"}
                 color="#fff">
-                <span className="nowrap">{rowData.showInShop ? "Sim" : "Não"}</span>
+                <span className="nowrap">{rowData.showInShop ? showInShopStatusActive : showInShopStatusNotActive}</span>
               </Tag>
             )
           }
@@ -565,7 +595,7 @@ export const Combo = ({
                     renderFilterLabel: (st: any) => {
                       if (!st || !st.object) {
                         // you should treat empty object cases only for alwaysVisibleFilters
-                        return 'Todos'
+                        return allFilter
                       }
                       const keys = st.object ? Object.keys(st.object) : undefined
                       const isAllTrue = !keys?.some(key => !st.object[key])
@@ -578,7 +608,7 @@ export const Combo = ({
                         }`
                       })
                       return `${
-                        isAllTrue ? 'Todos' : isAllFalse ? 'Nenhum' : `${trueKeysLabel}`
+                        isAllTrue ? allFilter : isAllFalse ? 'Nenhum' : `${trueKeysLabel}`
                       }`
                     },
                     verbs: [
