@@ -3,9 +3,104 @@ import React from 'react'
 import style from '../Combo/style.css'
 import { Spinner, Table, Pagination, Tag, Button, Modal, Checkbox, Input } from 'vtex.styleguide'
 import axios from 'axios'
+import { defineMessages, useIntl } from 'react-intl'
 import { ShowProduct } from '../ShowProduct';
 
 import "./style.css"
+const messages = defineMessages({
+  searchTableText: {
+    id: 'smart-suggestion.searchTableText',
+  },
+  densityTableButtonLabel: {
+    id: 'smart-suggestion.densityTableButtonLabelTableText',
+  },
+  densityLowOptionLabel: {
+    id: 'smart-suggestion.densityLowOptionLabelTableText',
+  },
+  densityMediumOptionLabel: {
+    id: 'smart-suggestion.densityMediumOptionLabelTableText',
+  },
+  densityHighOptionLabel: {
+    id: 'smart-suggestion.densityHighOptionLabelTableText',
+  },
+  fieldsLabel: {
+    id: 'smart-suggestion.fieldsLabelTableText',
+  },
+  fieldsShowAllLabel: {
+    id: 'smart-suggestion.fieldsShowAllLabelTableText',
+  },
+  fieldsHideAllLabel: {
+    id: 'smart-suggestion.fieldsHideAllLabelTableText',
+  },
+  extraActionsShowAllLabel: {
+    id: 'smart-suggestion.extraActionsShowAllLabelTableText',
+  },
+  newLine: {
+    id: "smart-suggestion.newLineTableText"
+  },
+  clearAllFilters: {
+    id: "smart-suggestion.clearAllFiltersTableText"
+  },
+  optionsShowInShop: {
+    id: "smart-suggestion.optionsShowInShopTableText"
+  },
+  modalCreationTitle: {
+    id: "smart-suggestion.modalCreationTitleTableText"
+  },
+  modalCreationCombinationLabel: {
+    id: "smart-suggestion.modalCreationCombinationLabelTableText"
+  },
+  modalCreationCombinationPlaceHolder: {
+    id: "smart-suggestion.modalCreationCombinationPlaceHolderTableText"
+  },
+  modalCreationShowInShopLabel: {
+    id: "smart-suggestion.modalCreationShowInShopLabelTableText"
+  },
+  modalCreationOccurrencesLabel: {
+    id: "smart-suggestion.modalCreationOccurrencesLabelTableText"
+  },
+  modalCreationWarnLabel: {
+    id: "smart-suggestion.modalCreationWarnLabelTableText"
+  },
+  modalCreationButtonLabel: {
+    id: "smart-suggestion.modalCreationButtonLabelTableText"
+  },
+  modalDeleteTitle: {
+    id: "smart-suggestion.modalDeleteTitleTableText"
+  },
+  modalDeleteWarnLabel: {
+    id: "smart-suggestion.modalDeleteWarnLabelTableText"
+  },
+  modalDeleteButtonLabel: {
+    id: "smart-suggestion.modalDeleteButtonLabelTableText"
+  },
+  paginationTextShowRows: {
+    id: "smart-suggestion.paginationTextShowRowsTableText"
+  },
+  paginationTextOf: {
+    id: "smart-suggestion.paginationTextOfTableText"
+  },
+  showInShopTitle: {
+    id: "smart-suggestion.showInShopTitleTableText"
+  },
+  showInShopStatusActive: {
+    id: "smart-suggestion.showInShopStatusActiveTableText"
+  },
+  showInShopStatusNotActive: {
+    id: "smart-suggestion.showInShopStatusNotActiveTableText"
+  },
+  ocurrencesTitle: {
+    id: "smart-suggestion.ocurrencesTitleTableText"
+  },
+  combinationTitle: {
+    id: "smart-suggestion.combinationTitleTableText"
+  },
+  allFilter: {
+    id: "smart-suggestion.allFilterTableText"
+  }
+
+})
+
 
 export const Combo = ({
   combinations,
@@ -29,8 +124,71 @@ export const Combo = ({
   const [hasToBeActive, setHasToBeActive] = React.useState(undefined)
   const [isModalCreationOpen, setIsModalCreationOpen] = React.useState(false)
   const [checkCreateCombination, setCheckCreateCombination] = React.useState(true)
+  const { formatMessage } = useIntl()
 
-  React.useState(() => {
+
+  let searchTableText = formatMessage(messages.searchTableText) ?? "Pesquise por..."
+
+  let densityTableButtonLabel = formatMessage(messages.densityTableButtonLabel) ?? 'Espessura das Linhas'
+
+  let densityLowOptionLabel = formatMessage(messages.densityLowOptionLabel) ?? "Pequena"
+
+  let densityMediumOptionLabel = formatMessage(messages.densityMediumOptionLabel) ?? "Mediana"
+
+  let densityHighOptionLabel = formatMessage(messages.densityHighOptionLabel) ?? "Alta"
+
+  let fieldsLabel = formatMessage(messages.fieldsLabel) ?? "Alternar visibilidade das colunas"
+
+  let fieldsShowAllLabel = formatMessage(messages.fieldsShowAllLabel) ?? "Exibe todas"
+
+  let fieldsHideAllLabel = formatMessage(messages.fieldsHideAllLabel) ?? "Esconde todas"
+  
+  let extraActionsShowAllLabel = formatMessage(messages.extraActionsShowAllLabel) ?? "Aguarde"
+  
+  let newLine = formatMessage(messages.newLine) ?? "Novo"
+  
+  let optionsShowInShop = formatMessage(messages.optionsShowInShop) ?? "Ativo"
+
+  let clearAllFilters = formatMessage(messages.clearAllFilters) ?? "Limpar Filtros"
+  
+  let modalCreationTitle = formatMessage(messages.modalCreationTitle) ?? "Para criar suas combinação preencha o campo abaixo."
+
+  let modalCreationCombinationLabel = formatMessage(messages.modalCreationCombinationLabel) ?? "Combinações  são skus separados por virgula Ex.: 1,2,3,4"
+
+  let modalCreationCombinationPlaceHolder = formatMessage(messages.modalCreationCombinationPlaceHolder) ?? "Preencher com os skus"
+
+  let modalCreationShowInShopLabel = formatMessage(messages.modalCreationShowInShopLabel) ?? "Ativo"
+  
+  let modalCreationOccurrencesLabel = formatMessage(messages.modalCreationOccurrencesLabel) ?? "Núm. Ocorrências"
+
+  let modalCreationWarnLabel = formatMessage(messages.modalCreationWarnLabel) ?? "Poderá haver combinações repetidas"
+
+  let modalCreationButtonLabel = formatMessage(messages.modalCreationButtonLabel) ?? "Criar"
+
+  let modalDeleteTitle = formatMessage(messages.modalDeleteTitle) ?? "Você realmente deseja deletar esta combinação."
+
+  let modalDeleteWarnLabel = formatMessage(messages.modalDeleteWarnLabel) ?? "Essa Ação é irreversível"
+
+  
+  let modalDeleteButtonLabel = formatMessage(messages.modalDeleteButtonLabel) ?? "Deletar"
+
+  let paginationTextOf = formatMessage(messages.paginationTextOf) ?? 'de'
+  
+  let paginationTextShowRows = formatMessage(messages.paginationTextShowRows) ?? "Combos por página"
+
+  let showInShopTitle = formatMessage(messages.showInShopTitle) ?? "Ativo"
+
+  let showInShopStatusActive = formatMessage(messages.showInShopStatusActive) ?? "Sim"
+
+  let showInShopStatusNotActive = formatMessage(messages.showInShopStatusNotActive) ?? "Não"
+
+  let ocurrencesTitle = formatMessage(messages.ocurrencesTitle) ?? "Num. Ocorrência"
+
+  let combinationTitle = formatMessage(messages.combinationTitle) ?? "Combinação"
+
+  let allFilter = formatMessage(messages.allFilter) ?? "Todos"
+  
+  React.useEffect(() => {
     if (combinations) {
       setLoading(false)
     }
@@ -111,7 +269,7 @@ export const Combo = ({
   const customSchema = {
     properties: {
       combination: {
-        title: "Combinação",
+        title: combinationTitle,
         cellRenderer: ({ rowData }) => {
           return (
             <ShowProduct
@@ -124,11 +282,11 @@ export const Combo = ({
         width: 980,
       },
       occurrences: {
-        title: 'Num. Ocorrência',
+        title: ocurrencesTitle,
         width: 150
       },
       showInShop: {
-        title: 'Ativo',
+        title: showInShopTitle,
         // you can customize cell component render (also header component with headerRenderer)
         cellRenderer: ({ rowData }) => {
           if (combinationIsLoading === rowData.combinationId) {
@@ -140,7 +298,7 @@ export const Combo = ({
               <Tag
                 bgColor={rowData.showInShop ? "#8bc34a" : "red"}
                 color="#fff">
-                <span className="nowrap">{rowData.showInShop ? "Sim" : "Não"}</span>
+                <span className="nowrap">{rowData.showInShop ? showInShopStatusActive : showInShopStatusNotActive}</span>
               </Tag>
             )
           }
@@ -391,33 +549,36 @@ export const Combo = ({
             toolbar={{
               inputSearch: {
                 value: searchValue,
-                placeholder: 'Pesquise por...',
+                placeholder: searchTableText,
                 onClear: handleSearchClear,
                 onChange: handleSearchChange,
                 onSubmit: handleSearchSubmit,
               },
               density: {
-                buttonLabel: 'Espessura das Linhas',
-                lowOptionLabel: 'Pequena',
-                mediumOptionLabel: 'Mediana',
-                highOptionLabel: 'Alta',
+                buttonLabel: densityTableButtonLabel,
+
+                lowOptionLabel: densityLowOptionLabel,
+
+                mediumOptionLabel: densityMediumOptionLabel,
+
+                highOptionLabel: densityHighOptionLabel,
               },
               fields: {
-                label: 'Alternar visibilidade das colunas',
-                showAllLabel: 'Exibe Todas',
-                hideAllLabel: 'Esconde Todas',
+                label: fieldsLabel,
+                showAllLabel: fieldsShowAllLabel,
+                hideAllLabel: fieldsHideAllLabel,
               },
               extraActions: {
-                label: 'Aguarde',
+                label: extraActionsShowAllLabel,
                 actions: [
                   {
-                    label: 'Aguarde',
-                    handleCallback: () => console.log('Aguarde'),
+                    label: extraActionsShowAllLabel,
+                    handleCallback: () => console.log(extraActionsShowAllLabel),
                   }
                 ],
               },
               newLine: {
-                label: 'Novo',
+                label: newLine,
                 handleCallback: () => setIsModalCreationOpen(true),
                
               },
@@ -426,15 +587,15 @@ export const Combo = ({
                 alwaysVisibleFilters: ['showInShop'],
                 statements: filterStatements,
                 onChangeStatements: handleFiltersChange,
-                clearAllFiltersButtonLabel: 'Limpar Filtros',
+                clearAllFiltersButtonLabel: clearAllFilters,
                 collapseLeft: true,
                 options: {
                   showInShop: {
-                    label: 'Ativo',
+                    label: optionsShowInShop,
                     renderFilterLabel: (st: any) => {
                       if (!st || !st.object) {
                         // you should treat empty object cases only for alwaysVisibleFilters
-                        return 'Todos'
+                        return allFilter
                       }
                       const keys = st.object ? Object.keys(st.object) : undefined
                       const isAllTrue = !keys?.some(key => !st.object[key])
@@ -447,12 +608,12 @@ export const Combo = ({
                         }`
                       })
                       return `${
-                        isAllTrue ? 'Todos' : isAllFalse ? 'Nenhum' : `${trueKeysLabel}`
+                        isAllTrue ? allFilter : isAllFalse ? 'Nenhum' : `${trueKeysLabel}`
                       }`
                     },
                     verbs: [
                       {
-                        label: 'Ativo',
+                        label: optionsShowInShop,
                         value: 'showInShop',
                         object: {
                           renderFn: activeSelectorObject,
@@ -469,8 +630,8 @@ export const Combo = ({
             currentItemFrom={currentItemFrom}
             currentItemTo={currentItemTo}
             onRowsChange={handleOnRowsChange}
-            textOf="de"
-            textShowRows="Combos por página"
+            textOf={paginationTextOf}
+            textShowRows={paginationTextShowRows}
             totalItems={totalItems}
             onNextClick={handleOnNextClick}
             onPrevClick={handleOnPrevClick}
@@ -487,7 +648,7 @@ export const Combo = ({
                 flexDirection: 'column'
               }}
             >
-              <p>Você realmente deseja deletar esta combinação.</p>
+              <p>{modalDeleteTitle}</p>
               <div
                 style={{
                   backgroundColor: '#edf4fa',
@@ -498,14 +659,14 @@ export const Combo = ({
                   padding: '12px 16px',
                 }}
               >
-                Essa Ação é irreversível
+                {modalDeleteWarnLabel}
               </div>
               <div className="mb4">
                 <Button
                   variation={"danger"}
                   onClick={() => {handleDeleteCombination(isModalOpen)}}
                 > 
-                  Deletar
+                  {modalDeleteButtonLabel}
                 </ Button>
               </div>
             </div>
@@ -523,13 +684,13 @@ export const Combo = ({
                   flexDirection: 'column'
                 }}
               >
-                <p>Para criar suas combinação preencha o campo abaixo.</p>
+                <p>{modalCreationTitle}</p>
                 <form onSubmit={(e: any) => {handleCreateCombination(e)}}>
                   <div className="mb5">
                     <Input name="combination"
-                      placeholder="Preencha com o os skus"
+                      placeholder={modalCreationCombinationPlaceHolder}
                       size="small"
-                      label="Combinações  são skus separados por virgula Ex.: 1,2,3,4"
+                      label={modalCreationCombinationLabel}
                       required={true}
                       onKeyPress={(e: any) => {
                         onlynumber(e, true)
@@ -540,7 +701,7 @@ export const Combo = ({
                   <div className="mb5">
                   <Checkbox
                     id="checked-fromsCreation"
-                    label="Ativo"
+                    label={modalCreationShowInShopLabel}
                     name="showInShop"
                     value={true}
                     onChange={(e: any) => setCheckCreateCombination(!checkCreateCombination)}
@@ -550,9 +711,9 @@ export const Combo = ({
 
                   <div className="mb5">
                     <Input
-                      placeholder="Núm. Ocorrências"
+                      placeholder={modalCreationOccurrencesLabel}
                       size="small"
-                      label="Núm. Ocorrências"
+                      label={modalCreationOccurrencesLabel}
                       name="occurrences"
                       type="number"
                       onKeyPress={(e: any) => {
@@ -571,14 +732,14 @@ export const Combo = ({
                     }}
                     className="mb4"
                   >
-                    Poderar haver combinações repetidas
+                    {modalCreationWarnLabel}
                   </div>
                   <div className="mb4">
                     <Button
                       variation={"primary"}
                       type="submit"
                     > 
-                      Criar
+                      {modalCreationButtonLabel}
                     </ Button>
                   </div>
                 </form>

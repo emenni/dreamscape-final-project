@@ -23,7 +23,7 @@ export default class MasterDataCustom extends ExternalClient {
     const endIndex = startIndex + pageSize
     //1,2 --já está adicionado + mais a quantidade é 3
     //1,2
-    return this.http.getRaw(`/orders/search?_fields=items,creationDate,orderId,status`, {
+    return this.http.getRaw(`/orders/search?_fields=items,creationDate,orderId,status&_where=status<>canceled`, {
       headers: {
         'REST-Range': `resources=${startIndex}-${endIndex}`
       }

@@ -27,6 +27,15 @@
 <div style="padding:5px 50px" align="center">
 <br><b>Tecnologias:</b><br><br>
  <img src="https://img.shields.io/static/v1?label=&message=VS CODE&color=red">
+<<<<<<< HEAD
+=======
+ 
+ <img src="https://img.shields.io/badge/-GraphQL-e02da6/static/v1?label">
+ <img src="https://img.shields.io/badge/-GraphQL-4adaf0/static/v1?label">
+ <img src="">
+ <img src="">
+ <img src="">
+>>>>>>> f80cffe733e2bff595f536fe738f6f7760adeb73
  <img src="https://img.shields.io/static/v1?label=&message=GIT&color=blueviolet">
  <img src="https://img.shields.io/static/v1?label=&message=HTML&color=blue">
  <img src="https://img.shields.io/static/v1?label=&message=CSS&color=orange">
@@ -46,7 +55,7 @@
 <h2 style="color: Cyan" align="center">Hiring Coders #3</h2>
 <h3 style="color: Cyan">Equipe DreamScape </h3>
 
-🔸 [Alberto Rebello](https://www.linkedin.com/in/albertorebello/)</br>
+>🔸 [Alberto Rebello](https://www.linkedin.com/in/albertorebello/)</br>
 🔸 [Alessia Casado](https://www.linkedin.com/in/alessia-casado/)</br>
 🔸 [Amanda Almeida](https://www.linkedin.com/in/amanda-almeida-bab4541ab/)</br>
 🔸 [Arthur Candido](https://www.linkedin.com/in/arthurcandido/)</br>
@@ -61,12 +70,16 @@
 
 <!--SUMARIO-->
 ### Sumário
+<<<<<<< HEAD
 
 :small_blue_diamond: [Desafio Final](#-desafio-final---)<br>
 :small_blue_diamond: [Cenário](#cenário)<br>
 :small_blue_diamond: [Objetivo](#objetivo)<br>
 :small_blue_diamond: [Projeto](#-projeto--)<br>
 :small_blue_diamond: [Meios de Comunicação](#meios-de-comunicação)<br>
+=======
+> :small_blue_diamond: [Cenário](#cenário)<br>
+>>>>>>> f80cffe733e2bff595f536fe738f6f7760adeb73
 :small_blue_diamond: [Organização das Tarefas](#organização-das-tarefas)<br>
 :small_blue_diamond: [Fluxo de Desenvolvimento (Estratégico)](#fluxo-de-desenvolvimento-estratégico)<br>
 :small_blue_diamond: [Extras](#extras)<br>
@@ -101,8 +114,8 @@ João é dono de uma loja que vende roupas e acessórios.
 * João quer sugerir produtos que sejam comuns na compra;
 * A combinação deve permitir a mudança do carrinho de compras para que não seja enquadrado como venda casada;
 
-Atualmente João entra no OMS da VTEX e navega nos pedidos para entender o perfil de compra dos consumidores, em alguns dos casos ele percebeu que a calça jeans e a camiseta branca são uma combinação comum e por isso resolveu montar uma sugestão de venda.
-* A sugestão de venda fez com que o consumidor já inicie o carrinho com os itens da combinação, agilizando a compra e criando oportunidade para que o comprador adicione mais itens ao carrinho.
+Atualmente João entra no OMS da VTEX e navega nos pedidos para entender o perfil de compra dos consumidores, em alguns dos casos ele percebeu que a calça jeans e camiseta branca é um combinação comum e por isso resolveu montar uma sugestão de venda.
+* A sugestão de venda fez com que o consumidor já inicie o carrinho com os itens da combinção, agilizando a compra e criando oportunidade para que o comprador adicione mais itens ao carrinho.
 
 ### Objetivo
 Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, <b>sugestões de itens combinados com base no histórico de vendas da loja.</b>
@@ -113,13 +126,13 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 <h2 style="color: #ff6865" align="center">💻 Projeto 💻 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 ### Meios de Comunicação
-* **Gather:** comunicação síncrona - ambiente de comunicação por de áudio e vídeo.
+* **Gather:** comunicação sincrona - ambiente de comunicação por de áudio e vídeo.
 * **Slack:** comunicação assíncrona - ambiente de recados.
-* **Whimsical:** quadro branco - ambiente de planejamento e organização de tarefas.
+* **Whimsical:** quadro branco - ambiente de planejamento e organzação de tarefas.
 <br>
 
 ### Organização das Tarefas
-* [WHIMSICAL - Workspace (Link)](https://whimsical.com/desafio-final-1-2-G6KkDw9UqBjTnHHFz9F34R)
+* [WHISCAL - Workspace (Link)](https://whimsical.com/desafio-final-1-2-G6KkDw9UqBjTnHHFz9F34R)
     - Resumos;
     - Lista de Tarefas;
     - Fluxograma de Desenvolvimento;
@@ -154,7 +167,7 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 
 
 ##### Administrativo da Loja (Gestão de Combinações)
-Apresentação da lista de combinações atualizada e ordenada pelo maior número de ocorrências.
+Apresentação da lista de combinações atualizada e ordanada pelo maior número de ocorrências.
 
 * **Renderização de detalhes das SKUs que compõem cada combinação:**
     - Imagem do produto;
@@ -162,7 +175,6 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
     - Total de ocorrências da combinação;
     - Status (ativo ou inativo).
 <br>
-
 * **Ferramentas:**
     - Opção de seleção do total de combinações que devem aparecer por página;
     - Botões para avançar e recuar páginas;
@@ -174,8 +186,8 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
 ##### Página de produto (Experiência de Compra)
 * **Disponibilização das combinações aprovadas para os clientes;**
     - Na página de cada produto são apresentadas sugestões de combinações aprovadas pelo lojista e que tenham estoque disponível;
-    - O consumidor pode interagir com as sugestões adicionando combinações ao carrinho;
-    - No carrinho o consumidor pode remover as SKUs da combinações.
+    - O consumidor pode iteragir com as sugestões adicionando combinações ao carrinho;
+    - No carrinho o consumidor pode remover SKUs da combinações.
 
 <hr>
 
@@ -183,34 +195,32 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
 <h2 style="color: #ff6865" align="center">🦾 Back-End e Banco de Dados 💾 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
 <h3 style="color:cyan">DREAMSCAPE<h3/>
-
 ##### APP/API <code>(dreamscape.backendapi@0.x)</code>
 * Aplicativo criado pela equipe DreamScape para conectar o Workspace da VTEX IO com o Back-End e o Banco de Dados na AWS.
 <h3 align="center">***</h3>
 <h3 style="color:rgb(247,25,99)">VTEX IO</h3>
-
 ##### APIs implementadas no projeto
 - Master Data V2 (Data Entities) - xxxx ...usado para... xxxx
 - Orders Feed V3 (Get Order) - xxxx ...usado para... xxxx
 - Orders Broadcast (OrderID) - xxxx ...usado para... xxxx
 <h3 align="center">***</h3>
 <h3 style="color:#ec7211">AWS</h3>
-
 ##### DynamoDB AWS
 * Banco de dados não relacional, criado para o armazenamento das combinações processadas, que são consumidas pelo Administrativo da Loja e pela Página de Produto.
 ##### API Gateway
-* Construído para funcionar como router para o Lambda Functions.
+* Construido para funcionar como router para o Lambda Functions.
 ##### Lambda Functions
 * Usado para implementar funções de CRUD que interagem com o banco de dados DynamoDB (processamento, consulta e edição de dados).
 
 * **Função de Processamento de Dados:**
     - Recebe o histórico de ordens e novas ordens;
-        - Para cada ordem, verifica se a ordem foi paga e contém mais de uma SKU:
+        - Para cada ordem, verfica se a ordem foi paga e contem mais de uma sku:
         - Processa todas as possíveis combinações de itens(SKUs) dentro de cada ordem;
         - Soma o total de ocorrências de cada combinação processada;
         - Verifica se a combinação já existe no banco de dados DynamoDB:
             * Se a combinação já existir, atualiza a data de criação e o total de ocorrências no DynamoDB;
             * Se a combinação não existir, grava a nova combinação no DynamoBD com os seguintes campos:
+<<<<<<< HEAD
             ```
             combination: number[] (secondary Key)
             paymentDate: date
@@ -218,10 +228,17 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
             occurrences: number
             showInShop(default: false): boolean
             ```
+=======
+            ```combination: number[] (secondary Key)
+    	       paymentDate: date
+               createDate: date
+               occurrences: number
+               showInShop(default: false): boolean```            
+>>>>>>> f80cffe733e2bff595f536fe738f6f7760adeb73
     - Consulta de combinações: 
         - Lista Completa;        
         - Lista Parcial - passando o valor mínimo de ocorrências;
-        - Item - passando o skuId dos itens da combinação e o Uuid da combinação;
+        - Item - passando o skuID dos itens da combinação e o Uuid da combinação;
     - Adição do total de ocorrências;
         - Item;
     - Adição de combinações:
@@ -270,11 +287,11 @@ Apresentação da lista de combinações atualizada e ordenada pelo maior númer
 - Crie uma conta para acessar a loja;
 - Faça o login;
 - Realize uma compra com vários produtos (esse processo é genérico, não precisa de um pagamento real, uso o modo de pagamento por vale);
-- Acesse a aba `Admin > Promoções > Soluções Inteligentes`;
+- Acesse a aba `admin > promoções > smarcell`;
 - Todas as combinações possíveis devem aparecer.
 - Ative uma combinação clicando no botão `Ativar`
 ##### Sistema de Sugestões - Cliente
-- Retorne para a Workspace da loja, acesse a página de um dos produtos que comprou, e verifique na parte inferior da tela se foram renderizadas as combinações.
+- Retorne para a workspace da loja, acesse a página de um dos produtos que comprou, e verifique na parte inferior da tela se foram renderizadas as combinações.
 - Clique no botão de carrinho para adicionar a combinação ao carrinho;
 - Dentro do carrinho você pode remover itens da combinação.
 
@@ -286,14 +303,14 @@ https://www.postman.com/dreamscape-public/workspace/dreamscape/documentation/216
 
 * Crie uma conta POSTMAN, pode ser uma versão gratuita.
 * Faça o fork do projeto;
-* Substitua a chave de autenticação.
-* Agora basta enviar as requisições seguindo os padrões existentes
+* Substitua a chave de atutenticação.
+* Agora basta enviar as requisições seguindo os padrãos existentes
 
 > Obs.: A exclusão total ou parcial de dados do banco de dados via chamada direta no endpoint da API não é possível.
 
-Para excluir dados:
+Pra excluir dados:
 * É permitido reconstruir o banco de dados usando a ferramenta ***rebase***.
-* Também é permitido excluir combinações diretamente pelo admin da loja (Produtos > Sugestões Inteligentes)
+* Também é permitido excluir combinações diretamente pelo admin da loja (Produtos > Smart Sell Control Panel)
 
 Para executar o ***rebase***:
 * Acesse o Admin da Loja
@@ -329,10 +346,7 @@ Agradecemos especiais aos:
     - Time de Mentores das Lives
     - Time de Mentores dos Desafios
     - Zorza
-    - Fernanda
-    - Bernardo
-    - Reginaldo Oliveira
-    - Ana Baptistão
+    - Ana ...
 - Palestrantes
 - Alunos
 
@@ -341,7 +355,7 @@ Agradecemos especiais aos:
 
 <!--RODAPE-->
 <div align=center style="color:cyan; padding:0 10%; line-height: 1;" >
-    <b><small style="padding:5px 50px">Este desafio foi proposto pela VTEX em parceria com a Gama Academy durante a etapa final do Hiring Coders #3
+    <b><small>Este desafio foi proposto pela VTEX em parceria com a Gama Academy durante a etapa final do Hiring Coders #3
     <br><br>
     🐝🐿🐘🐙🦅🦔
     <br><br>

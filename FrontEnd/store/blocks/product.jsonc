@@ -69,6 +69,7 @@
   },
   "flex-layout.row#description": {
     "props": {
+      "marginTop": 7,
       "marginBottom": 7
     },
     "children": ["product-description"]
