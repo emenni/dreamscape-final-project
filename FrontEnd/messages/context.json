@@ -1,7 +1,7 @@
 {
   "smart-suggestion.navigation.label": "Sugestões Inteligentes",
   "smart-suggestion.navigation.search.kws": "matching, promocoes, upsell, cross sell",
-  "smart-suggestion.title": "Painel de Controle - Sugestão Inteligentes",
+  "smart-suggestion.title": "Smart Suggestion Control Panel",
   "smart-suggestion.subTitle": "Abaixo estão combinações que ocorreram em compras anteriores.",
   "smart-suggestion.tableTitle": "Combos Vendidos",
   "smart-suggestion.searchTableText": "Pesquise por...",
@@ -28,4 +28,5 @@
   "smart-suggestion.modalDeleteButtonLabelTableText": "Deletar",
   "smart-suggestion.paginationTextShowRowsTableText": "Combos por página",
   "smart-suggestion.paginationTextOfTableText": "de"
+
 }

@@ -22,7 +22,6 @@ export function ProductDetail({ combination }) {
         return (            
             <tr 
             onClick={() => {window.open(`/${product.linkText}/p`)}} 
-            target='blank' 
             key={ `${combination?.combinationId} ${product.productId} showProduct`} 
             className={style.preetieCombo}>
                 <td>

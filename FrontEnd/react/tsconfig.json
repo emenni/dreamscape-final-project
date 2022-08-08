@@ -1,9 +1,12 @@
 {
   "extends": "@vtex/tsconfig",
   "compilerOptions": {
+    "allowSyntheticDefaultImports":true,
     "noEmitOnError": false,
     "lib": [
+      "ES2020",
       "dom",
+      "ES2019",
       "ES2015"
     ],
     "typeRoots": [
@@ -14,7 +17,7 @@
     ],
     "module": "esnext",
     "moduleResolution": "node",
-    "target": "es2017",
+    "target": "ES2019",
     "jsx": "preserve"
   },
   "include": [

@@ -2,10 +2,21 @@ import { FC, useEffect, useState } from 'react'
 import React from 'react'
 import { Layout, PageBlock, Spinner } from 'vtex.styleguide'
 import { useFullSession } from 'vtex.session-client'
+import { defineMessages, useIntl } from 'react-intl'
 import { Combo } from './components/Combo';
 import axios from 'axios'
 // O hook abaixo recebe via graphQL dados dos produtos da loja
-
+const messages = defineMessages({
+  subTitle: {
+    id: 'smart-suggestion.subTitle',
+  },
+  title: {
+    id: "smart-suggestion.title"
+  },
+  tableTitle: {
+    id: "smart-suggestion.tableTitle"
+  }
+})
 const SmartSuggestion: FC = () => {
   const { loading: loadingAuth, data: dataAuth } = useFullSession()
   const [loading, setLoading] = useState(true)
@@ -14,7 +25,7 @@ const SmartSuggestion: FC = () => {
   const [totalItems, setTotalItems] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1)
- 
+  const { formatMessage } = useIntl()
   const getCombinations = async () => {
     setLoading(true)
     await axios.get(`/_v/combination`)
@@ -61,18 +72,21 @@ const SmartSuggestion: FC = () => {
     setLoading(false)
     
   }
-  let textoExplicativo = "Abaixo estão listados alguns produtos identificados com alta correlação entre si."
+  let subTitle = formatMessage(messages.subTitle) ?? "Abaixo estão combinações que ocorreram em compras anteriores."
+
+  let title = formatMessage(messages.title) ?? "Painel de Controle - Sugestão Inteligentes"
+
+  let tableTitle = formatMessage(messages.tableTitle) ?? "Combos Vendidos"
   return (
     <Layout fullWidth>
       <>
-        <h1>Painel de Controle para solução Smart Sell</h1>
-        <PageBlock title="Analise de Product Matching" subtitle={textoExplicativo} variant="full" >
+        <PageBlock title={title} subtitle={subTitle} variant="full" >
           {(loading || loadingAuth) ? (
             <Spinner color="#f71964" />
           ) : (
             <>
               <div style={{ padding: "5rem"}}>
-                <h3>Combos Vendidos</h3>
+                <h3>{tableTitle}</h3>
                 {combinationsToTable && (
                   <>
                     <Combo

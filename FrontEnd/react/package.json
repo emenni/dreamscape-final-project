@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@vtex/styleguide": "^9.146.1",
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "react-intl": "3.9.1"
   }
 }
