@@ -111,7 +111,6 @@ declare global {
   },
   events: {
     someStates,
-    onAppInstalled: createOldOrdersCombinations,
     onSettingsChanged: createOldOrdersCombinations
   },
 })

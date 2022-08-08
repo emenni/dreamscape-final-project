@@ -54,10 +54,7 @@ exports.handler = async event => {
                 ExpressionAttributeValues: {
                     ":num": Number(querystring?.occurrencesMoreThan ?? '1'),
                 }
-            }; 
-            if(querystring['pageSize']) {
-                params.Limit = querystring['pageSize'] ?? 15
-            }
+            };
             
             if(querystring['index']){
                 params.ExclusiveStartKey = JSON.parse(querystring['index'])
@@ -68,7 +65,7 @@ exports.handler = async event => {
             }
             if(querystring['isActive']) { //contains(#movie_name, :movie_name)
                 params.FilterExpression += " AND showInShop = :showInShop"
-                params.ExpressionAttributeValues[":showInShop"] = querystring['isActive']
+                params.ExpressionAttributeValues[":showInShop"] = querystring['isActive'] === "true" ? true : false
             }
             data = await dynamo.scan(params).promise();// get all data
         }
@@ -92,8 +89,9 @@ exports.handler = async event => {
             const sortedData = newData?.sort((a,b) => {
                 return b.occurrences - a.occurrences
             })
+            console.log(querystring['pageSize'] )
             return response(200, {
-                Items: sortedData ?? [],
+                Items: sortedData.slice(0, querystring['pageSize'] ?? sortedData.length ) ?? [],
                 Count: data.Count,
                 ScannedCount: data.ScannedCount,
                 LastEvaluatedKey: data.LastEvaluatedKey
