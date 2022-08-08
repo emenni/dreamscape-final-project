@@ -3,7 +3,7 @@
   "name": "dreamscape",
   "title": "Dreamscape Theme",
   "description": "App develop to show the frontend App and the smart suggestion app of the dreamscape house",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "builders": {
     "styles": "2.x",
     "store": "0.x",
