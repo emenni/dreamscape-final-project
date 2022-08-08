@@ -27,7 +27,7 @@
  <a href="https://lebiscuit.gupy.io" title="https://lebiscuit.gupy.io">
   <img src="https://user-images.githubusercontent.com/104858887/183286990-a09d3a4e-b06b-479e-9b4d-58c3e1ea48ca.svg" height="20px"/></a><span> &nbsp; &nbsp; </span>
  <a href="https://jobs.kenoby.com/acct" title="https://jobs.kenoby.com/acct">
-  <img src="https://user-images.githubusercontent.com/104858887/183301347-95cc267c-687b-474b-b768-595ba4696f04.svg" height="25px"/></a>
+  <img src="https://user-images.githubusercontent.com/104858887/183418111-600373bf-a417-42e2-ab72-b0a60a83f04c.png" height="25px"/></a>  
 </div>
 
 <!--TECNOLOGIAS-->
@@ -67,29 +67,33 @@
 <!--SUMARIO-->
 ### Sumário
 
-:small_blue_diamond: [Desafio Final](#-desafio-final---)<br>
-:small_blue_diamond: [Cenário](#cenário)<br>
-:small_blue_diamond: [Objetivo](#objetivo)<br>
-:small_blue_diamond: [Projeto](#-projeto--)<br>
-:small_blue_diamond: [Meios de Comunicação](#meios-de-comunicação)<br>
-:small_blue_diamond: [Organização das Tarefas](#organização-das-tarefas)<br>
-:small_blue_diamond: [Fluxo de Desenvolvimento (Estratégico)](#fluxo-de-desenvolvimento-estratégico)<br>
-:small_blue_diamond: [Extras](#extras)<br>
-:small_blue_diamond: [Front-End](#-front-end--)<br>
-:small_blue_diamond: [Administrativo da Loja (Gestão de Combinações)](#administrativo-da-loja-gestão-de-combinações)<br>
-:small_blue_diamond: [Página de produto (Experiência de Compra)](#página-de-produto-experiência-de-compra)<br>
-:small_blue_diamond: [Back-End e Banco de Dados](#-back-end-e-banco-de-dados--)<br>
-:small_blue_diamond: [DREAMSCAPE](#dreamscape)<br>
-:small_blue_diamond: [VTEX IO](#vtex-io)<br>
-:small_blue_diamond: [AWS](#aws)<br>
-:small_blue_diamond: [Instruções de Uso](#-instruções-de-uso--)<br>
-:small_blue_diamond: [Organização de arquivos](#organização-de-arquivos)<br>
-:small_blue_diamond: [Pré-Requisitos](#pré-requisitos)<br>
-:small_blue_diamond: [Documentação de Uso](#documentação-de-uso)<br>
-:small_blue_diamond: [Sistema de Sugestões - Administrador](#sistema-de-sugestões---administrador)<br>
-:small_blue_diamond: [Sistema de Sugestões - Cliente](#sistema-de-sugestões---cliente)<br>
-:small_blue_diamond: [APIs na AWS](#apis-na-aws)<br>
-:small_blue_diamond: [Agradecimentos](#--agradecimentos--)<br>
+:small_blue_diamond: [Desafio Final](#-desafio-final---)
+* [Cenário](#cenário)
+* [Objetivo](#objetivo)
+
+:small_blue_diamond: [Projeto](#-projeto--)
+* [Meios de Comunicação](#meios-de-comunicação)
+* [Organização das Tarefas](#organização-das-tarefas)
+* [Fluxo de Desenvolvimento (Estratégico)](#fluxo-de-desenvolvimento-estratégico)
+* [Extras](#extras)
+
+:small_blue_diamond: [Front-End](#-front-end--)
+* [Administrativo da Loja (Gestão de Combinações)](#administrativo-da-loja-gestão-de-combinações-link---app-link---menu)
+* [Página de produto (Experiência de Compra)](#página-de-produto-experiência-de-compra)
+
+:small_blue_diamond: [Back-End e Banco de Dados](#-back-end-e-banco-de-dados--)
+* [DREAMSCAPE](#dreamscape)
+* [VTEX IO](#vtex-io)
+* [AWS](#aws)
+
+:small_blue_diamond: [Instruções de Uso](#-instruções-de-uso--)
+* [Pré-Requisitos](#pré-requisitos)
+* [Documentação de Uso](#documentação-de-uso)
+  * [Sistema de Sugestões - Administrador](#sistema-de-sugestões---administrador)
+  * [Sistema de Sugestões - Cliente](#sistema-de-sugestões---cliente)
+  * [APIs na AWS](#apis-na-aws)
+
+:small_blue_diamond: [Agradecimentos](#--agradecimentos--)
 
 <hr>
 
@@ -155,15 +159,16 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 <hr>
 <h2 style="color: #ff6865" align="center">🎨 Front-End 🎨 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
-### Administrativo da Loja (Gestão de Combinações)
+### Administrativo da Loja (Gestão de Combinações) [(Link - App)](https://dreamscape.myvtex.com/admin/app/apps/dreamscape.dreamscape@0.1.11/setup) [(Link - Menu)](https://dreamscape.myvtex.com/admin/smart-suggestion)
+
 * **Apresentação da lista de combinações atualizada e ordenada pelo maior número de ocorrências.**
-* **Renderização de detalhes das SKUs que compõem cada combinação:**
+  * **Renderização de detalhes das SKUs que compõem cada combinação:**
     - Imagem do produto;
     - Nome do produto;
     - Total de ocorrências da combinação;
     - Status (ativo ou inativo).
 
-* **Ferramentas:**
+  * **Ferramentas:**
     - Opção de seleção do total de combinações que devem aparecer por página;
     - Botões para avançar e recuar páginas;
     - Botão para alternar o status de apresentação de cada combinação (ativo ou inativo);
@@ -186,19 +191,21 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 
 <h3 style="color:cyan">DREAMSCAPE<h3/>
 
-##### APP/API <code>(dreamscape.backendapi@0.x)</code>
+#### APP/API `dreamscape.backendapi@0.x` [(Link - App)](https://dreamscape.myvtex.com/admin/app/apps/dreamscape.backendapi@0.0.16/setup)
 * Aplicativo criado pela equipe DreamScape para conectar o Workspace da VTEX IO com o Back-End e o Banco de Dados na AWS.
+
 <h3 align="center">***</h3>
 <h3 style="color:rgb(247,25,99)">VTEX IO</h3>
 
-##### APIs implementadas no projeto
+#### APIs implementadas no projeto
 - Master Data V2 (Data Entities) - Busca de pedidos (orders)
 - Orders Feed V3 (Get Order) - Coleta de informações dos pedidos
 - Orders Broadcast (OrderID) - Ouvinte de novos pedidos
+
 <h3 align="center">***</h3>
 <h3 style="color:#ec7211">AWS</h3>
 
-##### DynamoDB AWS
+#### DynamoDB AWS
 - Banco de dados não relacional, criado para o armazenamento das combinações processadas, que são consumidas pelo Administrativo da Loja e pela Página de Produto. 
  - Endpoints:
   - GET allCombination - retorna todas as combinações
@@ -211,9 +218,9 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
   - PUT combinationById - altera o total de ocorrências e o status (showInShop) da combinação
   - DEL combinationById - deleta a combinação por skuId
  
-##### API Gateway
+#### API Gateway
 * Construído para funcionar como router para o Lambda Functions.
-##### Lambda Functions
+#### Lambda Functions
 * Usado para implementar funções de CRUD que interagem com o banco de dados DynamoDB (processamento, consulta e edição de dados).
 
 * **Função de Processamento de Dados:**
@@ -237,15 +244,15 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 <!--MANUAL DE USO-->
 <h2 style="color: #ff6865" align="center">📕 Instruções de Uso 📕 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
 
-#### Pré-Requisitos
+### Pré-Requisitos
 - Ter uma conta VTEX IO
 - Ter instalado:
     - Git
     - Node.js;    
     - VTEX Toolbelt.
 
-#### Documentação de Uso
-##### Sistema de Sugestões - Administrador
+### Documentação de Uso
+#### Sistema de Sugestões - Administrador
 * Clone o projeto github para uma máquina local;  
  * `git clone https://github.com/emenni/dreamscape-final-project/`
 * Abra o terminal de comandos de sua preferência
@@ -270,16 +277,15 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 * Todas as combinações possíveis devem aparecer.
 * Ative uma combinação clicando no botão `Ativar`
  
-##### Sistema de Sugestões - Cliente
+#### Sistema de Sugestões - Cliente
 - Retorne para a Workspace da loja, acesse a página de um dos produtos que comprou, e verifique na parte inferior da tela se foram renderizadas as combinações.
 - Clique no botão de carrinho para adicionar a combinação ao carrinho;
 - Dentro do carrinho você pode remover itens da combinação.
 
-##### APIs na AWS
+#### APIs na AWS
 Caso queira testar chamadas na API, você pode utilizar os nossos modelos salvos, que estão disponibilizados no POSTMAN.
 
-Acesse o link:
-https://www.postman.com/dreamscape-public/workspace/dreamscape/documentation/21601187-db4de19b-c17f-4f45-9106-c9cfc1967511?entity=folder-d6103e30-aed1-473d-8853-1eaf0c5da587
+Acesse o projeto no Postman: [(Link)](https://www.postman.com/dreamscape-public/workspace/dreamscape/documentation/21601187-db4de19b-c17f-4f45-9106-c9cfc1967511?entity=folder-d6103e30-aed1-473d-8853-1eaf0c5da587)
 
 * Crie uma conta POSTMAN, pode ser uma versão gratuita.
 * Faça o fork do projeto;
@@ -292,7 +298,7 @@ Para excluir dados:
 * É permitido excluir combinações diretamente pelo admin da loja (Produtos > Sugestões Inteligentes)
 
 Para construir ou reconstruir a base de dados com o histórico de vendas, execute a ferramenta ***rebase***:
-* Acesse o Admin da Loja
+* Acesse o Admin da Loja [(Link)](https://dreamscape.myvtex.com/admin/app/apps/dreamscape.backendapi@0.0.16/setup)
 * Siga para:
     * Configurações da Conta > Meus Aplicativos
 * Busque por:
@@ -304,7 +310,7 @@ Para construir ou reconstruir a base de dados com o histórico de vendas, execut
 <!--AGRADECIMENTOS-->
 <h2 style="color: #ff6865" align="center"> 🙏 Agradecimentos 🤝 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
  
-Agradecemos especiais aos:     
+### Agradecemos especiais aos:     
 - Idealizadores e Realizadores
     - VTEX
         - Time da VTEX
