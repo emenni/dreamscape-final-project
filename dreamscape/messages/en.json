@@ -27,5 +27,11 @@
   "smart-suggestion.modalDeleteWarnLabelTableText": "This action is irreversible",
   "smart-suggestion.modalDeleteButtonLabelTableText": "Delete",
   "smart-suggestion.paginationTextShowRowsTableText": "Combos per page",
-  "smart-suggestion.paginationTextOfTableText": "of"
+  "smart-suggestion.paginationTextOfTableText": "of",
+  "smart-suggestion.showInShopTitleTableText": "Active",
+  "smart-suggestion.showInShopStatusActiveTableText": "Yes",
+  "smart-suggestion.showInShopStatusNotActiveTableText": "No",
+  "smart-suggestion.ocurrencesTitleTableText": "Num. Occurrences",
+  "smart-suggestion.combinationTitleTableText": "Combination",
+  "smart-suggestion.allFilterTableText": "All"
 }
