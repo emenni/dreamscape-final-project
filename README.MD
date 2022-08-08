@@ -51,7 +51,18 @@
 
 <!--EQUIPE-->
 <h2 style="color: Cyan" align="center">Hiring Coders #3</h2>
-<h3 style="color: Cyan">Equipe DreamScape </h3>
+<h4>
+O Hiring Coders é um programa de capacitação gratuito e sem pré-requisitos para ensinar programação.<br>
+Atualmente encontra-se na terceira edição, onde foram disponibilizadas 15 mil bolsas de estudos com certificações.
+</h4>
+
+<h4>
+A fase final é composta por 60 finalistas, divididos em 6 Casas (Grupos), formando equipes de 10 alunos que realizam o Desafio Final.
+</h4>
+
+<hr>
+
+<h3 style="color: Cyan">Nós somos a equipe DreamScape </h3>
 
 🔸 [Alessia Casado](https://www.linkedin.com/in/alessia-casado/)</br>
 🔸 [Amanda Almeida](https://www.linkedin.com/in/amanda-almeida-bab4541ab/)</br>
@@ -120,6 +131,14 @@ Desenvolver uma <b>funcionalidade que disponibilize</b>, de forma automatizada, 
 
 <!--PROJETO-->
 <h2 style="color: #ff6865" align="center">💻 Projeto 💻 <a href=#sumário><img width="15px" src="https://cdn-icons-png.flaticon.com/512/724/724811.png"/></a></h2>
+
+### Resumo do Projeto
+<p>
+Sugestões Inteligentes é uma aplicação desenvolvida para disponibilizar, de forma automatizada, sugestões de itens combinados com base no perfil de vendas da loja, usando a regra de combinações mais vendidas.<br><br>
+A aplicação conta com uma página administrativa que apresenta as sugestões para o lojista, onde ele pode gerenciá-las usando os menus de opções.<br><br>
+Na página de cada produto, as sugestões aprovadas pelo lojista são apresentadas para o cliente, conforme o produto que está sendo visualizado. O cliente pode usufruir desse recurso adicionando as combinações diretamente ao carrinho de compras, onde ele pode remover itens das combinações.
+<p>
+
 
 ### Meios de Comunicação
 * **Gather:** comunicação síncrona - ambiente de comunicação primário (áudio e vídeo).
