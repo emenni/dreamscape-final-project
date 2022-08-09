@@ -71,7 +71,7 @@ A fase final é composta por 60 finalistas, divididos em 6 Casas (Grupos), forma
 🔸 [Michel Negrão](https://www.linkedin.com/in/michelnegrao/)</br>
 🔸 [Phelipe Lima](https://www.linkedin.com/in/phenogueira/)</br>
 🔸 [Tiago Feitoza](https://www.linkedin.com/in/tiago-feitoza-oliveira/)</br>
-🔸 [Victor Evangelista](https://www.linkedin.com/in/victor-cesar-dos-evangelista-a440aa230/)</br>
+🔸 [Victor Evangelista](https://www.linkedin.com/in/victor-c%C3%A9sar-dos-santos-evangelista-a440aa230/)</br>
 
 <hr>
 
